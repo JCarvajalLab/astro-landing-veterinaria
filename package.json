@@ -1,0 +1,27 @@
+{
+  "name": "astro-landing-veterinaria",
+  "version": "1.0.0",
+  "description": "Landing page de veterinaria construida con Astro 5 y Tailwind CSS v4",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JCarvajalLab/astro-landing-veterinaria.git"
+  },
+  "keywords": [
+    "astro",
+    "landing-page",
+    "veterinaria",
+    "tailwind"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "astro": "^7.4.11"
+  }
+}

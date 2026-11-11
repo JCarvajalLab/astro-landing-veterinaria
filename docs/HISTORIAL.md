@@ -13,12 +13,12 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Proyecto:** landing (veterinaria) — Landing page de una veterinaria
 - **Repositorio:** https://github.com/JCarvajalLab/astro-landing-veterinaria
 - **Última actualización:** 2026-11-11
-- **Fase activa:** `phase/02-layout`
-- **Rama de trabajo:** `phase/02-layout`
-- **Último commit relevante:** `feat(layout): integra navbar y footer con skip-link accesible`
+- **Fase activa:** `phase/03-sections`
+- **Rama de trabajo:** `phase/03-sections`
+- **Último commit relevante:** `docs(plan): agenda modo nocturno para fase 5 por solicitud del usuario`
 - **Despliegue:** pendiente de vincular al servicio de hosting gratuito (Cloudflare Pages / Netlify)
-- **Qué funciona:** Sistema de diseño y paleta temática veterinaria (Teal/Slate), `Navbar.astro` accesible con menú responsive en JS nativo, `Footer.astro` con datos de clínica, urgencias 24/7 y enlaces semánticos, `Layout.astro` con `skip-link`, `index.astro` con marcadores de sección y servidor de desarrollo activo.
-- **Qué está en progreso:** Revisión de vista previa por parte del usuario para recibir feedback previo a push a GitHub.
+- **Qué funciona:** Sistema de diseño veterinario, Layout con skip-link, Navbar sticky responsive con menú móvil, Footer clínico con 4 columnas, y servidor de desarrollo activo.
+- **Qué está en progreso:** Inicio de la Fase 3: diseño y maquetación de secciones detalladas (Hero, Servicios, Equipo, Testimonios, Horarios, FAQ).
 - **Bloqueos o problemas conocidos:** ninguno.
 - **Siguiente paso concreto:** Validar la vista previa local con el usuario y proceder con la Fase 3 (Secciones detalladas: Hero, Servicios, Equipo, Testimonios, Horarios, FAQ).
 

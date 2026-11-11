@@ -33,6 +33,7 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 | 2026-11-11 | Fijar ESLint v9 LTS con flat config y plugins oficiales | Garantiza estabilidad, 0 vulnerabilidades en audit y soporte de linting para componentes `.astro` | ESLint v10-alpha |
 | 2026-11-11 | Generar preview local interactivo antes de consolidar cambios | Permite revisión visual y feedback temprano del usuario antes de commits/push | Avanzar sin feedback visual previo |
 | 2026-11-11 | Menú móvil accesible con JavaScript nativo sin dependencias | Cero sobrecarga de bundle, control de `aria-expanded` y cierre con tecla Escape | Librerías pesadas o frameworks de UI |
+| 2026-11-11 | Incorporar soporte de modo nocturno (Dark Mode) en Fase 5 | Requerimiento de usuario para mejorar accesibilidad y experiencia visual | No contemplar modo nocturno |
 
 ## 3. Registro de cambios (más reciente arriba)
 

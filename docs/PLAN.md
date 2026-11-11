@@ -239,7 +239,7 @@ Estructura base de cada proyecto Astro adaptado a Gemini (Antigravity):
 Temática: **veterinaria** (servicios, equipo, horarios, contacto y agendamiento de horas por formulario).
 
 - [x] **Fase 1: Setup** (`phase/01-setup`): crear proyecto Astro, Tailwind, ESLint/Prettier, repo y primer despliegue.
-- [ ] **Fase 2: Layout y componentes** (`phase/02-layout`): layout base, navbar, footer, sistema de diseño (colores, tipografías).
+- [x] **Fase 2: Layout y componentes** (`phase/02-layout`): layout base, navbar, footer, sistema de diseño (colores, tipografías).
 - [ ] **Fase 3: Secciones** (`phase/03-sections`): hero, servicios (consulta, vacunas, peluquería, urgencias), equipo, testimonios, horarios y preguntas frecuentes.
 - [ ] **Fase 4: Contacto** (`phase/04-contact`): formulario con servicio gratuito, validación, protección antispam.
 - [ ] **Fase 5: Calidad y lanzamiento** (`phase/05-launch`): SEO básico, accesibilidad, Lighthouse >= 90, meta tags, favicon.

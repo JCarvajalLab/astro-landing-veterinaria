@@ -15,10 +15,10 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Última actualización:** 2026-11-11
 - **Fase activa:** `phase/03-sections`
 - **Rama de trabajo:** `phase/03-sections`
-- **Último commit relevante:** `refactor(schedule): rediseña seccion de horarios con agenda semanal y tarjeta de urgencias 24/7`
+- **Último commit relevante:** `feat(testimonials): amplia a 6 testimonios y agrega carrusel interactivo accesible`
 - **Despliegue:** pendiente de vincular al servicio de hosting gratuito (Cloudflare Pages / Netlify)
-- **Qué funciona:** Todas las secciones de la landing page veterinaria (`Hero.astro`, `Services.astro`, `Team.astro`, `Testimonials.astro`, `Schedule.astro` rediseñado con agenda semanal y tarjeta nocturna de urgencias, `Faq.astro`), Layout con Navbar sticky y Footer clínico, y servidor de desarrollo activo.
-- **Qué está en progreso:** Revisión de la nueva propuesta estética de horarios por parte del usuario.
+- **Qué funciona:** Todas las secciones de la landing page veterinaria (`Hero.astro`, `Services.astro`, `Team.astro`, `Testimonials.astro` con carrusel interactivo de 6 reseñas y autoplay pausado accesible, `Schedule.astro` rediseñado con agenda semanal y tarjeta nocturna de urgencias, `Faq.astro`), Layout con Navbar sticky y Footer clínico, y servidor de desarrollo activo.
+- **Qué está en progreso:** Revisión de vista previa por parte del usuario de las mejoras visuales en horarios y testimonios.
 - **Bloqueos o problemas conocidos:** ninguno.
 - **Siguiente paso concreto:** Validar la vista previa local con el usuario y proceder con la Fase 4 (Formulario de contacto interactivo y validación).
 

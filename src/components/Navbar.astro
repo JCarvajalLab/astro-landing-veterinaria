@@ -300,4 +300,29 @@ const navLinks = [
   themeToggles.forEach((btn) => {
     btn.addEventListener('click', toggleTheme);
   });
+
+  // Navegación limpia sin hash '#' en la barra de direcciones
+  document.querySelectorAll('a[href*="/#"]').forEach((anchor) => {
+    anchor.addEventListener('click', (e) => {
+      const href = anchor.getAttribute('href') || '';
+      const hashIndex = href.indexOf('#');
+      if (hashIndex !== -1) {
+        const targetId = href.substring(hashIndex + 1);
+        const targetEl = document.getElementById(targetId);
+        if (targetEl && (window.location.pathname === '/' || window.location.pathname === '')) {
+          e.preventDefault();
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+          // Mantener la URL completamente limpia sin el símbolo '#'
+          history.replaceState(null, '', window.location.pathname);
+        }
+      }
+    });
+  });
+
+  // Limpiar cualquier hash residual al cargar la página
+  if (window.location.hash) {
+    setTimeout(() => {
+      history.replaceState(null, '', window.location.pathname);
+    }, 300);
+  }
 </script>

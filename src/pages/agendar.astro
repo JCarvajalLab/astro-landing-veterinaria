@@ -45,14 +45,14 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
     }
   </style>
 
-  <div class="min-h-screen bg-slate-100/70 py-8 sm:py-12">
+  <div class="min-h-screen bg-slate-100/70 py-8 sm:py-12 dark:bg-slate-950">
     <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
       <!-- Barra Superior de Navegación del Portal (no-print) -->
-      <div class="no-print flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-slate-200/90 pb-6">
+      <div class="no-print flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-slate-200/90 pb-6 dark:border-slate-800">
         <div>
           <a
             href="/"
-            class="inline-flex items-center gap-2 text-sm font-semibold text-teal-700 transition hover:text-teal-800 focus-visible:outline-2 focus-visible:outline-teal-600"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-teal-700 transition hover:text-teal-800 focus-visible:outline-2 focus-visible:outline-teal-600 dark:text-teal-400 dark:hover:text-teal-300"
           >
             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path
@@ -64,22 +64,22 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             </svg>
             Volver a la Página Principal
           </a>
-          <h1 class="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">
+          <h1 class="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl dark:text-white">
             Portal de Reserva de Horas
           </h1>
-          <p class="text-xs text-slate-500">
+          <p class="text-xs text-slate-500 dark:text-slate-400">
             Clínica Veterinaria Huellitas · Casa Matriz Providencia
           </p>
         </div>
 
         <div class="flex items-center gap-3">
-          <div class="rounded-2xl border border-amber-200 bg-amber-50 px-3.5 py-2 text-right">
-            <p class="text-[10px] font-bold uppercase tracking-wider text-amber-800">
+          <div class="rounded-2xl border border-amber-200 bg-amber-50 px-3.5 py-2 text-right dark:border-amber-900/60 dark:bg-amber-950/40">
+            <p class="text-[10px] font-bold uppercase tracking-wider text-amber-800 dark:text-amber-300">
               Urgencias Médicas 24/7
             </p>
             <a
               href="tel:+56912345678"
-              class="text-sm font-extrabold text-amber-900 hover:underline"
+              class="text-sm font-extrabold text-amber-900 hover:underline dark:text-amber-200"
             >
               +56 9 1234 5678
             </a>
@@ -90,41 +90,41 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
       <!-- Stepper / Indicador de Progreso Visual Moderno (no-print) -->
       <nav
         aria-label="Progreso de reserva"
-        class="no-print mt-8 rounded-3xl border border-slate-200/80 bg-white p-4 shadow-xs sm:p-6"
+        class="no-print mt-8 rounded-3xl border border-slate-200/80 bg-white p-4 shadow-xs sm:p-6 dark:border-slate-800 dark:bg-slate-900"
       >
         <ol class="grid grid-cols-4 gap-2 sm:gap-4 text-center">
           <li class="step-indicator active flex flex-col items-center gap-1.5" data-step="1">
-            <span class="step-badge flex h-9 w-9 items-center justify-center rounded-xl bg-teal-600 text-sm font-bold text-white shadow-xs transition">
+            <span class="step-badge flex h-9 w-9 items-center justify-center rounded-xl bg-teal-600 text-sm font-bold text-white shadow-xs transition dark:bg-teal-500 dark:text-slate-950">
               1
             </span>
-            <span class="step-label text-[11px] sm:text-xs font-bold text-teal-700">
+            <span class="step-label text-[11px] sm:text-xs font-bold text-teal-700 dark:text-teal-300">
               Especialidad
             </span>
           </li>
 
           <li class="step-indicator flex flex-col items-center gap-1.5" data-step="2">
-            <span class="step-badge flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 text-sm font-bold text-slate-500 transition">
+            <span class="step-badge flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 text-sm font-bold text-slate-500 transition dark:bg-slate-800 dark:text-slate-400">
               2
             </span>
-            <span class="step-label text-[11px] sm:text-xs font-medium text-slate-500">
+            <span class="step-label text-[11px] sm:text-xs font-medium text-slate-500 dark:text-slate-400">
               Médico & Hora
             </span>
           </li>
 
           <li class="step-indicator flex flex-col items-center gap-1.5" data-step="3">
-            <span class="step-badge flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 text-sm font-bold text-slate-500 transition">
+            <span class="step-badge flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 text-sm font-bold text-slate-500 transition dark:bg-slate-800 dark:text-slate-400">
               3
             </span>
-            <span class="step-label text-[11px] sm:text-xs font-medium text-slate-500">
+            <span class="step-label text-[11px] sm:text-xs font-medium text-slate-500 dark:text-slate-400">
               Identificación
             </span>
           </li>
 
           <li class="step-indicator flex flex-col items-center gap-1.5" data-step="4">
-            <span class="step-badge flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 text-sm font-bold text-slate-500 transition">
+            <span class="step-badge flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 text-sm font-bold text-slate-500 transition dark:bg-slate-800 dark:text-slate-400">
               4
             </span>
-            <span class="step-label text-[11px] sm:text-xs font-medium text-slate-500">
+            <span class="step-label text-[11px] sm:text-xs font-medium text-slate-500 dark:text-slate-400">
               Confirmación
             </span>
           </li>
@@ -138,16 +138,16 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
         <!-- ========================================== -->
         <section
           id="step-1"
-          class="step-container rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-10"
+          class="step-container rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-10 dark:border-slate-800 dark:bg-slate-900"
         >
-          <div class="border-b border-slate-100 pb-5">
-            <span class="rounded-full bg-teal-100 px-3 py-1 text-xs font-bold text-teal-800 uppercase tracking-wider">
+          <div class="border-b border-slate-100 pb-5 dark:border-slate-800">
+            <span class="rounded-full bg-teal-100 px-3 py-1 text-xs font-bold text-teal-800 uppercase tracking-wider dark:bg-teal-950/70 dark:text-teal-300">
               Paso 1 de 4
             </span>
-            <h2 class="mt-3 text-2xl font-extrabold text-slate-900">
+            <h2 class="mt-3 text-2xl font-extrabold text-slate-900 dark:text-white">
               Selecciona el Servicio o Especialidad
             </h2>
-            <p class="mt-1 text-sm text-slate-600">
+            <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">
               Elige la atención médica que requiere tu mascota para ver los horarios disponibles.
             </p>
           </div>
@@ -158,7 +158,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             aria-label="Especialidades médicas"
           >
             <!-- Consulta General -->
-            <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-teal-500 bg-teal-50/50 ring-2 ring-teal-500/20 p-5 transition">
+            <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-teal-500 bg-teal-50/50 ring-2 ring-teal-500/20 p-5 transition dark:border-teal-400 dark:bg-teal-950/40 dark:ring-teal-400/20">
               <input
                 type="radio"
                 name="selected_area"
@@ -170,21 +170,23 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 checked
               />
               <div>
-                <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-800 shadow-2xs group-hover:scale-105 transition">
+                <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-800 shadow-2xs group-hover:scale-105 transition dark:bg-teal-950/80 dark:text-teal-300">
                   🩺
                 </span>
-                <h3 class="mt-4 text-base font-bold text-slate-900">Consulta Médica General</h3>
-                <p class="mt-1 text-xs text-slate-500 leading-relaxed">
+                <h3 class="mt-4 text-base font-bold text-slate-900 dark:text-white">
+                  Consulta Médica General
+                </h3>
+                <p class="mt-1 text-xs text-slate-500 leading-relaxed dark:text-slate-400">
                   Revisión clínica completa, control de peso, nutrición y chequeo preventivo.
                 </p>
               </div>
-              <span class="mt-4 inline-block text-xs font-bold text-teal-700">
+              <span class="mt-4 inline-block text-xs font-bold text-teal-700 dark:text-teal-400">
                 Ver disponibilidad (3 profesionales) →
               </span>
             </label>
 
             <!-- Medicina Felina (Solo Gatos) -->
-            <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-slate-200 p-5 transition hover:border-teal-400 hover:bg-teal-50/30">
+            <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-slate-200 p-5 transition hover:border-teal-400 hover:bg-teal-50/30 dark:border-slate-800 dark:bg-slate-900/60 dark:hover:border-teal-500 dark:hover:bg-teal-950/30">
               <input
                 type="radio"
                 name="selected_area"
@@ -195,26 +197,28 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 class="sr-only"
               />
               <div>
-                <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-800 shadow-2xs group-hover:scale-105 transition">
+                <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-800 shadow-2xs group-hover:scale-105 transition dark:bg-teal-950/80 dark:text-teal-300">
                   🐱
                 </span>
                 <div class="flex items-center gap-1.5 mt-4">
-                  <h3 class="text-base font-bold text-slate-900">Medicina Felina</h3>
-                  <span class="rounded-md bg-cyan-100 px-1.5 py-0.5 text-[10px] font-bold text-cyan-800">
+                  <h3 class="text-base font-bold text-slate-900 dark:text-white">
+                    Medicina Felina
+                  </h3>
+                  <span class="rounded-md bg-cyan-100 px-1.5 py-0.5 text-[10px] font-bold text-cyan-800 dark:bg-cyan-950/80 dark:text-cyan-300">
                     Solo Gatos
                   </span>
                 </div>
-                <p class="mt-1 text-xs text-slate-500 leading-relaxed">
+                <p class="mt-1 text-xs text-slate-500 leading-relaxed dark:text-slate-400">
                   Atención Fear Free adaptada exclusivamente al comportamiento felino.
                 </p>
               </div>
-              <span class="mt-4 inline-block text-xs font-bold text-teal-700">
+              <span class="mt-4 inline-block text-xs font-bold text-teal-700 dark:text-teal-400">
                 Ver disponibilidad (1 especialista) →
               </span>
             </label>
 
             <!-- Vacunación -->
-            <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-slate-200 p-5 transition hover:border-teal-400 hover:bg-teal-50/30">
+            <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-slate-200 p-5 transition hover:border-teal-400 hover:bg-teal-50/30 dark:border-slate-800 dark:bg-slate-900/60 dark:hover:border-teal-500 dark:hover:bg-teal-950/30">
               <input
                 type="radio"
                 name="selected_area"
@@ -225,23 +229,23 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 class="sr-only"
               />
               <div>
-                <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-800 shadow-2xs group-hover:scale-105 transition">
+                <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-800 shadow-2xs group-hover:scale-105 transition dark:bg-teal-950/80 dark:text-teal-300">
                   💉
                 </span>
-                <h3 class="mt-4 text-base font-bold text-slate-900">
+                <h3 class="mt-4 text-base font-bold text-slate-900 dark:text-white">
                   Vacunación & Desparasitación
                 </h3>
-                <p class="mt-1 text-xs text-slate-500 leading-relaxed">
+                <p class="mt-1 text-xs text-slate-500 leading-relaxed dark:text-slate-400">
                   Inmunización antirrábica, óctuple o triple felina con carnet sanitario.
                 </p>
               </div>
-              <span class="mt-4 inline-block text-xs font-bold text-teal-700">
+              <span class="mt-4 inline-block text-xs font-bold text-teal-700 dark:text-teal-400">
                 Ver disponibilidad (2 profesionales) →
               </span>
             </label>
 
             <!-- Cirugía -->
-            <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-slate-200 p-5 transition hover:border-teal-400 hover:bg-teal-50/30">
+            <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-slate-200 p-5 transition hover:border-teal-400 hover:bg-teal-50/30 dark:border-slate-800 dark:bg-slate-900/60 dark:hover:border-teal-500 dark:hover:bg-teal-950/30">
               <input
                 type="radio"
                 name="selected_area"
@@ -252,21 +256,23 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 class="sr-only"
               />
               <div>
-                <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-800 shadow-2xs group-hover:scale-105 transition">
+                <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-800 shadow-2xs group-hover:scale-105 transition dark:bg-teal-950/80 dark:text-teal-300">
                   🏥
                 </span>
-                <h3 class="mt-4 text-base font-bold text-slate-900">Cirugía & Pabellón</h3>
-                <p class="mt-1 text-xs text-slate-500 leading-relaxed">
+                <h3 class="mt-4 text-base font-bold text-slate-900 dark:text-white">
+                  Cirugía & Pabellón
+                </h3>
+                <p class="mt-1 text-xs text-slate-500 leading-relaxed dark:text-slate-400">
                   Esterilizaciones, tejidos blandos y evaluación quirúrgica preanestésica.
                 </p>
               </div>
-              <span class="mt-4 inline-block text-xs font-bold text-teal-700">
+              <span class="mt-4 inline-block text-xs font-bold text-teal-700 dark:text-teal-400">
                 Ver disponibilidad (1 cirujana) →
               </span>
             </label>
 
             <!-- Peluquería Canina (Solo Perros) -->
-            <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-slate-200 p-5 transition hover:border-teal-400 hover:bg-teal-50/30">
+            <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-slate-200 p-5 transition hover:border-teal-400 hover:bg-teal-50/30 dark:border-slate-800 dark:bg-slate-900/60 dark:hover:border-teal-500 dark:hover:bg-teal-950/30">
               <input
                 type="radio"
                 name="selected_area"
@@ -277,26 +283,28 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 class="sr-only"
               />
               <div>
-                <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-800 shadow-2xs group-hover:scale-105 transition">
+                <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-800 shadow-2xs group-hover:scale-105 transition dark:bg-teal-950/80 dark:text-teal-300">
                   ✂️
                 </span>
                 <div class="flex items-center gap-1.5 mt-4">
-                  <h3 class="text-base font-bold text-slate-900">Peluquería Canina & Spa</h3>
-                  <span class="rounded-md bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-800">
+                  <h3 class="text-base font-bold text-slate-900 dark:text-white">
+                    Peluquería Canina & Spa
+                  </h3>
+                  <span class="rounded-md bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-800 dark:bg-amber-950/80 dark:text-amber-300">
                     Solo Perros
                   </span>
                 </div>
-                <p class="mt-1 text-xs text-slate-500 leading-relaxed">
+                <p class="mt-1 text-xs text-slate-500 leading-relaxed dark:text-slate-400">
                   Baño dermatológico, corte de raza, deslanado y corte de uñas sin estrés.
                 </p>
               </div>
-              <span class="mt-4 inline-block text-xs font-bold text-teal-700">
+              <span class="mt-4 inline-block text-xs font-bold text-teal-700 dark:text-teal-400">
                 Ver disponibilidad (1 peluquero) →
               </span>
             </label>
 
             <!-- Diagnóstico & Ecografía -->
-            <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-slate-200 p-5 transition hover:border-teal-400 hover:bg-teal-50/30">
+            <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-slate-200 p-5 transition hover:border-teal-400 hover:bg-teal-50/30 dark:border-slate-800 dark:bg-slate-900/60 dark:hover:border-teal-500 dark:hover:bg-teal-950/30">
               <input
                 type="radio"
                 name="selected_area"
@@ -307,32 +315,36 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 class="sr-only"
               />
               <div>
-                <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-800 shadow-2xs group-hover:scale-105 transition">
+                <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-800 shadow-2xs group-hover:scale-105 transition dark:bg-teal-950/80 dark:text-teal-300">
                   🔬
                 </span>
-                <h3 class="mt-4 text-base font-bold text-slate-900">Laboratorio & Ecografías</h3>
-                <p class="mt-1 text-xs text-slate-500 leading-relaxed">
+                <h3 class="mt-4 text-base font-bold text-slate-900 dark:text-white">
+                  Laboratorio & Ecografías
+                </h3>
+                <p class="mt-1 text-xs text-slate-500 leading-relaxed dark:text-slate-400">
                   Perfil bioquímico rápido, radiografías digitales y ecografía abdominal.
                 </p>
               </div>
-              <span class="mt-4 inline-block text-xs font-bold text-teal-700">
+              <span class="mt-4 inline-block text-xs font-bold text-teal-700 dark:text-teal-400">
                 Ver disponibilidad (2 especialistas) →
               </span>
             </label>
           </div>
 
           <!-- Selector de Sucursal fija -->
-          <div class="mt-8 rounded-2xl bg-slate-50 p-4 sm:flex sm:items-center sm:justify-between border border-slate-200">
+          <div class="mt-8 rounded-2xl bg-slate-50 p-4 sm:flex sm:items-center sm:justify-between border border-slate-200 dark:bg-slate-800/50 dark:border-slate-800">
             <div class="flex items-center gap-3">
               <span class="text-xl">📍</span>
               <div>
-                <p class="text-xs font-bold text-slate-900 uppercase">Sede Asignada:</p>
-                <p class="text-sm text-slate-700 font-medium">
+                <p class="text-xs font-bold text-slate-900 uppercase dark:text-white">
+                  Sede Asignada:
+                </p>
+                <p class="text-sm text-slate-700 font-medium dark:text-slate-300">
                   Casa Matriz Providencia (Av. Principal de las Mascotas 1234)
                 </p>
               </div>
             </div>
-            <span class="mt-2 inline-block rounded-md bg-emerald-100 px-2.5 py-1 text-xs font-bold text-emerald-800 sm:mt-0">
+            <span class="mt-2 inline-block rounded-md bg-emerald-100 px-2.5 py-1 text-xs font-bold text-emerald-800 sm:mt-0 dark:bg-emerald-950/70 dark:text-emerald-300">
               Estacionamiento para Clientes
             </span>
           </div>
@@ -342,7 +354,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             <button
               type="button"
               id="btn-goto-step-2"
-              class="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-7 py-3.5 text-base font-bold text-white shadow-md transition hover:bg-teal-700 focus-visible:outline-2 focus-visible:outline-teal-600 active:scale-98"
+              class="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-7 py-3.5 text-base font-bold text-white shadow-md transition hover:bg-teal-700 focus-visible:outline-2 focus-visible:outline-teal-600 active:scale-98 dark:bg-teal-500 dark:text-slate-950 dark:hover:bg-teal-400"
             >
               Buscar Médicos y Horarios Disponibles
               <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -362,25 +374,25 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
         <!-- ========================================== -->
         <section
           id="step-2"
-          class="step-container hidden rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-10"
+          class="step-container hidden rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-10 dark:border-slate-800 dark:bg-slate-900"
         >
-          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-slate-200/80 pb-6">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-slate-200/80 pb-6 dark:border-slate-800">
             <div>
-              <span class="rounded-full bg-teal-100 px-3 py-1 text-xs font-bold text-teal-800 uppercase tracking-wider">
+              <span class="rounded-full bg-teal-100 px-3 py-1 text-xs font-bold text-teal-800 uppercase tracking-wider dark:bg-teal-950/70 dark:text-teal-300">
                 Paso 2 de 4
               </span>
-              <h2 class="mt-2 text-2xl font-extrabold text-slate-900">
+              <h2 class="mt-2 text-2xl font-extrabold text-slate-900 dark:text-white">
                 Selecciona Profesional y Horario
               </h2>
-              <p class="text-xs text-slate-500 mt-0.5">
+              <p class="text-xs text-slate-500 mt-0.5 dark:text-slate-400">
                 Servicio:{' '}
-                <span id="summary-area" class="font-bold text-teal-700">
+                <span id="summary-area" class="font-bold text-teal-700 dark:text-teal-400">
                   Consulta Médica General
                 </span>{' '}
                 · Casa Matriz ·{' '}
                 <span
                   id="summary-doctors-count"
-                  class="font-semibold text-teal-900 bg-teal-50 px-2 py-0.5 rounded-md border border-teal-200"
+                  class="font-semibold text-teal-900 bg-teal-50 px-2 py-0.5 rounded-md border border-teal-200 dark:bg-teal-950/70 dark:text-teal-300 dark:border-teal-800/60"
                 >
                   3 profesionales disponibles
                 </span>
@@ -389,24 +401,24 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             <button
               type="button"
               id="btn-back-step-1"
-              class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-teal-700 transition"
+              class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-teal-700 transition dark:text-slate-400 dark:hover:text-teal-300"
             >
               ← Cambiar Servicio
             </button>
           </div>
 
           <!-- Selector de Calendario y Fechas (Bloqueo de días pasados y domingos) -->
-          <div class="mt-6 rounded-2xl bg-slate-50 p-5 border border-slate-200/90">
+          <div class="mt-6 rounded-2xl bg-slate-50 p-5 border border-slate-200/90 dark:bg-slate-800/50 dark:border-slate-800">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <!-- Selector de Calendario Nativo -->
               <div class="flex items-center gap-3">
-                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-600 text-white shadow-xs">
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-600 text-white shadow-xs dark:bg-teal-500 dark:text-slate-950">
                   📅
                 </span>
                 <div>
                   <label
                     for="calendar-picker"
-                    class="block text-xs font-bold uppercase tracking-wider text-slate-700"
+                    class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300"
                   >
                     Elegir Fecha en Calendario:
                   </label>
@@ -415,9 +427,9 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                     id="calendar-picker"
                     min="2026-11-12"
                     value="2026-11-12"
-                    class="mt-1 rounded-xl border border-slate-300 bg-white px-3 py-1.5 text-xs font-bold text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20"
+                    class="mt-1 rounded-xl border border-slate-300 bg-white px-3 py-1.5 text-xs font-bold text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:focus:border-teal-400"
                   />
-                  <p class="text-[10px] text-slate-500 mt-0.5">
+                  <p class="text-[10px] text-slate-500 mt-0.5 dark:text-slate-400">
                     Días pasados bloqueados. Domingos cerrados para agenda regular.
                   </p>
                 </div>
@@ -425,13 +437,13 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
 
               <!-- Pastillas de Acceso Rápido Próximos Días (Sin domingos) -->
               <div>
-                <p class="text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                <p class="text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5 dark:text-slate-400">
                   Accesos Rápidos (Días Hábiles):
                 </p>
                 <div class="flex flex-wrap items-center gap-1.5" id="date-selector">
                   <button
                     type="button"
-                    class="date-chip rounded-xl border border-teal-600 bg-teal-600 px-3 py-2 text-xs font-bold text-white shadow-2xs"
+                    class="date-chip rounded-xl border border-teal-600 bg-teal-600 px-3 py-2 text-xs font-bold text-white shadow-2xs dark:border-teal-500 dark:bg-teal-500 dark:text-slate-950"
                     data-date="2026-11-12"
                     data-label="Jueves 12 de Noviembre"
                   >
@@ -439,7 +451,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                   </button>
                   <button
                     type="button"
-                    class="date-chip rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:border-teal-400"
+                    class="date-chip rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:border-teal-400 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-teal-400"
                     data-date="2026-11-13"
                     data-label="Viernes 13 de Noviembre"
                   >
@@ -447,7 +459,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                   </button>
                   <button
                     type="button"
-                    class="date-chip rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:border-teal-400"
+                    class="date-chip rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:border-teal-400 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-teal-400"
                     data-date="2026-11-14"
                     data-label="Sábado 14 de Noviembre"
                   >
@@ -455,7 +467,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                   </button>
                   <button
                     type="button"
-                    class="date-chip rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:border-teal-400"
+                    class="date-chip rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:border-teal-400 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-teal-400"
                     data-date="2026-11-16"
                     data-label="Lunes 16 de Noviembre"
                   >
@@ -463,7 +475,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                   </button>
                   <button
                     type="button"
-                    class="date-chip rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:border-teal-400"
+                    class="date-chip rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:border-teal-400 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:border-teal-400"
                     data-date="2026-11-17"
                     data-label="Martes 17 de Noviembre"
                   >
@@ -476,15 +488,15 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             <!-- Alerta reactiva de bloqueo dominical -->
             <div
               id="calendar-warning"
-              class="mt-3 hidden rounded-2xl bg-rose-50 p-3.5 text-xs text-rose-900 border border-rose-300 flex items-start gap-2.5"
+              class="mt-3 hidden rounded-2xl bg-rose-50 p-3.5 text-xs text-rose-900 border border-rose-300 flex items-start gap-2.5 dark:bg-rose-950/40 dark:border-rose-900/60 dark:text-rose-300"
               role="alert"
             >
               <span class="text-base shrink-0">⛔</span>
               <div>
-                <strong class="font-bold text-rose-950">
+                <strong class="font-bold text-rose-950 dark:text-rose-200">
                   Domingo seleccionado: Clínica cerrada para agenda regular.
                 </strong>
-                <p class="mt-0.5 text-rose-800 text-[11px] leading-relaxed">
+                <p class="mt-0.5 text-rose-800 text-[11px] leading-relaxed dark:text-rose-300/90">
                   Los días domingo atendemos únicamente urgencias vitales 24/7 sin reserva previa.{' '}
                   <strong>
                     No es posible seleccionar horas ni continuar con la reserva en este día
@@ -498,7 +510,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
           <!-- Mensaje de aviso de selección obligatoria -->
           <div
             id="step-2-error"
-            class="mt-6 hidden rounded-2xl border border-rose-200 bg-rose-50 p-4 text-xs font-bold text-rose-800"
+            class="mt-6 hidden rounded-2xl border border-rose-200 bg-rose-50 p-4 text-xs font-bold text-rose-800 dark:border-rose-900/60 dark:bg-rose-950/40 dark:text-rose-300"
           >
             ⚠️ Debes seleccionar un bloque de horario de uno de los profesionales para continuar.
           </div>
@@ -506,7 +518,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
           <!-- Banner de filtro de profesionales activo -->
           <div
             id="filter-banner"
-            class="mt-6 rounded-2xl border border-teal-200 bg-teal-50/70 p-3.5 text-xs text-teal-900 flex items-center justify-between"
+            class="mt-6 rounded-2xl border border-teal-200 bg-teal-50/70 p-3.5 text-xs text-teal-900 flex items-center justify-between dark:border-teal-900/60 dark:bg-teal-950/40 dark:text-teal-300"
           >
             <div class="flex items-center gap-2">
               <span class="text-base">🩺</span>
@@ -515,7 +527,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 <strong id="filter-service-name">Consulta Médica General</strong>.
               </span>
             </div>
-            <span class="rounded-full bg-teal-200/70 px-2.5 py-0.5 text-[11px] font-bold text-teal-900">
+            <span class="rounded-full bg-teal-200/70 px-2.5 py-0.5 text-[11px] font-bold text-teal-900 dark:bg-teal-900/80 dark:text-teal-200">
               Filtro Especializado Activo
             </span>
           </div>
@@ -524,13 +536,13 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
           <div class="mt-4 space-y-6" id="doctors-container">
             <!-- Doctor 1: Dra. Valentina Muñoz -->
             <article
-              class="doctor-row rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:border-teal-300"
+              class="doctor-row rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:border-teal-300 dark:border-slate-800 dark:bg-slate-900/80 dark:hover:border-teal-500"
               data-doctor-id="valentina"
               data-specialties="general,cirugia,laboratorio"
             >
               <div class="grid grid-cols-1 gap-6 md:grid-cols-12 md:items-center">
                 <div class="flex items-center gap-4 md:col-span-4">
-                  <div class="h-20 w-20 shrink-0 overflow-hidden rounded-2xl shadow-sm ring-2 ring-teal-100">
+                  <div class="h-20 w-20 shrink-0 overflow-hidden rounded-2xl shadow-sm ring-2 ring-teal-100 dark:ring-teal-950">
                     <Image
                       src={draValentinaImg}
                       alt="Dra. Valentina Muñoz"
@@ -540,23 +552,27 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                     />
                   </div>
                   <div>
-                    <h3 class="text-base font-bold text-slate-900">Dra. Valentina Muñoz</h3>
-                    <p class="text-xs font-semibold text-teal-700">Directora Médica & Cirugía</p>
-                    <span class="mt-1.5 inline-block rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700">
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white">
+                      Dra. Valentina Muñoz
+                    </h3>
+                    <p class="text-xs font-semibold text-teal-700 dark:text-teal-400">
+                      Directora Médica & Cirugía
+                    </p>
+                    <span class="mt-1.5 inline-block rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-300">
                       Próxima hora disponible: 10:00
                     </span>
                   </div>
                 </div>
 
                 <div class="md:col-span-8">
-                  <p class="text-xs font-semibold text-slate-500 mb-2">
+                  <p class="text-xs font-semibold text-slate-500 mb-2 dark:text-slate-400">
                     Selecciona una hora para esta fecha:
                   </p>
                   <div class="slots-container flex flex-wrap gap-2">
                     {['10:00', '10:30', '11:30', '12:30', '15:00', '16:30'].map((time) => (
                       <button
                         type="button"
-                        class="slot-btn rounded-xl border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-xs font-bold text-slate-800 transition hover:border-teal-500 hover:bg-teal-50 hover:text-teal-900 focus-visible:outline-2 focus-visible:outline-teal-600"
+                        class="slot-btn rounded-xl border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-xs font-bold text-slate-800 transition hover:border-teal-500 hover:bg-teal-50 hover:text-teal-900 focus-visible:outline-2 focus-visible:outline-teal-600 dark:border-slate-700 dark:bg-slate-800/80 dark:text-slate-200 dark:hover:border-teal-400 dark:hover:bg-slate-750"
                         data-doctor="Dra. Valentina Muñoz"
                         data-time={time}
                       >
@@ -564,7 +580,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                       </button>
                     ))}
                   </div>
-                  <div class="sunday-no-slots-msg hidden rounded-2xl bg-rose-50 border border-rose-200 p-3 text-xs font-semibold text-rose-900">
+                  <div class="sunday-no-slots-msg hidden rounded-2xl bg-rose-50 border border-rose-200 p-3 text-xs font-semibold text-rose-900 dark:bg-rose-950/40 dark:border-rose-900/60 dark:text-rose-300">
                     ⛔ No hay turnos de consulta ni spa los domingos (solo urgencias 24/7). Por
                     favor elige una fecha de lunes a sábado.
                   </div>
@@ -574,13 +590,13 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
 
             <!-- Doctor 2: Dr. Carlos Valenzuela -->
             <article
-              class="doctor-row rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:border-teal-300"
+              class="doctor-row rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:border-teal-300 dark:border-slate-800 dark:bg-slate-900/80 dark:hover:border-teal-500"
               data-doctor-id="carlos"
               data-specialties="general,felina,vacunacion,laboratorio"
             >
               <div class="grid grid-cols-1 gap-6 md:grid-cols-12 md:items-center">
                 <div class="flex items-center gap-4 md:col-span-4">
-                  <div class="h-20 w-20 shrink-0 overflow-hidden rounded-2xl shadow-sm ring-2 ring-teal-100">
+                  <div class="h-20 w-20 shrink-0 overflow-hidden rounded-2xl shadow-sm ring-2 ring-teal-100 dark:ring-teal-950">
                     <Image
                       src={drCarlosImg}
                       alt="Dr. Carlos Valenzuela"
@@ -590,23 +606,27 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                     />
                   </div>
                   <div>
-                    <h3 class="text-base font-bold text-slate-900">Dr. Carlos Valenzuela</h3>
-                    <p class="text-xs font-semibold text-teal-700">Medicina Felina & Ecografía</p>
-                    <span class="mt-1.5 inline-block rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700">
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white">
+                      Dr. Carlos Valenzuela
+                    </h3>
+                    <p class="text-xs font-semibold text-teal-700 dark:text-teal-400">
+                      Medicina Felina & Ecografía
+                    </p>
+                    <span class="mt-1.5 inline-block rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-300">
                       Próxima hora disponible: 11:00
                     </span>
                   </div>
                 </div>
 
                 <div class="md:col-span-8">
-                  <p class="text-xs font-semibold text-slate-500 mb-2">
+                  <p class="text-xs font-semibold text-slate-500 mb-2 dark:text-slate-400">
                     Selecciona una hora para esta fecha:
                   </p>
                   <div class="slots-container flex flex-wrap gap-2">
                     {['11:00', '12:00', '14:30', '16:00', '17:30'].map((time) => (
                       <button
                         type="button"
-                        class="slot-btn rounded-xl border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-xs font-bold text-slate-800 transition hover:border-teal-500 hover:bg-teal-50 hover:text-teal-900 focus-visible:outline-2 focus-visible:outline-teal-600"
+                        class="slot-btn rounded-xl border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-xs font-bold text-slate-800 transition hover:border-teal-500 hover:bg-teal-50 hover:text-teal-900 focus-visible:outline-2 focus-visible:outline-teal-600 dark:border-slate-700 dark:bg-slate-800/80 dark:text-slate-200 dark:hover:border-teal-400 dark:hover:bg-slate-750"
                         data-doctor="Dr. Carlos Valenzuela"
                         data-time={time}
                       >
@@ -614,7 +634,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                       </button>
                     ))}
                   </div>
-                  <div class="sunday-no-slots-msg hidden rounded-2xl bg-rose-50 border border-rose-200 p-3 text-xs font-semibold text-rose-900">
+                  <div class="sunday-no-slots-msg hidden rounded-2xl bg-rose-50 border border-rose-200 p-3 text-xs font-semibold text-rose-900 dark:bg-rose-950/40 dark:border-rose-900/60 dark:text-rose-300">
                     ⛔ No hay turnos de consulta ni spa los domingos (solo urgencias 24/7). Por
                     favor elige una fecha de lunes a sábado.
                   </div>
@@ -624,13 +644,13 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
 
             <!-- Doctor 3: Dra. Camila Soto -->
             <article
-              class="doctor-row rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:border-teal-300"
+              class="doctor-row rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:border-teal-300 dark:border-slate-800 dark:bg-slate-900/80 dark:hover:border-teal-500"
               data-doctor-id="camila"
               data-specialties="general,vacunacion"
             >
               <div class="grid grid-cols-1 gap-6 md:grid-cols-12 md:items-center">
                 <div class="flex items-center gap-4 md:col-span-4">
-                  <div class="h-20 w-20 shrink-0 overflow-hidden rounded-2xl shadow-sm ring-2 ring-teal-100">
+                  <div class="h-20 w-20 shrink-0 overflow-hidden rounded-2xl shadow-sm ring-2 ring-teal-100 dark:ring-teal-950">
                     <Image
                       src={draCamilaImg}
                       alt="Dra. Camila Soto"
@@ -640,23 +660,27 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                     />
                   </div>
                   <div>
-                    <h3 class="text-base font-bold text-slate-900">Dra. Camila Soto</h3>
-                    <p class="text-xs font-semibold text-teal-700">Dermatología & Vacunación</p>
-                    <span class="mt-1.5 inline-block rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700">
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white">
+                      Dra. Camila Soto
+                    </h3>
+                    <p class="text-xs font-semibold text-teal-700 dark:text-teal-400">
+                      Dermatología & Vacunación
+                    </p>
+                    <span class="mt-1.5 inline-block rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-300">
                       Próxima hora disponible: 09:30
                     </span>
                   </div>
                 </div>
 
                 <div class="md:col-span-8">
-                  <p class="text-xs font-semibold text-slate-500 mb-2">
+                  <p class="text-xs font-semibold text-slate-500 mb-2 dark:text-slate-400">
                     Selecciona una hora para esta fecha:
                   </p>
                   <div class="slots-container flex flex-wrap gap-2">
                     {['09:30', '10:15', '12:00', '15:30', '17:00'].map((time) => (
                       <button
                         type="button"
-                        class="slot-btn rounded-xl border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-xs font-bold text-slate-800 transition hover:border-teal-500 hover:bg-teal-50 hover:text-teal-900 focus-visible:outline-2 focus-visible:outline-teal-600"
+                        class="slot-btn rounded-xl border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-xs font-bold text-slate-800 transition hover:border-teal-500 hover:bg-teal-50 hover:text-teal-900 focus-visible:outline-2 focus-visible:outline-teal-600 dark:border-slate-700 dark:bg-slate-800/80 dark:text-slate-200 dark:hover:border-teal-400 dark:hover:bg-slate-750"
                         data-doctor="Dra. Camila Soto"
                         data-time={time}
                       >
@@ -664,7 +688,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                       </button>
                     ))}
                   </div>
-                  <div class="sunday-no-slots-msg hidden rounded-2xl bg-rose-50 border border-rose-200 p-3 text-xs font-semibold text-rose-900">
+                  <div class="sunday-no-slots-msg hidden rounded-2xl bg-rose-50 border border-rose-200 p-3 text-xs font-semibold text-rose-900 dark:bg-rose-950/40 dark:border-rose-900/60 dark:text-rose-300">
                     ⛔ No hay turnos de consulta ni spa los domingos (solo urgencias 24/7). Por
                     favor elige una fecha de lunes a sábado.
                   </div>
@@ -674,13 +698,13 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
 
             <!-- Profesional 4: Rodrigo Lagos (Peluquería) -->
             <article
-              class="doctor-row rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:border-teal-300"
+              class="doctor-row rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:border-teal-300 dark:border-slate-800 dark:bg-slate-900/80 dark:hover:border-teal-500"
               data-doctor-id="rodrigo"
               data-specialties="peluqueria"
             >
               <div class="grid grid-cols-1 gap-6 md:grid-cols-12 md:items-center">
                 <div class="flex items-center gap-4 md:col-span-4">
-                  <div class="h-20 w-20 shrink-0 overflow-hidden rounded-2xl shadow-sm ring-2 ring-teal-100">
+                  <div class="h-20 w-20 shrink-0 overflow-hidden rounded-2xl shadow-sm ring-2 ring-teal-100 dark:ring-teal-950">
                     <Image
                       src={rodrigoLagosImg}
                       alt="Rodrigo Lagos"
@@ -690,23 +714,27 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                     />
                   </div>
                   <div>
-                    <h3 class="text-base font-bold text-slate-900">Rodrigo Lagos</h3>
-                    <p class="text-xs font-semibold text-teal-700">Técnico Jefe Peluquería & Spa</p>
-                    <span class="mt-1.5 inline-block rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700">
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white">
+                      Rodrigo Lagos
+                    </h3>
+                    <p class="text-xs font-semibold text-teal-700 dark:text-teal-400">
+                      Técnico Jefe Peluquería & Spa
+                    </p>
+                    <span class="mt-1.5 inline-block rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-300">
                       Próxima hora disponible: 09:00
                     </span>
                   </div>
                 </div>
 
                 <div class="md:col-span-8">
-                  <p class="text-xs font-semibold text-slate-500 mb-2">
+                  <p class="text-xs font-semibold text-slate-500 mb-2 dark:text-slate-400">
                     Selecciona una hora para esta fecha:
                   </p>
                   <div class="slots-container flex flex-wrap gap-2">
                     {['09:00', '11:00', '14:00', '16:00'].map((time) => (
                       <button
                         type="button"
-                        class="slot-btn rounded-xl border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-xs font-bold text-slate-800 transition hover:border-teal-500 hover:bg-teal-50 hover:text-teal-900 focus-visible:outline-2 focus-visible:outline-teal-600"
+                        class="slot-btn rounded-xl border border-slate-300 bg-slate-50/70 px-4 py-2.5 font-mono text-xs font-bold text-slate-800 transition hover:border-teal-500 hover:bg-teal-50 hover:text-teal-900 focus-visible:outline-2 focus-visible:outline-teal-600 dark:border-slate-700 dark:bg-slate-800/80 dark:text-slate-200 dark:hover:border-teal-400 dark:hover:bg-slate-750"
                         data-doctor="Rodrigo Lagos"
                         data-time={time}
                       >
@@ -714,7 +742,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                       </button>
                     ))}
                   </div>
-                  <div class="sunday-no-slots-msg hidden rounded-2xl bg-rose-50 border border-rose-200 p-3 text-xs font-semibold text-rose-900">
+                  <div class="sunday-no-slots-msg hidden rounded-2xl bg-rose-50 border border-rose-200 p-3 text-xs font-semibold text-rose-900 dark:bg-rose-950/40 dark:border-rose-900/60 dark:text-rose-300">
                     ⛔ No hay turnos de consulta ni spa los domingos (solo urgencias 24/7). Por
                     favor elige una fecha de lunes a sábado.
                   </div>
@@ -724,9 +752,9 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
           </div>
 
           <!-- Barra de selección activa con validación estricta -->
-          <div class="mt-8 rounded-2xl border border-teal-200 bg-gradient-to-r from-teal-800 to-teal-900 p-5 text-white shadow-lg sm:flex sm:items-center sm:justify-between">
+          <div class="mt-8 rounded-2xl border border-teal-200 bg-gradient-to-r from-teal-800 to-teal-900 p-5 text-white shadow-lg sm:flex sm:items-center sm:justify-between dark:border-teal-800 dark:from-teal-900 dark:to-slate-900">
             <div>
-              <p class="text-xs uppercase tracking-wider text-teal-200 font-bold">
+              <p class="text-xs uppercase tracking-wider text-teal-200 font-bold dark:text-teal-300">
                 Cita Médica Seleccionada:
               </p>
               <p id="selection-text" class="text-base font-black text-white mt-0.5">
@@ -737,7 +765,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
               type="button"
               id="btn-goto-step-3"
               disabled
-              class="mt-4 sm:mt-0 inline-flex items-center gap-2 rounded-xl bg-teal-400 px-6 py-3 text-sm font-bold text-slate-950 shadow-md transition disabled:opacity-40 disabled:cursor-not-allowed hover:bg-teal-300 active:scale-98"
+              class="mt-4 sm:mt-0 inline-flex items-center gap-2 rounded-xl bg-teal-400 px-6 py-3 text-sm font-bold text-slate-950 shadow-md transition disabled:opacity-40 disabled:cursor-not-allowed hover:bg-teal-300 active:scale-98 dark:bg-teal-400 dark:text-slate-950"
             >
               Continuar con mis Datos
               <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -757,36 +785,41 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
         <!-- ========================================== -->
         <section
           id="step-3"
-          class="step-container hidden rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-10"
+          class="step-container hidden rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-10 dark:border-slate-800 dark:bg-slate-900"
         >
-          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-slate-200/80 pb-6">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-slate-200/80 pb-6 dark:border-slate-800">
             <div>
-              <span class="rounded-full bg-teal-100 px-3 py-1 text-xs font-bold text-teal-800 uppercase tracking-wider">
+              <span class="rounded-full bg-teal-100 px-3 py-1 text-xs font-bold text-teal-800 uppercase tracking-wider dark:bg-teal-950/70 dark:text-teal-300">
                 Paso 3 de 4
               </span>
-              <h2 class="mt-2 text-2xl font-extrabold text-slate-900">
+              <h2 class="mt-2 text-2xl font-extrabold text-slate-900 dark:text-white">
                 Datos del Tutor y Paciente
               </h2>
-              <p class="text-xs text-slate-500 mt-0.5">
+              <p class="text-xs text-slate-500 mt-0.5 dark:text-slate-400">
                 Ingresa los datos para registrar la ficha médica de tu mascota.
               </p>
             </div>
             <button
               type="button"
               id="btn-back-step-2"
-              class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-teal-700 transition"
+              class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-teal-700 transition dark:text-slate-400 dark:hover:text-teal-300"
             >
               ← Cambiar Médico u Hora
             </button>
           </div>
 
           <!-- Resumen de la reserva elegida -->
-          <div class="mt-6 rounded-2xl bg-teal-50/70 border border-teal-200 p-4">
+          <div class="mt-6 rounded-2xl bg-teal-50/70 border border-teal-200 p-4 dark:border-teal-900/60 dark:bg-teal-950/40">
             <div class="flex items-center gap-3">
               <span class="text-2xl">📋</span>
               <div>
-                <p class="text-xs font-bold uppercase text-teal-800">Cita en Coordinación:</p>
-                <p id="booking-badge-summary" class="text-sm font-extrabold text-teal-950">
+                <p class="text-xs font-bold uppercase text-teal-800 dark:text-teal-300">
+                  Cita en Coordinación:
+                </p>
+                <p
+                  id="booking-badge-summary"
+                  class="text-sm font-extrabold text-teal-950 dark:text-teal-200"
+                >
                   Dra. Valentina Muñoz · Jueves 12 Nov · 10:00 hrs · Sede Casa Matriz
                 </p>
               </div>
@@ -796,7 +829,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
           <!-- Banner de especie autoseleccionada por contexto -->
           <div
             id="species-autofill-banner"
-            class="mt-4 rounded-xl bg-cyan-50 border border-cyan-200 p-3 text-xs text-cyan-900 flex items-center gap-2"
+            class="mt-4 rounded-xl bg-cyan-50 border border-cyan-200 p-3 text-xs text-cyan-900 flex items-center gap-2 dark:border-cyan-900/60 dark:bg-cyan-950/40 dark:text-cyan-300"
           >
             <span>💡</span>
             <span>
@@ -825,7 +858,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
               <div>
                 <label
                   for="b-owner-name"
-                  class="block text-xs font-bold text-slate-700 uppercase tracking-wider"
+                  class="block text-xs font-bold text-slate-700 uppercase tracking-wider dark:text-slate-300"
                 >
                   Tu Nombre Completo <span class="text-rose-500">*</span>
                 </label>
@@ -837,7 +870,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                   maxlength="100"
                   aria-describedby="b-err-owner-name"
                   placeholder="Ej. Marcela Contreras"
-                  class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20"
+                  class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:focus:border-teal-400"
                 />
                 <p class="error-msg mt-1 hidden text-xs text-rose-600" id="b-err-owner-name">
                   Ingresa tu nombre completo.
@@ -847,7 +880,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
               <div>
                 <label
                   for="b-owner-phone"
-                  class="block text-xs font-bold text-slate-700 uppercase tracking-wider"
+                  class="block text-xs font-bold text-slate-700 uppercase tracking-wider dark:text-slate-300"
                 >
                   WhatsApp o Teléfono <span class="text-rose-500">*</span>
                 </label>
@@ -859,7 +892,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                   pattern="^[0-9+ ]{8,15}$"
                   aria-describedby="b-err-owner-phone"
                   placeholder="Ej. +56 9 8765 4321"
-                  class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20"
+                  class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:focus:border-teal-400"
                 />
                 <p class="error-msg mt-1 hidden text-xs text-rose-600" id="b-err-owner-phone">
                   Ingresa un número telefónico válido (8 a 15 dígitos).
@@ -871,7 +904,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
               <div>
                 <label
                   for="b-owner-email"
-                  class="block text-xs font-bold text-slate-700 uppercase tracking-wider"
+                  class="block text-xs font-bold text-slate-700 uppercase tracking-wider dark:text-slate-300"
                 >
                   Correo Electrónico <span class="text-rose-500">*</span>
                 </label>
@@ -882,7 +915,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                   maxlength="120"
                   aria-describedby="b-err-owner-email"
                   placeholder="marcela@ejemplo.cl"
-                  class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20"
+                  class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:focus:border-teal-400"
                 />
                 <p class="error-msg mt-1 hidden text-xs text-rose-600" id="b-err-owner-email">
                   Ingresa un correo electrónico válido.
@@ -892,7 +925,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
               <div>
                 <label
                   for="b-pet-name"
-                  class="block text-xs font-bold text-slate-700 uppercase tracking-wider"
+                  class="block text-xs font-bold text-slate-700 uppercase tracking-wider dark:text-slate-300"
                 >
                   Nombre de tu Mascota <span class="text-rose-500">*</span>
                 </label>
@@ -903,7 +936,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                   maxlength="100"
                   aria-describedby="b-err-pet-name"
                   placeholder="Ej. Simón, Luna, Toby..."
-                  class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20"
+                  class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:focus:border-teal-400"
                 />
                 <p class="error-msg mt-1 hidden text-xs text-rose-600" id="b-err-pet-name">
                   Indica el nombre de la mascota.
@@ -915,7 +948,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
               <div>
                 <label
                   for="b-pet-species"
-                  class="block text-xs font-bold text-slate-700 uppercase tracking-wider"
+                  class="block text-xs font-bold text-slate-700 uppercase tracking-wider dark:text-slate-300"
                 >
                   Especie de la Mascota <span class="text-rose-500">*</span>
                 </label>
@@ -923,7 +956,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                   id="b-pet-species"
                   required
                   aria-describedby="b-err-pet-species"
-                  class="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20 transition"
+                  class="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20 transition dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:focus:border-teal-400"
                 >
                   <option value="">Selecciona...</option>
                   <option value="Perro (Canino)">Perro (Canino)</option>
@@ -935,7 +968,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 <!-- Aviso de bloqueo estricto si el servicio es exclusivo de una especie -->
                 <div
                   id="species-locked-msg"
-                  class="mt-2 hidden rounded-xl bg-amber-50 p-2.5 text-xs text-amber-900 border border-amber-300 flex items-start gap-2"
+                  class="mt-2 hidden rounded-xl bg-amber-50 p-2.5 text-xs text-amber-900 border border-amber-300 flex items-start gap-2 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-300"
                 >
                   <span class="text-sm">🔒</span>
                   <span>
@@ -954,7 +987,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
               <div>
                 <label
                   for="b-pet-age"
-                  class="block text-xs font-bold text-slate-700 uppercase tracking-wider"
+                  class="block text-xs font-bold text-slate-700 uppercase tracking-wider dark:text-slate-300"
                 >
                   Edad Aproximada
                 </label>
@@ -963,7 +996,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                   id="b-pet-age"
                   maxlength="50"
                   placeholder="Ej. 2 años, 5 meses..."
-                  class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20"
+                  class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:focus:border-teal-400"
                 />
               </div>
             </div>
@@ -971,7 +1004,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             <div>
               <label
                 for="b-notes"
-                class="block text-xs font-bold text-slate-700 uppercase tracking-wider"
+                class="block text-xs font-bold text-slate-700 uppercase tracking-wider dark:text-slate-300"
               >
                 Motivo o Síntomas Observados
               </label>
@@ -980,7 +1013,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 rows="3"
                 maxlength="800"
                 placeholder="Indícanos si viene por control preventivo, decaimiento, vómitos, cojera, vacuna anual, corte de pelo, etc."
-                class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20"
+                class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:focus:border-teal-400"
               ></textarea>
             </div>
 
@@ -995,12 +1028,12 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
               <button
                 type="submit"
                 id="btn-confirm-booking"
-                class="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-8 py-3.5 text-base font-bold text-white shadow-md transition hover:bg-teal-700 focus-visible:outline-2 focus-visible:outline-teal-600 active:scale-98 disabled:opacity-60"
+                class="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-8 py-3.5 text-base font-bold text-white shadow-md transition hover:bg-teal-700 focus-visible:outline-2 focus-visible:outline-teal-600 active:scale-98 disabled:opacity-60 dark:bg-teal-500 dark:text-slate-950 dark:hover:bg-teal-400"
               >
                 <span id="btn-booking-text">Confirmar mi Reserva de Cita</span>
                 <svg
                   id="btn-booking-spinner"
-                  class="ml-2 hidden h-5 w-5 animate-spin text-white"
+                  class="ml-2 hidden h-5 w-5 animate-spin text-white dark:text-slate-950"
                   fill="none"
                   viewBox="0 0 24 24"
                 >
@@ -1028,9 +1061,9 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
         <!-- ========================================== -->
         <section
           id="step-4"
-          class="step-container hidden rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-10 text-center"
+          class="step-container hidden rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-10 text-center dark:border-slate-800 dark:bg-slate-900"
         >
-          <div class="no-print mx-auto flex h-20 w-20 items-center justify-center rounded-3xl bg-emerald-100 text-emerald-600 shadow-md">
+          <div class="no-print mx-auto flex h-20 w-20 items-center justify-center rounded-3xl bg-emerald-100 text-emerald-600 shadow-md dark:bg-emerald-950/70 dark:text-emerald-300">
             <svg class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 stroke-linecap="round"
@@ -1041,35 +1074,38 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             </svg>
           </div>
 
-          <span class="no-print mt-5 inline-block rounded-full bg-emerald-50 px-3.5 py-1 text-xs font-bold text-emerald-800 uppercase tracking-wider">
+          <span class="no-print mt-5 inline-block rounded-full bg-emerald-50 px-3.5 py-1 text-xs font-bold text-emerald-800 uppercase tracking-wider dark:bg-emerald-950/70 dark:text-emerald-300">
             ¡Reserva Confirmada con Éxito!
           </span>
 
-          <h2 class="no-print mt-2 text-3xl font-extrabold text-slate-900 sm:text-4xl">
+          <h2 class="no-print mt-2 text-3xl font-extrabold text-slate-900 sm:text-4xl dark:text-white">
             La cita de tu mascota ha sido agendada
           </h2>
-          <p class="no-print mt-2 text-sm text-slate-600 max-w-lg mx-auto">
+          <p class="no-print mt-2 text-sm text-slate-600 max-w-lg mx-auto dark:text-slate-400">
             Hemos registrado tu hora médica y enviado el comprobante a tu correo y WhatsApp.
           </p>
 
           <!-- Tarjeta de Comprobante Oficial Imprimible Exclusiva (#printable-receipt) -->
           <div
             id="printable-receipt"
-            class="mt-8 mx-auto max-w-xl rounded-3xl border-2 border-teal-600 bg-white p-6 sm:p-8 text-left shadow-lg text-slate-900"
+            class="mt-8 mx-auto max-w-xl rounded-3xl border-2 border-teal-600 bg-white p-6 sm:p-8 text-left shadow-lg text-slate-900 dark:border-teal-500 dark:bg-slate-900/90 dark:text-slate-100"
           >
             <!-- Cabecera del comprobante con Logo -->
-            <div class="flex items-center justify-between border-b-2 border-teal-600 pb-4">
-              <div class="flex items-center gap-2 text-lg font-black text-slate-900">
+            <div class="flex items-center justify-between border-b-2 border-teal-600 pb-4 dark:border-teal-500">
+              <div class="flex items-center gap-2 text-lg font-black text-slate-900 dark:text-white">
                 <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-teal-600 text-white">
                   🐾
                 </span>
                 <span>Clínica Veterinaria Huellitas</span>
               </div>
               <div class="text-right">
-                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">
+                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider block dark:text-slate-400">
                   Código de Reserva
                 </span>
-                <span id="res-code" class="font-mono text-base font-black text-teal-700">
+                <span
+                  id="res-code"
+                  class="font-mono text-base font-black text-teal-700 dark:text-teal-400"
+                >
                   #HUE-2026-8942
                 </span>
               </div>
@@ -1080,45 +1116,54 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
               <!-- Datos de la Cita (8 cols) -->
               <dl class="sm:col-span-8 space-y-3 text-xs">
                 <div>
-                  <dt class="font-semibold text-slate-500 uppercase tracking-wider text-[10px]">
+                  <dt class="font-semibold text-slate-500 uppercase tracking-wider text-[10px] dark:text-slate-400">
                     Paciente / Mascota:
                   </dt>
-                  <dd id="res-pet" class="font-bold text-slate-900 text-sm mt-0.5">
+                  <dd id="res-pet" class="font-bold text-slate-900 text-sm mt-0.5 dark:text-white">
                     Simón (Perro)
                   </dd>
                 </div>
                 <div>
-                  <dt class="font-semibold text-slate-500 uppercase tracking-wider text-[10px]">
+                  <dt class="font-semibold text-slate-500 uppercase tracking-wider text-[10px] dark:text-slate-400">
                     Tutor Responsable:
                   </dt>
-                  <dd id="res-owner" class="font-bold text-slate-900 text-sm mt-0.5">
+                  <dd
+                    id="res-owner"
+                    class="font-bold text-slate-900 text-sm mt-0.5 dark:text-white"
+                  >
                     Marcela Contreras (+56 9 8765 4321)
                   </dd>
                 </div>
                 <div>
-                  <dt class="font-semibold text-slate-500 uppercase tracking-wider text-[10px]">
+                  <dt class="font-semibold text-slate-500 uppercase tracking-wider text-[10px] dark:text-slate-400">
                     Profesional Asignado:
                   </dt>
-                  <dd id="res-doctor" class="font-bold text-teal-700 text-sm mt-0.5">
+                  <dd
+                    id="res-doctor"
+                    class="font-bold text-teal-700 text-sm mt-0.5 dark:text-teal-400"
+                  >
                     Dra. Valentina Muñoz
                   </dd>
                 </div>
                 <div>
-                  <dt class="font-semibold text-slate-500 uppercase tracking-wider text-[10px]">
+                  <dt class="font-semibold text-slate-500 uppercase tracking-wider text-[10px] dark:text-slate-400">
                     Fecha y Horario:
                   </dt>
-                  <dd id="res-datetime" class="font-bold text-slate-900 text-sm mt-0.5">
+                  <dd
+                    id="res-datetime"
+                    class="font-bold text-slate-900 text-sm mt-0.5 dark:text-white"
+                  >
                     Jueves 12 Nov · 10:00 hrs
                   </dd>
                 </div>
               </dl>
 
               <!-- Código QR Vectorial Dinámico de Recepción (4 cols) -->
-              <div class="sm:col-span-4 flex flex-col items-center justify-center rounded-2xl bg-slate-50 border border-slate-200 p-3 text-center">
+              <div class="sm:col-span-4 flex flex-col items-center justify-center rounded-2xl bg-slate-50 border border-slate-200 p-3 text-center dark:bg-slate-800 dark:border-slate-700">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 100 100"
-                  class="h-28 w-28 text-slate-900 fill-current"
+                  class="h-28 w-28 text-slate-900 fill-current dark:text-slate-100"
                   aria-label="Código QR de la reserva"
                 >
                   <!-- QR SVG Mockup Vectorial de Alta Fidelidad -->
@@ -1171,17 +1216,19 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                   <rect x="42" y="82" width="8" height="10" fill="currentColor" />
                   <rect x="84" y="84" width="8" height="8" fill="currentColor" />
                 </svg>
-                <span class="mt-2 text-[10px] font-bold text-slate-500 uppercase tracking-tight">
+                <span class="mt-2 text-[10px] font-bold text-slate-500 uppercase tracking-tight dark:text-slate-400">
                   Pase Rápido Box
                 </span>
               </div>
             </div>
 
             <!-- Pie del Comprobante -->
-            <div class="mt-6 border-t border-slate-200 pt-3 text-[11px] text-slate-600">
-              <p class="font-bold text-slate-800">Sede: Casa Matriz Providencia</p>
+            <div class="mt-6 border-t border-slate-200 pt-3 text-[11px] text-slate-600 dark:border-slate-800 dark:text-slate-400">
+              <p class="font-bold text-slate-800 dark:text-slate-200">
+                Sede: Casa Matriz Providencia
+              </p>
               <p>Av. Principal de las Mascotas 1234 · Tel: +56 9 1234 5678</p>
-              <p class="text-[10px] text-teal-800 font-semibold mt-1">
+              <p class="text-[10px] text-teal-800 font-semibold mt-1 dark:text-teal-400">
                 🚗 Presenta este código en recepción para ingreso preferencial al estacionamiento.
               </p>
             </div>
@@ -1195,13 +1242,13 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             <button
               type="button"
               onclick="window.print()"
-              class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-teal-600 bg-white px-7 py-3.5 text-sm font-bold text-teal-800 shadow-sm hover:bg-teal-50 transition"
+              class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-teal-600 bg-white px-7 py-3.5 text-sm font-bold text-teal-800 shadow-sm hover:bg-teal-50 transition dark:border-teal-500 dark:bg-slate-800 dark:text-teal-300 dark:hover:bg-slate-700"
             >
               🖨️ Imprimir Solo Comprobante Médico (PDF)
             </button>
             <a
               href="/"
-              class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-teal-600 px-7 py-3.5 text-sm font-bold text-white shadow-md hover:bg-teal-700 transition"
+              class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-teal-600 px-7 py-3.5 text-sm font-bold text-white shadow-md hover:bg-teal-700 transition dark:bg-teal-500 dark:text-slate-950 dark:hover:bg-teal-400"
             >
               Volver a la Página Principal
             </a>
@@ -1241,20 +1288,67 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
       const label = indicator.querySelector('.step-label');
 
       if (step === stepNumber) {
-        badge?.classList.remove('bg-slate-100', 'text-slate-500', 'bg-emerald-600');
-        badge?.classList.add('bg-teal-600', 'text-white');
-        label?.classList.remove('text-slate-500', 'text-emerald-700');
-        label?.classList.add('text-teal-700', 'font-bold');
+        badge?.classList.remove(
+          'bg-slate-100',
+          'text-slate-500',
+          'bg-emerald-600',
+          'dark:bg-slate-800',
+          'dark:text-slate-400'
+        );
+        badge?.classList.add(
+          'bg-teal-600',
+          'text-white',
+          'dark:bg-teal-500',
+          'dark:text-slate-950'
+        );
+        label?.classList.remove('text-slate-500', 'text-emerald-700', 'dark:text-slate-400');
+        label?.classList.add('text-teal-700', 'font-bold', 'dark:text-teal-300');
       } else if (step < stepNumber) {
-        badge?.classList.remove('bg-slate-100', 'text-slate-500', 'bg-teal-600');
-        badge?.classList.add('bg-emerald-600', 'text-white');
-        label?.classList.remove('text-teal-700', 'text-slate-500');
-        label?.classList.add('text-emerald-700', 'font-medium');
+        badge?.classList.remove(
+          'bg-slate-100',
+          'text-slate-500',
+          'bg-teal-600',
+          'dark:bg-slate-800',
+          'dark:text-slate-400',
+          'dark:bg-teal-500',
+          'dark:text-slate-950'
+        );
+        badge?.classList.add(
+          'bg-emerald-600',
+          'text-white',
+          'dark:bg-emerald-500',
+          'dark:text-slate-950'
+        );
+        label?.classList.remove(
+          'text-teal-700',
+          'text-slate-500',
+          'dark:text-teal-300',
+          'dark:text-slate-400'
+        );
+        label?.classList.add('text-emerald-700', 'font-medium', 'dark:text-emerald-300');
       } else {
-        badge?.classList.remove('bg-teal-600', 'bg-emerald-600', 'text-white');
-        badge?.classList.add('bg-slate-100', 'text-slate-500');
-        label?.classList.remove('text-teal-700', 'text-emerald-700', 'font-bold');
-        label?.classList.add('text-slate-500', 'font-medium');
+        badge?.classList.remove(
+          'bg-teal-600',
+          'bg-emerald-600',
+          'text-white',
+          'dark:bg-teal-500',
+          'dark:bg-emerald-500',
+          'dark:text-slate-950'
+        );
+        badge?.classList.add(
+          'bg-slate-100',
+          'text-slate-500',
+          'dark:bg-slate-800',
+          'dark:text-slate-400'
+        );
+        label?.classList.remove(
+          'text-teal-700',
+          'text-emerald-700',
+          'font-bold',
+          'dark:text-teal-300',
+          'dark:text-emerald-300'
+        );
+        label?.classList.add('text-slate-500', 'font-medium', 'dark:text-slate-400');
       }
     });
 
@@ -1266,11 +1360,27 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
   areaCards.forEach((card) => {
     card.addEventListener('click', () => {
       areaCards.forEach((c) => {
-        c.classList.remove('border-teal-500', 'bg-teal-50/50', 'ring-2', 'ring-teal-500/20');
-        c.classList.add('border-slate-200');
+        c.classList.remove(
+          'border-teal-500',
+          'bg-teal-50/50',
+          'ring-2',
+          'ring-teal-500/20',
+          'dark:border-teal-400',
+          'dark:bg-teal-950/40',
+          'dark:ring-teal-400/20'
+        );
+        c.classList.add('border-slate-200', 'dark:border-slate-800');
       });
-      card.classList.remove('border-slate-200');
-      card.classList.add('border-teal-500', 'bg-teal-50/50', 'ring-2', 'ring-teal-500/20');
+      card.classList.remove('border-slate-200', 'dark:border-slate-800');
+      card.classList.add(
+        'border-teal-500',
+        'bg-teal-50/50',
+        'ring-2',
+        'ring-teal-500/20',
+        'dark:border-teal-400',
+        'dark:bg-teal-950/40',
+        'dark:ring-teal-400/20'
+      );
 
       const radio = card.querySelector('input[type="radio"]');
       if (radio) {
@@ -1417,11 +1527,39 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
     // Sincronizar pastillas
     dateChips.forEach((chip) => {
       if (chip.getAttribute('data-date') === val) {
-        chip.classList.remove('border-slate-200', 'bg-white', 'text-slate-700');
-        chip.classList.add('border-teal-600', 'bg-teal-600', 'text-white');
+        chip.classList.remove(
+          'border-slate-200',
+          'bg-white',
+          'text-slate-700',
+          'dark:border-slate-700',
+          'dark:bg-slate-800',
+          'dark:text-slate-300'
+        );
+        chip.classList.add(
+          'border-teal-600',
+          'bg-teal-600',
+          'text-white',
+          'dark:border-teal-500',
+          'dark:bg-teal-500',
+          'dark:text-slate-950'
+        );
       } else {
-        chip.classList.remove('border-teal-600', 'bg-teal-600', 'text-white');
-        chip.classList.add('border-slate-200', 'bg-white', 'text-slate-700');
+        chip.classList.remove(
+          'border-teal-600',
+          'bg-teal-600',
+          'text-white',
+          'dark:border-teal-500',
+          'dark:bg-teal-500',
+          'dark:text-slate-950'
+        );
+        chip.classList.add(
+          'border-slate-200',
+          'bg-white',
+          'text-slate-700',
+          'dark:border-slate-700',
+          'dark:bg-slate-800',
+          'dark:text-slate-300'
+        );
       }
     });
 
@@ -1434,11 +1572,39 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
   dateChips.forEach((chip) => {
     chip.addEventListener('click', () => {
       dateChips.forEach((c) => {
-        c.classList.remove('border-teal-600', 'bg-teal-600', 'text-white');
-        c.classList.add('border-slate-200', 'bg-white', 'text-slate-700');
+        c.classList.remove(
+          'border-teal-600',
+          'bg-teal-600',
+          'text-white',
+          'dark:border-teal-500',
+          'dark:bg-teal-500',
+          'dark:text-slate-950'
+        );
+        c.classList.add(
+          'border-slate-200',
+          'bg-white',
+          'text-slate-700',
+          'dark:border-slate-700',
+          'dark:bg-slate-800',
+          'dark:text-slate-300'
+        );
       });
-      chip.classList.remove('border-slate-200', 'bg-white', 'text-slate-700');
-      chip.classList.add('border-teal-600', 'bg-teal-600', 'text-white');
+      chip.classList.remove(
+        'border-slate-200',
+        'bg-white',
+        'text-slate-700',
+        'dark:border-slate-700',
+        'dark:bg-slate-800',
+        'dark:text-slate-300'
+      );
+      chip.classList.add(
+        'border-teal-600',
+        'bg-teal-600',
+        'text-white',
+        'dark:border-teal-500',
+        'dark:bg-teal-500',
+        'dark:text-slate-950'
+      );
 
       const dateVal = chip.getAttribute('data-date');
       const dateLabel = chip.getAttribute('data-label');
@@ -1453,11 +1619,41 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
   slotButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
       slotButtons.forEach((b) => {
-        b.classList.remove('border-teal-600', 'bg-teal-600', 'text-white', 'shadow-md');
-        b.classList.add('border-slate-300', 'bg-slate-50/70', 'text-slate-800');
+        b.classList.remove(
+          'border-teal-600',
+          'bg-teal-600',
+          'text-white',
+          'shadow-md',
+          'dark:border-teal-400',
+          'dark:bg-teal-500',
+          'dark:text-slate-950'
+        );
+        b.classList.add(
+          'border-slate-300',
+          'bg-slate-50/70',
+          'text-slate-800',
+          'dark:border-slate-700',
+          'dark:bg-slate-800/80',
+          'dark:text-slate-200'
+        );
       });
-      btn.classList.remove('border-slate-300', 'bg-slate-50/70', 'text-slate-800');
-      btn.classList.add('border-teal-600', 'bg-teal-600', 'text-white', 'shadow-md');
+      btn.classList.remove(
+        'border-slate-300',
+        'bg-slate-50/70',
+        'text-slate-800',
+        'dark:border-slate-700',
+        'dark:bg-slate-800/80',
+        'dark:text-slate-200'
+      );
+      btn.classList.add(
+        'border-teal-600',
+        'bg-teal-600',
+        'text-white',
+        'shadow-md',
+        'dark:border-teal-400',
+        'dark:bg-teal-500',
+        'dark:text-slate-950'
+      );
 
       bookingState.doctor = btn.getAttribute('data-doctor') || '';
       bookingState.time = btn.getAttribute('data-time') || '';

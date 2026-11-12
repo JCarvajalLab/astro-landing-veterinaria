@@ -19,14 +19,14 @@
 
   <!-- Contenedor del Modal -->
   <div
-    class="relative w-full max-w-lg transform overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 text-left shadow-2xl transition-all scale-95"
+    class="relative w-full max-w-lg transform overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 text-left shadow-2xl transition-all scale-95 dark:border-slate-800 dark:bg-slate-900"
     id="leave-modal-panel"
   >
     <!-- Botón cerrar (X) -->
     <button
       type="button"
       id="btn-close-leave-modal"
-      class="absolute top-5 right-5 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-800 transition focus-visible:outline-2 focus-visible:outline-teal-600"
+      class="absolute top-5 right-5 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-800 transition focus-visible:outline-2 focus-visible:outline-teal-600 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-200"
       aria-label="Cerrar ventana"
     >
       <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -41,7 +41,7 @@
 
     <!-- Encabezado con Icono de Advertencia Amigable -->
     <div class="flex items-center gap-3.5">
-      <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-amber-100 text-amber-700 shadow-xs">
+      <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-amber-100 text-amber-700 shadow-xs dark:bg-amber-950/70 dark:text-amber-400">
         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path
             stroke-linecap="round"
@@ -52,10 +52,13 @@
         </svg>
       </span>
       <div>
-        <span class="rounded-md bg-amber-100 px-2 py-0.5 text-[10px] font-bold text-amber-800 uppercase tracking-wider">
+        <span class="rounded-md bg-amber-100 px-2 py-0.5 text-[10px] font-bold text-amber-800 uppercase tracking-wider dark:bg-amber-950/70 dark:text-amber-300">
           Reserva en Curso
         </span>
-        <h3 id="leave-modal-title" class="text-xl font-extrabold text-slate-900 mt-0.5">
+        <h3
+          id="leave-modal-title"
+          class="text-xl font-extrabold text-slate-900 mt-0.5 dark:text-white"
+        >
           ¿Deseas salir del agendamiento?
         </h3>
       </div>
@@ -63,19 +66,19 @@
 
     <!-- Contenido y Pregunta -->
     <div class="mt-4">
-      <p id="leave-modal-desc" class="text-base font-bold text-slate-900">
+      <p id="leave-modal-desc" class="text-base font-bold text-slate-900 dark:text-white">
         Tienes una reserva de hora médica iniciada.
       </p>
-      <p class="mt-2 text-xs text-slate-600 leading-relaxed">
+      <p class="mt-2 text-xs text-slate-600 leading-relaxed dark:text-slate-400">
         Si sales ahora hacia la página principal u otra sección de la web,{' '}
-        <strong>se perderá el progreso de tu reserva</strong> (especialidad seleccionada,
-        profesional asignado y horario elegido).
+        <strong class="dark:text-slate-200">se perderá el progreso de tu reserva</strong>{' '}
+        (especialidad seleccionada, profesional asignado y horario elegido).
       </p>
 
-      <div class="mt-4 rounded-2xl border border-teal-200 bg-teal-50/70 p-3.5 text-xs text-teal-900">
+      <div class="mt-4 rounded-2xl border border-teal-200 bg-teal-50/70 p-3.5 text-xs text-teal-900 dark:border-teal-800/60 dark:bg-teal-950/40 dark:text-teal-300">
         <div class="flex items-center gap-2">
           <span class="text-base shrink-0">💡</span>
-          <p class="text-[11px] font-semibold text-teal-950">
+          <p class="text-[11px] font-semibold text-teal-950 dark:text-teal-200">
             Solo toma 1 minuto completar los datos de tu mascota y obtener tu comprobante con código
             QR.
           </p>
@@ -84,18 +87,18 @@
     </div>
 
     <!-- Acciones del Modal -->
-    <div class="mt-6 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-end gap-3 border-t border-slate-100 pt-5">
+    <div class="mt-6 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-end gap-3 border-t border-slate-100 pt-5 dark:border-slate-800">
       <button
         type="button"
         id="btn-confirm-leave"
-        class="inline-flex w-full sm:w-auto items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-xs font-bold text-slate-600 shadow-2xs hover:bg-slate-100 hover:text-slate-900 transition focus-visible:outline-2 focus-visible:outline-teal-600 active:scale-98"
+        class="inline-flex w-full sm:w-auto items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-xs font-bold text-slate-600 shadow-2xs hover:bg-slate-100 hover:text-slate-900 transition focus-visible:outline-2 focus-visible:outline-teal-600 active:scale-98 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-white"
       >
         Salir y Perder Progreso
       </button>
       <button
         type="button"
         id="btn-stay-booking"
-        class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-teal-600 px-6 py-2.5 text-xs font-bold text-white shadow-md hover:bg-teal-700 transition focus-visible:outline-2 focus-visible:outline-teal-600 active:scale-98"
+        class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-teal-600 px-6 py-2.5 text-xs font-bold text-white shadow-md hover:bg-teal-700 transition focus-visible:outline-2 focus-visible:outline-teal-600 active:scale-98 dark:bg-teal-500 dark:text-slate-950 dark:hover:bg-teal-400"
       >
         Continuar con mi Reserva →
       </button>

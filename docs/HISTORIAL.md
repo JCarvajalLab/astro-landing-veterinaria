@@ -13,14 +13,14 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Proyecto:** landing (veterinaria) — Landing page de una veterinaria
 - **Repositorio:** https://github.com/JCarvajalLab/astro-landing-veterinaria
 - **Última actualización:** 2026-11-12
-- **Fase activa:** `phase/05-launch` (Mejoras de calidez y empatía UX/UI aplicadas)
+- **Fase activa:** `phase/05-launch` (Mejoras de formulario y mapa completadas)
 - **Rama de trabajo:** `phase/05-launch`
-- **Último commit relevante:** `feat(ui): incorpora fotografia emotiva en hero badges de especie en servicios y boton flotante de urgencias`
+- **Último commit relevante:** `feat(ui): optimiza formulario de contacto a altura completa y agrega 2 niveles de zoom al mapa`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Landing completa con fotografía médica cálida en el Hero (`hero-pet.webp`) acompañada de badges flotantes y métricas de impacto, pastillas de especie en cada servicio (`🐶 Perros & 🐱 Gatos`), botón flotante de urgencias móviles 24/7 (`tel:+56912345678`), Portal de agendamiento clínico `/agendar` en 4 pasos, Modo Nocturno integral y SEO técnico completo.
-- **Qué está en progreso:** Revisión visual de las mejoras de calidez y preparación para cierre de Fase 5.
+- **Qué funciona:** Landing completa con formulario de contacto adaptado a altura completa sin espacios vacíos inferiores (filas balanceadas de nombre, correo, teléfono opcional, selector de motivo y mensaje amplio), mapa interactivo con 2 niveles extra de zoom centrado en Providencia, fotografía cálida en Hero, pastillas de especie en servicios y botón flotante de urgencias.
+- **Qué está en progreso:** Revisión visual final para cierre de Fase 5 y merge a `develop`.
 - **Bloqueos o problemas conocidos:** ninguno.
-- **Siguiente paso concreto:** Validar visualmente con el usuario; si se aprueba, proceder con el push a GitHub y merge hacia `develop`.
+- **Siguiente paso concreto:** Proceder con el push a GitHub y merge de `phase/05-launch` hacia `develop`.
 
 ## 2. Decisiones importantes
 

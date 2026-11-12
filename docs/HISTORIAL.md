@@ -16,7 +16,7 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Fase activa:** `phase/05-launch` (Proyecto 1 completado al 100% y lanzado en `v1.0.0`)
 - **Rama de trabajo:** `develop` (rama de integración)
 - **Último commit relevante:** `release(v1.0.0): lanzamiento oficial de landing veterinaria huellitas y portal clinico de agendamiento`
-- **Despliegue:** servidor local activo en `http://localhost:4321/`; producción en Cloudflare Pages en `https://vet-huellitas.pages.dev` (vinculado a GitHub); repositorio sincronizado en GitHub con tag oficial `v1.0.0`.
+- **Despliegue:** servidor local activo en `http://localhost:4321/`; producción en Cloudflare Pages en `https://huellitas-vet.pages.dev` (vinculado a GitHub); repositorio sincronizado en GitHub con tag oficial `v1.0.0`.
 - **Qué funciona:** Landing page veterinaria completa con portal de agendamiento clínico `/agendar` en 4 pasos, fotografía médica cálida con paciente en el Hero (`hero-pet.webp`), badges flotantes de credibilidad, pastillas de especie en servicios (`🐶 Perros & 🐱 Gatos`), botón flotante de urgencias para móviles, formulario de contacto a altura completa, mapa interactivo con zoom cercano en Providencia, modo nocturno integral, SEO técnico (Open Graph, Twitter Cards, Schema.org JSON-LD `VeterinaryCare`, `robots.txt`) y 0 vulnerabilidades.
 - **Qué está en progreso:** Inicio del Proyecto 2 del plan general (**Portafolio con casos de estudio**).
 - **Bloqueos o problemas conocidos:** ninguno.

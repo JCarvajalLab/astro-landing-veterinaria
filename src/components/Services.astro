@@ -1,0 +1,259 @@
+---
+const services = [
+  {
+    title: 'Consulta Médica General',
+    tag: 'Preventiva',
+    description:
+      'Evaluación integral del estado físico, nutricional y comportamental de tu mascota, con enfoque preventivo en todas sus etapas de vida.',
+    features: [
+      'Revisión clínica completa',
+      'Planes para cachorros y seniors',
+      'Control de peso y nutrición',
+    ],
+    icon: 'stethoscope',
+  },
+  {
+    title: 'Vacunación & Desparasitación',
+    tag: 'Esencial',
+    description:
+      'Protege a tu compañero contra virus y parásitos con calendarios de inmunización oficiales y antiparasitarios de última generación.',
+    features: [
+      'Vacunas antirrábica, óctuple y triple felina',
+      'Desparasitación interna y externa',
+      'Certificados de viaje',
+    ],
+    icon: 'shield',
+  },
+  {
+    title: 'Cirugía & Pabellón Especializado',
+    tag: 'Alta Complejidad',
+    description:
+      'Quirófano completamente equipado para procedimientos de tejidos blandos, esterilizaciones y traumatología con anestesia inhalatoria segura.',
+    features: [
+      'Monitoreo multiparamétrico',
+      'Esterilización y castración',
+      'Manejo multimodal del dolor',
+    ],
+    icon: 'activity',
+  },
+  {
+    title: 'Peluquería & Spa Veterinario',
+    tag: 'Bienestar & Higiene',
+    description:
+      'Servicio de estética canina y felina con enfoque Fear Free (libre de estrés), baños medicados, corte higiénico y corte de uñas profesional.',
+    features: [
+      'Baños dermatológicos específicos',
+      'Cortes de raza y deslanado',
+      'Limpieza de oídos y glándulas',
+    ],
+    icon: 'sparkles',
+  },
+  {
+    title: 'Urgencias Médicas 24/7',
+    tag: 'Atención Inmediata',
+    description:
+      'Equipo médico de guardia permanente listo para estabilizar y tratar cualquier emergencia crítica a cualquier hora del día o la noche.',
+    features: [
+      'Triage médico inmediato',
+      'Oxigenoterapia y fluidoterapia',
+      'Hospitalización con vigilancia 24h',
+    ],
+    icon: 'emergency',
+  },
+  {
+    title: 'Diagnóstico & Laboratorio',
+    tag: 'Tecnología',
+    description:
+      'Resultados rápidos y certeros con ecografía abdominal de alta resolución, radiografía digital y exámenes sanguíneos en el día.',
+    features: [
+      'Ecografías veterinarias',
+      'Rayos X digitales de baja radiación',
+      'Perfil bioquímico y hemogramas',
+    ],
+    icon: 'microscope',
+  },
+];
+---
+
+<section id="servicios" class="border-t border-slate-200/80 bg-white py-16 sm:py-24">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <span class="inline-block rounded-full bg-teal-100 px-3 py-1 text-xs font-bold tracking-wider text-teal-800 uppercase">
+        Nuestras Especialidades
+      </span>
+      <h2 class="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+        Servicios integrales para la salud de tu mascota
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-base text-slate-600 sm:text-lg">
+        Brindamos atención clínica de primer nivel con equipamiento moderno y el cariño que tu
+        animal merece.
+      </p>
+    </div>
+
+    <!-- Grid de tarjetas de servicios -->
+    <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {services.map((service) => (
+        <article class="group flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-slate-50/60 p-6 shadow-xs transition hover:-translate-y-1 hover:border-teal-300 hover:bg-white hover:shadow-lg">
+          <div>
+            <!-- Header de tarjeta -->
+            <div class="flex items-center justify-between">
+              <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-600 text-white shadow-sm transition group-hover:scale-105 group-hover:bg-teal-700">
+                {service.icon === 'stethoscope' && (
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+                    />
+                  </svg>
+                )}
+                {service.icon === 'shield' && (
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                    />
+                  </svg>
+                )}
+                {service.icon === 'activity' && (
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
+                  </svg>
+                )}
+                {service.icon === 'sparkles' && (
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                    />
+                  </svg>
+                )}
+                {service.icon === 'emergency' && (
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                )}
+                {service.icon === 'microscope' && (
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                    />
+                  </svg>
+                )}
+              </span>
+
+              <span class="rounded-full bg-slate-200/70 px-2.5 py-0.5 text-xs font-semibold text-slate-700">
+                {service.tag}
+              </span>
+            </div>
+
+            <!-- Título y descripción -->
+            <h3 class="mt-5 text-xl font-bold tracking-tight text-slate-900 group-hover:text-teal-700">
+              {service.title}
+            </h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">{service.description}</p>
+
+            <!-- Lista de características -->
+            <ul class="mt-4 space-y-2 border-t border-slate-200/60 pt-4 text-xs text-slate-600">
+              {service.features.map((feature) => (
+                <li class="flex items-center gap-2">
+                  <svg
+                    class="h-4 w-4 shrink-0 text-teal-600"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Enlace de acción -->
+          <div class="mt-6 pt-4 border-t border-slate-200/60">
+            <a
+              href="#contacto"
+              class="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-700 transition group-hover:text-teal-800"
+            >
+              Consultar disponibilidad
+              <svg
+                class="h-4 w-4 transition group-hover:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

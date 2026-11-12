@@ -12,13 +12,13 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 
 - **Proyecto:** landing (veterinaria) — Landing page de una veterinaria
 - **Repositorio:** https://github.com/JCarvajalLab/astro-landing-veterinaria
-- **Última actualización:** 2026-11-11
-- **Fase activa:** `phase/05-launch` (Fase 5 completada)
+- **Última actualización:** 2026-11-12
+- **Fase activa:** `phase/05-launch` (Ajustes de UI/UX completados)
 - **Rama de trabajo:** `phase/05-launch`
-- **Último commit relevante:** `3e81ff5 feat(seo): agrega meta tags open graph twitter cards schema jsonld y robots.txt`
+- **Último commit relevante:** `feat(ui): elimina franja azul superior del hero y reemplaza banner por mapa interactivo en contacto`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Landing completa y Portal de agendamiento clínico `/agendar` con Modo Nocturno (Dark Mode) integral, toggle accesible en Navbar con persistencia en `localStorage`, script inline anti-FOUC, SEO técnico (Open Graph, Twitter Cards, canonical URL), Schema.org JSON-LD (`VeterinaryCare`), `robots.txt` y validación de calidad 100% (0 errores ESLint, 0 vulnerabilidades en audit, build de producción en 800ms).
-- **Qué está en progreso:** Cierre de Fase 5 y merge a `develop` / `main`.
+- **Qué funciona:** Landing completa y Portal de agendamiento clínico `/agendar` con Modo Nocturno integral, Navbar moderna flotante limpia (sin recuadros oscuros rígidos), Hero con fondo unificado sin cortes ni franjas oscuras en modo nocturno, sección de Contacto optimizada con eliminación del banner redundante y adición de un mapa interactivo de Providencia (OpenStreetMap) con accesos directos a Google Maps y Waze.
+- **Qué está en progreso:** Cierre final de Fase 5 y merge a `develop` / `main`.
 - **Bloqueos o problemas conocidos:** ninguno.
 - **Siguiente paso concreto:** Proponer push a GitHub y merge de `phase/05-launch` hacia `develop`.
 
@@ -43,11 +43,19 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 | 2026-11-11 | Bloqueo absoluto de horas en domingos sin auto-reubicar | Si se elige domingo, se mantiene la fecha pero se ocultan las horas y se bloquea el avance con aviso de urgencias | Auto-reubicar al lunes más próximo |
 | 2026-11-11 | Modal de abandono de reserva contextual en `/agendar` | Solo advierte si el usuario ya avanzó en la reserva y cliquea la Navbar para salir; no interrumpe en la landing | Modal invasivo al entrar o en la landing |
 | 2026-11-11 | Script anti-FOUC síncrono y variante Tailwind v4 `.dark` | Evita parpadeo de pantalla blanca y sincroniza preferencia de OS con `localStorage` | Clases de tema en cliente asíncrono |
+| 2026-11-12 | Eliminar banner redundante en Contacto y añadir Mapa Interactivo | Mayor utilidad para ubicar la clínica en Providencia y menor saturación de CTAs repetitivos | Mantener banner verde redundante |
+| 2026-11-12 | Unificar fondo superior del Hero a `dark:bg-slate-950` | Elimina la franja horizontal azulada en los laterales de la Navbar flotante en modo nocturno | Forzar bordes o fondos artificiales al header |
 | 2026-11-11 | Marcado estructurado Schema.org tipo `VeterinaryCare` | Habilita Google Rich Results para dirección, teléfono, catálogo de especialidades y atención 24/7 | Sin datos estructurados |
 
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-12 · `phase/05-launch` · ajustes visuales de navbar, hero y mapa de contacto
+- **Qué:** Unificación del fondo nocturno en `Hero.astro` (`dark:bg-slate-950`) para eliminar la franja azul horizontal en los laterales de la Navbar flotante. En `Contact.astro`, remoción del banner redundante de agendamiento y creación de tarjeta dedicada con mapa interactivo de Providencia (OpenStreetMap), badges de llegada (Metro Los Leones, Estacionamiento) y enlaces directos de navegación con Google Maps y Waze.
+- **Archivos clave:** `src/components/Hero.astro`, `src/components/Contact.astro`, `src/components/Navbar.astro`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, qa, docs-seo
+- **Notas:** Se cumplió con las directrices de costo cero, accesibilidad iframe y estética moderna.
 
 ### 2026-11-11 · `phase/05-launch` · modo nocturno, seo técnico y lanzamiento (fase 5)
 - **Qué:** Implementación integral de Modo Nocturno (Dark Mode) con toggle accesible Sol/Luna en Navbar (versiones desktop y móvil), persistencia en `localStorage`, script inline anti-FOUC en `<head>`, directiva `@custom-variant dark` en Tailwind CSS v4 y adaptación visual exhaustiva en todas las secciones de la landing y en el portal `/agendar`. Incorporación de SEO técnico completo (Open Graph, Twitter Cards, `canonical` URL, `theme-color` dual para móviles), marcado estructurado Schema.org JSON-LD de tipo `VeterinaryCare`, `public/robots.txt` y auditoría de calidad con 0 errores de ESLint y 0 vulnerabilidades.

@@ -15,10 +15,10 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Última actualización:** 2026-11-11
 - **Fase activa:** `phase/03-sections`
 - **Rama de trabajo:** `phase/03-sections`
-- **Último commit relevante:** `feat(testimonials): amplia a 6 testimonios y agrega carrusel interactivo accesible`
+- **Último commit relevante:** `feat(ui): integra imagenes optimizadas con astro:assets en equipo y testimonios`
 - **Despliegue:** pendiente de vincular al servicio de hosting gratuito (Cloudflare Pages / Netlify)
-- **Qué funciona:** Todas las secciones de la landing page veterinaria (`Hero.astro`, `Services.astro`, `Team.astro`, `Testimonials.astro` con carrusel interactivo de 6 reseñas y autoplay pausado accesible, `Schedule.astro` rediseñado con agenda semanal y tarjeta nocturna de urgencias, `Faq.astro`), Layout con Navbar sticky y Footer clínico, y servidor de desarrollo activo.
-- **Qué está en progreso:** Revisión de vista previa por parte del usuario de las mejoras visuales en horarios y testimonios.
+- **Qué funciona:** Todas las secciones de la landing page veterinaria (`Hero.astro`, `Services.astro`, `Team.astro` con fotos del equipo médico optimizadas con `astro:assets`, `Testimonials.astro` con carrusel de 6 tutores y fotos reales, `Schedule.astro` rediseñado con agenda semanal y tarjeta nocturna de urgencias, `Faq.astro`), Layout con Navbar sticky y Footer clínico, y servidor de desarrollo activo.
+- **Qué está en progreso:** Revisión visual de retratos y carrusel interactivo por parte del usuario.
 - **Bloqueos o problemas conocidos:** ninguno.
 - **Siguiente paso concreto:** Validar la vista previa local con el usuario y proceder con la Fase 4 (Formulario de contacto interactivo y validación).
 

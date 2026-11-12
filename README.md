@@ -20,19 +20,62 @@
 
 ### Versión de Escritorio (Desktop)
 
-| Landing Page (Modo Claro) | Portal de Agendamiento (`/agendar`) |
-| :---: | :---: |
-| ![Hero Modo Claro](./docs/screenshots/01-hero-desktop.png) | ![Agendamiento Modo Claro](./docs/screenshots/02-agendamiento-desktop.png) |
+<table>
+  <thead>
+    <tr>
+      <th width="50%" align="center">Landing Page (Modo Claro)</th>
+      <th width="50%" align="center">Portal de Agendamiento (<code>/agendar</code>)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td width="50%" valign="top">
+        <img src="./docs/screenshots/01-hero-desktop.png" alt="Hero Modo Claro" width="100%" />
+      </td>
+      <td width="50%" valign="top">
+        <img src="./docs/screenshots/02-agendamiento-desktop.png" alt="Agendamiento Modo Claro" width="100%" />
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-| Landing Page (Modo Oscuro) |
-| :---: |
-| ![Hero Modo Oscuro](./docs/screenshots/03-hero-dark-desktop.png) |
+<table>
+  <thead>
+    <tr>
+      <th align="center">Landing Page (Modo Oscuro)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">
+        <img src="./docs/screenshots/03-hero-dark-desktop.png" alt="Hero Modo Oscuro" width="100%" />
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ### Versión Móvil (Samsung Galaxy A55 · 360 x 800)
 
-| Landing Móvil (Hero & Urgencias 24/7) | Agendamiento Móvil (`/agendar`) |
-| :---: | :---: |
-| ![Mobile Hero](./docs/screenshots/04-mobile-hero.png) | ![Mobile Agendar](./docs/screenshots/05-mobile-agendar.png) |
+<div align="center">
+  <table>
+    <thead>
+      <tr>
+        <th width="280" align="center">Landing Móvil (Hero & Urgencias 24/7)</th>
+        <th width="280" align="center">Agendamiento Móvil (<code>/agendar</code>)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td width="280" align="center" valign="top">
+          <img src="./docs/screenshots/04-mobile-hero.png" alt="Mobile Hero" width="260" />
+        </td>
+        <td width="280" align="center" valign="top">
+          <img src="./docs/screenshots/05-mobile-agendar.png" alt="Mobile Agendar" width="260" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ---
 

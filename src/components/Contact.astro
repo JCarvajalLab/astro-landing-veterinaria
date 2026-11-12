@@ -132,28 +132,34 @@
       </div>
 
       <!-- Columna 2: Formulario de Mensaje Rápido (7 cols) -->
-      <div class="flex flex-col justify-between space-y-6 rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs sm:p-8 lg:col-span-7 dark:border-slate-800 dark:bg-slate-900">
-        <div>
-          <div class="flex items-center gap-2">
-            <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-teal-100 text-teal-800 dark:bg-teal-950/70 dark:text-teal-300">
-              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-                />
-              </svg>
-            </span>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">
-              ¿Tienes dudas o necesitas información?
-            </h3>
+      <div class="flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs sm:p-8 lg:col-span-7 dark:border-slate-800 dark:bg-slate-900">
+        <div class="flex h-full flex-col justify-between space-y-6">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-teal-100 text-teal-800 dark:bg-teal-950/70 dark:text-teal-300">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+                  />
+                </svg>
+              </span>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                ¿Tienes dudas o necesitas información?
+              </h3>
+            </div>
+            <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">
+              Envíanos un mensaje y te responderemos a la brevedad a tu correo o teléfono.
+            </p>
           </div>
-          <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">
-            Envíanos un mensaje y te responderemos a la brevedad a tu correo o teléfono.
-          </p>
 
-          <form id="general-contact-form" class="mt-6 space-y-4" novalidate>
+          <form
+            id="general-contact-form"
+            class="flex flex-1 flex-col justify-between space-y-4"
+            novalidate
+          >
             <!-- Honeypot Antispam -->
             <div class="hidden" aria-hidden="true">
               <label for="contact-bot-field">Si eres humano deja este campo vacío</label>
@@ -166,6 +172,7 @@
               />
             </div>
 
+            <!-- Fila 1: Nombre y Correo -->
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <label
@@ -213,7 +220,51 @@
               </div>
             </div>
 
-            <div>
+            <!-- Fila 2: Teléfono y Motivo de Consulta -->
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div>
+                <label
+                  for="contact-phone"
+                  class="block text-xs font-bold text-slate-700 uppercase tracking-wider dark:text-slate-300"
+                >
+                  Teléfono / WhatsApp{' '}
+                  <span class="text-xs font-normal text-slate-400 dark:text-slate-500">
+                    (opcional)
+                  </span>
+                </label>
+                <input
+                  type="tel"
+                  id="contact-phone"
+                  name="phone"
+                  maxlength="20"
+                  placeholder="+56 9 1234 5678"
+                  class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs placeholder:text-slate-400 focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-teal-400"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="contact-subject"
+                  class="block text-xs font-bold text-slate-700 uppercase tracking-wider dark:text-slate-300"
+                >
+                  Motivo del Contacto
+                </label>
+                <select
+                  id="contact-subject"
+                  name="subject"
+                  class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:focus:border-teal-400"
+                >
+                  <option value="consulta">Consulta General / Dudas</option>
+                  <option value="presupuesto">Presupuesto de Cirugía / Tratamiento</option>
+                  <option value="vacunas">Información de Vacunas y Desparasitación</option>
+                  <option value="convenio">Convenios y Alianzas</option>
+                  <option value="otro">Otro motivo</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Fila 3: Mensaje amplio que llena el espacio -->
+            <div class="flex-1 flex flex-col">
               <label
                 for="contact-message"
                 class="block text-xs font-bold text-slate-700 uppercase tracking-wider dark:text-slate-300"
@@ -226,10 +277,10 @@
                 required
                 minlength="10"
                 maxlength="1000"
-                rows="4"
+                rows="5"
                 aria-describedby="error-contact-message"
                 placeholder="Escribe aquí tu duda, consulta sobre tratamientos o presupuestos..."
-                class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs placeholder:text-slate-400 focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-teal-400"
+                class="mt-1.5 w-full flex-1 rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs placeholder:text-slate-400 focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-teal-400 min-h-[110px]"
               ></textarea>
               <p class="error-msg mt-1 hidden text-xs text-rose-600" id="error-contact-message">
                 Escribe un mensaje de al menos 10 caracteres.
@@ -361,13 +412,13 @@
           style="border:0;"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.openstreetmap.org/export/embed.html?bbox=-70.6250%2C-33.4350%2C-70.6050%2C-33.4150&layer=mapnik&marker=-33.4255%2C-70.6150"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-70.6175%2C-33.4275%2C-70.6125%2C-33.4235&layer=mapnik&marker=-33.4255%2C-70.6150"
           class="w-full h-72 sm:h-80 md:h-96"
         ></iframe>
       </div>
       <div class="mt-2 text-right">
         <a
-          href="https://www.openstreetmap.org/?mlat=-33.4255&mlon=-70.6150#map=16/-33.4255/-70.6150"
+          href="https://www.openstreetmap.org/?mlat=-33.4255&mlon=-70.6150#map=18/-33.4255/-70.6150"
           target="_blank"
           rel="noopener noreferrer"
           class="text-[11px] text-slate-500 hover:text-teal-600 hover:underline dark:text-slate-400 dark:hover:text-teal-400"

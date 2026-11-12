@@ -183,6 +183,8 @@
                 name="owner_name"
                 required
                 minlength="3"
+                maxlength="100"
+                aria-describedby="error-owner-name"
                 placeholder="Ej. Marcela Contreras"
                 class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs placeholder:text-slate-400 focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20"
               />
@@ -203,12 +205,14 @@
                 id="owner-phone"
                 name="owner_phone"
                 required
+                maxlength="25"
                 pattern="^[0-9+ ]{8,15}$"
+                aria-describedby="error-owner-phone"
                 placeholder="Ej. +56 9 8765 4321"
                 class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs placeholder:text-slate-400 focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20"
               />
               <p class="error-msg mt-1 hidden text-xs text-rose-600" id="error-owner-phone">
-                Ingresa un número telefónico válido.
+                Ingresa un número telefónico válido (8 a 15 dígitos).
               </p>
             </div>
           </div>
@@ -226,6 +230,8 @@
               id="owner-email"
               name="owner_email"
               required
+              maxlength="120"
+              aria-describedby="error-owner-email"
               placeholder="tu.correo@ejemplo.cl"
               class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs placeholder:text-slate-400 focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20"
             />
@@ -248,6 +254,8 @@
                 id="pet-name"
                 name="pet_name"
                 required
+                maxlength="100"
+                aria-describedby="error-pet-name"
                 placeholder="Ej. Simón, Luna, Rocky..."
                 class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs placeholder:text-slate-400 focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20"
               />
@@ -267,6 +275,7 @@
                 id="pet-type"
                 name="pet_type"
                 required
+                aria-describedby="error-pet-type"
                 class="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20"
               >
                 <option value="">Selecciona...</option>
@@ -293,6 +302,7 @@
                 id="service-required"
                 name="service_required"
                 required
+                aria-describedby="error-service-required"
                 class="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20"
               >
                 <option value="">Selecciona especialidad...</option>
@@ -336,6 +346,7 @@
               id="consult-message"
               name="consult_message"
               rows="3"
+              maxlength="1000"
               placeholder="Cuéntanos brevemente cómo se siente tu mascota o qué consulta deseas realizar..."
               class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs placeholder:text-slate-400 focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20"
             ></textarea>
@@ -348,6 +359,7 @@
               id="privacy-consent"
               name="privacy_consent"
               required
+              aria-describedby="error-privacy-consent"
               class="h-4 w-4 rounded-sm border-slate-300 text-teal-600 focus:ring-teal-600"
             />
             <label for="privacy-consent" class="text-xs text-slate-600">
@@ -440,10 +452,12 @@
     if (!isValid) {
       errorEl?.classList.remove('hidden');
       input?.classList.add('border-rose-400');
+      input?.setAttribute('aria-invalid', 'true');
       return false;
     } else {
       errorEl?.classList.add('hidden');
       input?.classList.remove('border-rose-400');
+      input?.setAttribute('aria-invalid', 'false');
       return true;
     }
   }
@@ -451,7 +465,7 @@
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // 1. Detección Antispam con Honeypot
+    // 1. Detección Antispam con Honeypot (silent drop)
     if (botField && botField.value.trim() !== '') {
       console.warn('Bot submission blocked via honeypot.');
       showFeedback('success', '¡Gracias! Tu solicitud ha sido recibida con éxito.');
@@ -459,7 +473,7 @@
       return;
     }
 
-    // 2. Validaciones de campos
+    // 2. Validaciones de campos accesibles
     const ownerName = document.getElementById('owner-name');
     const ownerPhone = document.getElementById('owner-phone');
     const ownerEmail = document.getElementById('owner-email');
@@ -493,7 +507,7 @@
     }
 
     try {
-      // Simulación de envío exitoso con delay realista (en producción se conecta al webhook de Formspree/Web3Forms o backend)
+      // Simulación de envío seguro con delay
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       showFeedback(
@@ -501,6 +515,12 @@
         `¡Solicitud recibida con éxito! Nos comunicaremos al número ${ownerPhone.value} para confirmar la cita de ${petName.value}. ¡Muchas gracias!`
       );
       form.reset();
+      // Reset aria-invalid en todos los campos
+      [ownerName, ownerPhone, ownerEmail, petName, petType, serviceReq, privacyCheck].forEach(
+        (el) => {
+          el?.removeAttribute('aria-invalid');
+        }
+      );
     } catch (err) {
       showFeedback(
         'error',

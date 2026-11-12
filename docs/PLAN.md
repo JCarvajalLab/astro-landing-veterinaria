@@ -242,7 +242,7 @@ Temática: **veterinaria** (servicios, equipo, horarios, contacto y agendamiento
 - [x] **Fase 2: Layout y componentes** (`phase/02-layout`): layout base, navbar, footer, sistema de diseño (colores, tipografías).
 - [x] **Fase 3: Secciones** (`phase/03-sections`): hero, servicios (consulta, vacunas, peluquería, urgencias), equipo, testimonios, horarios y preguntas frecuentes.
 - [x] **Fase 4: Contacto y Portal de Agendamiento** (`phase/04-contact`): sección de atención y canales directos en inicio, portal dedicado /agendar por pasos (área, médico con horarios en pastillas, identificación y comprobante), validación y antispam.
-- [ ] **Fase 5: Calidad y lanzamiento** (`phase/05-launch`): SEO básico, accesibilidad, Lighthouse >= 90, meta tags, favicon y soporte para modo nocturno (dark mode toggle).
+- [x] **Fase 5: Calidad y lanzamiento** (`phase/05-launch`): SEO básico, accesibilidad, Lighthouse >= 90, meta tags, favicon y soporte para modo nocturno (dark mode toggle).
 
 ### Proyecto 2: Portafolio con casos de estudio
 

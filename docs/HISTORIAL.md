@@ -13,14 +13,14 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Proyecto:** landing (veterinaria) — Landing page de una veterinaria
 - **Repositorio:** https://github.com/JCarvajalLab/astro-landing-veterinaria
 - **Última actualización:** 2026-11-11
-- **Fase activa:** `phase/05-launch`
+- **Fase activa:** `phase/05-launch` (Fase 5 completada)
 - **Rama de trabajo:** `phase/05-launch`
-- **Último commit relevante:** `e517c8c docs(historial): registra modal de confirmacion de salida en agendar`
+- **Último commit relevante:** `3e81ff5 feat(seo): agrega meta tags open graph twitter cards schema jsonld y robots.txt`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Landing completa (Hero, Servicios, Equipo, Testimonios interactivos, Horarios, FAQ, Contacto) y Portal de reserva `/agendar` con selector de fechas restrictivo (sin domingos), filtrado de profesionales, bloqueo de especie exclusivo, comprobante imprimible con QR y modal de advertencia de salida.
-- **Qué está en progreso:** Implementación de la Fase 5: soporte integral para Modo Nocturno (Dark Mode toggle accesible con persistencia `localStorage`), SEO técnico (Open Graph, Twitter Cards, Schema.org JSON-LD), favicon SVG y optimizaciones de accesibilidad WCAG / Lighthouse >= 90.
+- **Qué funciona:** Landing completa y Portal de agendamiento clínico `/agendar` con Modo Nocturno (Dark Mode) integral, toggle accesible en Navbar con persistencia en `localStorage`, script inline anti-FOUC, SEO técnico (Open Graph, Twitter Cards, canonical URL), Schema.org JSON-LD (`VeterinaryCare`), `robots.txt` y validación de calidad 100% (0 errores ESLint, 0 vulnerabilidades en audit, build de producción en 800ms).
+- **Qué está en progreso:** Cierre de Fase 5 y merge a `develop` / `main`.
 - **Bloqueos o problemas conocidos:** ninguno.
-- **Siguiente paso concreto:** Implementar el toggle accesible de Modo Nocturno en Navbar/Layout y configurar soporte de clases `dark` en Tailwind v4.
+- **Siguiente paso concreto:** Proponer push a GitHub y merge de `phase/05-launch` hacia `develop`.
 
 ## 2. Decisiones importantes
 
@@ -42,10 +42,18 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 | 2026-11-11 | Filtrar profesionales por especialidad en vez de bloquearlos | Experiencia limpia y enfocada: en Peluquería solo aparece el peluquero, en Cirugía solo la cirujana, etc. | Mostrar los 4 médicos con 3 deshabilitados |
 | 2026-11-11 | Bloqueo absoluto de horas en domingos sin auto-reubicar | Si se elige domingo, se mantiene la fecha pero se ocultan las horas y se bloquea el avance con aviso de urgencias | Auto-reubicar al lunes más próximo |
 | 2026-11-11 | Modal de abandono de reserva contextual en `/agendar` | Solo advierte si el usuario ya avanzó en la reserva y cliquea la Navbar para salir; no interrumpe en la landing | Modal invasivo al entrar o en la landing |
+| 2026-11-11 | Script anti-FOUC síncrono y variante Tailwind v4 `.dark` | Evita parpadeo de pantalla blanca y sincroniza preferencia de OS con `localStorage` | Clases de tema en cliente asíncrono |
+| 2026-11-11 | Marcado estructurado Schema.org tipo `VeterinaryCare` | Habilita Google Rich Results para dirección, teléfono, catálogo de especialidades y atención 24/7 | Sin datos estructurados |
 
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-11 · `phase/05-launch` · modo nocturno, seo técnico y lanzamiento (fase 5)
+- **Qué:** Implementación integral de Modo Nocturno (Dark Mode) con toggle accesible Sol/Luna en Navbar (versiones desktop y móvil), persistencia en `localStorage`, script inline anti-FOUC en `<head>`, directiva `@custom-variant dark` en Tailwind CSS v4 y adaptación visual exhaustiva en todas las secciones de la landing y en el portal `/agendar`. Incorporación de SEO técnico completo (Open Graph, Twitter Cards, `canonical` URL, `theme-color` dual para móviles), marcado estructurado Schema.org JSON-LD de tipo `VeterinaryCare`, `public/robots.txt` y auditoría de calidad con 0 errores de ESLint y 0 vulnerabilidades.
+- **Archivos clave:** `src/styles/global.css`, `src/layouts/Layout.astro`, `src/components/Navbar.astro`, `src/components/Hero.astro`, `src/components/Services.astro`, `src/components/Team.astro`, `src/components/Testimonials.astro`, `src/components/Schedule.astro`, `src/components/Faq.astro`, `src/components/Contact.astro`, `src/components/Footer.astro`, `src/components/BookingModal.astro`, `src/pages/agendar.astro`, `public/robots.txt`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, seguridad, qa, docs-seo
+- **Notas:** `npm run build` genera 100% estático en 800ms con optimización de imágenes WebP; ESLint y Prettier limpios.
 
 ### 2026-11-11 · `phase/04-contact` · modal de confirmación de salida contextual en agendar
 - **Qué:** Reubicación y enfoque del modal: navegación directa en la landing page principal (`/`) al pulsar "Agendar Cita", y activación contextual del modal de advertencia únicamente cuando el tutor está en `/agendar` con un servicio y paso en curso e intenta salir hacia otra sección de la web (`/#servicios`, `/#nosotros`, `/`, etc.), previniendo la pérdida accidental de su hora médica.

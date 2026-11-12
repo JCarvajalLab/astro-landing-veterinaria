@@ -1,0 +1,6 @@
+# robots.txt para Veterinaria Huellitas
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://veterinariahuellitas.cl/sitemap-index.xml

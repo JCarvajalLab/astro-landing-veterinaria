@@ -1,0 +1,75 @@
+---
+const faqs = [
+  {
+    question: '¿Cómo puedo agendar una consulta médica o servicio de spa?',
+    answer:
+      'Puedes agendar fácilmente completando el formulario de contacto de esta página, enviándonos un mensaje directo por WhatsApp o llamándonos al +56 9 1234 5678. Te responderemos en pocos minutos para confirmar el día y la hora más conveniente.',
+  },
+  {
+    question: '¿Qué debo hacer si tengo una urgencia médica en la noche o fin de semana?',
+    answer:
+      'Nuestra clínica cuenta con personal médico de guardia las 24 horas del día, los 365 días del año. Te recomendamos llamar a nuestra línea de urgencias (+56 9 1234 5678) mientras te diriges a la clínica para que nuestro equipo médico prepare el box de reanimación y equipamiento necesario.',
+  },
+  {
+    question: '¿A qué edad se debe iniciar el calendario de vacunación en cachorros y gatitos?',
+    answer:
+      'Se recomienda iniciar el protocolo de vacunación a partir de las 6 a 8 semanas de vida, luego de una evaluación clínica previa y desparasitación. En la primera consulta te entregaremos su carnet sanitario oficial y el cronograma de refuerzos anuales.',
+  },
+  {
+    question: '¿Qué métodos de pago tienen disponibles en la clínica?',
+    answer:
+      'Aceptamos tarjetas de débito (Redcompra), tarjetas de crédito (con opción de cuotas), transferencias bancarias directas y efectivo. Además emitimos boletas y facturas para reembolsos en seguros de mascotas.',
+  },
+  {
+    question: '¿Puedo acompañar a mi mascota durante la consulta médica y procedimientos?',
+    answer:
+      '¡Por supuesto! Fomentamos un entorno Fear Free y amigable, por lo que tu presencia tranquiliza a tu mascota durante el examen clínico y vacunas. En procedimientos quirúrgicos estériles, tu compañero permanecerá en nuestro pabellón y sala de recuperación bajo monitoreo continuo.',
+  },
+];
+---
+
+<section id="faq" class="border-t border-slate-200/80 bg-white py-16 sm:py-24">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <span class="inline-block rounded-full bg-teal-100 px-3 py-1 text-xs font-bold tracking-wider text-teal-800 uppercase">
+        Resolvemos tus Dudas
+      </span>
+      <h2 class="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+        Preguntas Frecuentes
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-base text-slate-600 sm:text-lg">
+        Información clara sobre nuestros protocolos médicos, atención 24/7 y agendamiento.
+      </p>
+    </div>
+
+    <!-- Lista de Acordeones nativos accesibles en HTML5 -->
+    <div class="mt-12 space-y-4">
+      {faqs.map((faq) => (
+        <details class="group rounded-2xl border border-slate-200/80 bg-slate-50/50 p-6 transition duration-200 open:border-teal-400 open:bg-white open:shadow-md">
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-bold text-slate-900 focus-visible:outline-2 focus-visible:outline-teal-600 focus-visible:outline-offset-2">
+            <span class="text-base sm:text-lg">{faq.question}</span>
+            <span class="ml-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-200/70 text-slate-600 transition duration-200 group-open:rotate-180 group-open:bg-teal-100 group-open:text-teal-800">
+              <svg
+                class="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </span>
+          </summary>
+          <div class="mt-4 border-t border-slate-100 pt-4 text-sm leading-relaxed text-slate-600">
+            <p>{faq.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

@@ -4,18 +4,18 @@ const testimonials = [
     author: 'Marcela Contreras',
     pet: 'Simón (Golden Retriever, 4 años)',
     rating: 5,
-    title: '¡Le salvaron la vida a nuestro Simón un domingo a las 3 AM!',
+    title: '¡Le salvaron la vida a Simón un domingo a las 3 AM!',
     comment:
-      'Llegamos de urgencia con una torsión gástrica crítica en plena madrugada. El equipo médico actuó en minutos con una calidez y profesionalismo que nunca olvidaremos. Hoy Simón corre y juega como siempre.',
+      'Llegamos de urgencia con una torsión gástrica crítica en plena madrugada. El equipo médico actuó en minutos con una calidez y profesionalismo inolvidable. Hoy Simón corre feliz como siempre.',
     tag: 'Urgencia 24/7',
   },
   {
     author: 'Felipe Henríquez',
     pet: 'Luna (Gata Siamesa, 2 años)',
     rating: 5,
-    title: 'El mejor trato Fear Free para gatos que he conocido',
+    title: 'El mejor trato Fear Free para felinos',
     comment:
-      'Luna siempre se estresaba al extremo en las veterinarias. En Huellitas el Dr. Carlos usó feromonas y técnicas amigables que hicieron que su esterilización y vacunas fueran una experiencia tranquila.',
+      'Luna siempre se estresaba al extremo en las clínicas. En Huellitas usaron feromonas y técnicas amigables que hicieron de su esterilización una experiencia completamente tranquila.',
     tag: 'Medicina Felina',
   },
   {
@@ -24,8 +24,35 @@ const testimonials = [
     rating: 5,
     title: 'Controlaron sus alergias después de meses de frustración',
     comment:
-      'Rocky sufría de dermatitis severa y otitis recurrente. La Dra. Camila le diseñó una dieta especial y tratamiento dérmico que le devolvió la salud a su piel en menos de un mes. Totalmente recomendados.',
+      'Rocky sufría de dermatitis severa y otitis recurrente. La Dra. Camila le diseñó una dieta especial y tratamiento dérmico que le devolvió la salud a su piel en tiempo récord.',
     tag: 'Dermatología',
+  },
+  {
+    author: 'Ignacio Fuentes',
+    pet: 'Toby (Poodle Toy, 8 años)',
+    rating: 5,
+    title: 'Excelente servicio dental y recuperación sin dolor',
+    comment:
+      'A Toby le realizaron una profilaxis ultrasónica y extracción de piezas dañadas. El monitoreo de anestesia fue impecable y nos mantuvieron informados por WhatsApp minuto a minuto.',
+    tag: 'Odontología',
+  },
+  {
+    author: 'Carolina Vera',
+    pet: 'Mía (Gatita rescatada, 6 meses)',
+    rating: 5,
+    title: 'Amor y dedicación desde su primera vacuna',
+    comment:
+      'Rescaté a Mía de la calle con desnutrición. Todo el equipo se volcó en ayudarla con su esquema de vacunas y plan de nutrición. Da gusto ver cuánto aman a los animales.',
+    tag: 'Pediatría Felina',
+  },
+  {
+    author: 'Andrés Salamanca',
+    pet: 'Thor (Pastor Alemán, 6 años)',
+    rating: 5,
+    title: 'Cirugía de cadera exitosa y rehabilitación guiada',
+    comment:
+      'La Dra. Valentina operó a Thor de una displasia compleja. Gracias al seguimiento postquirúrgico y las pautas de fisioterapia, Thor volvió a salir a pasear feliz.',
+    tag: 'Cirugía & Traumatología',
   },
 ];
 ---
@@ -33,18 +60,18 @@ const testimonials = [
 <section id="testimonios" class="border-t border-slate-200/80 bg-white py-16 sm:py-24">
   <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
     <div class="text-center">
-      <span class="inline-block rounded-full bg-teal-100 px-3 py-1 text-xs font-bold tracking-wider text-teal-800 uppercase">
+      <span class="inline-block rounded-full bg-teal-100 px-3.5 py-1 text-xs font-bold tracking-wider text-teal-800 uppercase">
         Historias Reales
       </span>
       <h2 class="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-        Familias felices, mascotas sanas y protegidas
+        Familias felices, mascotas protegidas
       </h2>
       <p class="mx-auto mt-4 max-w-2xl text-base text-slate-600 sm:text-lg">
         La confianza de quienes nos entregan la salud de sus seres más queridos es nuestro mayor
         orgullo.
       </p>
 
-      <!-- Badge de calificación global -->
+      <!-- Badge de Calificación Global -->
       <div class="mt-6 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 shadow-xs">
         <div class="flex text-amber-400" aria-label="Calificación 5 de 5 estrellas">
           {Array.from({ length: 5 }).map(() => (
@@ -58,44 +85,222 @@ const testimonials = [
       </div>
     </div>
 
-    <!-- Grid de testimonios -->
-    <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
-      {testimonials.map((item) => (
-        <article class="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-slate-50/70 p-6 shadow-xs transition hover:border-teal-300 hover:bg-white hover:shadow-lg">
-          <div>
-            <!-- Estrellas y Tag -->
-            <div class="flex items-center justify-between">
-              <div class="flex text-amber-400" aria-label={`${item.rating} de 5 estrellas`}>
-                {Array.from({ length: item.rating }).map(() => (
-                  <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20" aria-hidden="true">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              <span class="rounded-full bg-teal-100/80 px-2.5 py-0.5 text-xs font-semibold text-teal-800">
-                {item.tag}
-              </span>
-            </div>
-
-            <!-- Título del testimonio -->
-            <h3 class="mt-4 text-base font-bold text-slate-900 leading-snug">“{item.title}”</h3>
-
-            <!-- Comentario -->
-            <p class="mt-3 text-sm leading-relaxed text-slate-600 italic">{item.comment}</p>
-          </div>
-
-          <!-- Autor y Mascota -->
-          <div class="mt-6 flex items-center gap-3 border-t border-slate-200/60 pt-4">
-            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-teal-600 text-sm font-bold text-white">
-              {item.author.charAt(0)}
-            </div>
+    <!-- Carrusel Interactivo de Testimonios -->
+    <div id="testimonials-carousel" class="relative mt-12">
+      <!-- Contenedor con Scroll Snap nativo -->
+      <div
+        id="carousel-track"
+        class="flex gap-6 overflow-x-auto pb-4 scroll-smooth snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        tabindex="0"
+        aria-label="Carrusel de testimonios"
+      >
+        {testimonials.map((item, index) => (
+          <article
+            class="carousel-card flex w-full shrink-0 flex-col justify-between rounded-3xl border border-slate-200/90 bg-slate-50/70 p-6 shadow-sm transition sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-start hover:border-teal-300 hover:bg-white hover:shadow-md"
+            data-index={index}
+          >
             <div>
-              <p class="text-sm font-bold text-slate-900">{item.author}</p>
-              <p class="text-xs text-slate-500">Tutor de {item.pet}</p>
+              <!-- Estrellas y Tag -->
+              <div class="flex items-center justify-between">
+                <div class="flex text-amber-400" aria-label={`${item.rating} de 5 estrellas`}>
+                  {Array.from({ length: item.rating }).map(() => (
+                    <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20" aria-hidden="true">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <span class="rounded-full bg-teal-100/90 px-2.5 py-0.5 text-xs font-semibold text-teal-800">
+                  {item.tag}
+                </span>
+              </div>
+
+              <!-- Título -->
+              <h3 class="mt-4 text-base font-bold text-slate-900 leading-snug">“{item.title}”</h3>
+
+              <!-- Comentario -->
+              <p class="mt-3 text-sm leading-relaxed text-slate-600 italic">{item.comment}</p>
             </div>
-          </div>
-        </article>
-      ))}
+
+            <!-- Autor y Mascota -->
+            <div class="mt-6 flex items-center gap-3 border-t border-slate-200/70 pt-4">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-teal-600 text-sm font-bold text-white shadow-xs">
+                {item.author.charAt(0)}
+              </div>
+              <div>
+                <p class="text-sm font-bold text-slate-900">{item.author}</p>
+                <p class="text-xs text-slate-500">Tutor de {item.pet}</p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Controles de Navegación y Puntos (Dots) -->
+      <div class="mt-8 flex items-center justify-between">
+        <!-- Indicadores de puntos -->
+        <div
+          id="carousel-dots"
+          class="flex items-center gap-2"
+          aria-label="Seleccionar diapositiva"
+        >
+          {testimonials.map((_, i) => (
+            <button
+              type="button"
+              class={`carousel-dot h-2.5 rounded-full transition-all duration-300 ${i === 0 ? 'w-8 bg-teal-600' : 'w-2.5 bg-slate-300 hover:bg-slate-400'}`}
+              data-index={i}
+              aria-label={`Ir al testimonio ${i + 1}`}
+            />
+          ))}
+        </div>
+
+        <!-- Botones Flechas Anterior / Siguiente -->
+        <div class="flex items-center gap-2">
+          <button
+            id="prev-btn"
+            type="button"
+            class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 shadow-xs transition hover:bg-slate-50 hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-teal-600 active:scale-95"
+            aria-label="Testimonio anterior"
+          >
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button
+            id="next-btn"
+            type="button"
+            class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 shadow-xs transition hover:bg-slate-50 hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-teal-600 active:scale-95"
+            aria-label="Siguiente testimonio"
+          >
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  const track = document.getElementById('carousel-track');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const dots = document.querySelectorAll('.carousel-dot');
+  const cards = document.querySelectorAll('.carousel-card');
+
+  let currentIndex = 0;
+  let autoplayTimer = null;
+
+  function getCardWidth() {
+    if (!cards[0]) return 0;
+    const card = cards[0];
+    const gap = 24; // gap-6 (24px)
+    return card.offsetWidth + gap;
+  }
+
+  function updateDots(index) {
+    dots.forEach((dot, idx) => {
+      if (idx === index) {
+        dot.classList.remove('w-2.5', 'bg-slate-300');
+        dot.classList.add('w-8', 'bg-teal-600');
+      } else {
+        dot.classList.remove('w-8', 'bg-teal-600');
+        dot.classList.add('w-2.5', 'bg-slate-300');
+      }
+    });
+  }
+
+  function scrollToIndex(index) {
+    if (!track) return;
+    const maxIndex = cards.length - 1;
+    currentIndex = Math.max(0, Math.min(index, maxIndex));
+    const cardWidth = getCardWidth();
+    track.scrollTo({
+      left: currentIndex * cardWidth,
+      behavior: 'smooth',
+    });
+    updateDots(currentIndex);
+  }
+
+  function nextSlide() {
+    if (currentIndex >= cards.length - 1) {
+      scrollToIndex(0);
+    } else {
+      scrollToIndex(currentIndex + 1);
+    }
+  }
+
+  function prevSlide() {
+    if (currentIndex <= 0) {
+      scrollToIndex(cards.length - 1);
+    } else {
+      scrollToIndex(currentIndex - 1);
+    }
+  }
+
+  nextBtn?.addEventListener('click', () => {
+    nextSlide();
+    restartAutoplay();
+  });
+
+  prevBtn?.addEventListener('click', () => {
+    prevSlide();
+    restartAutoplay();
+  });
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', (e) => {
+      const target = e.currentTarget;
+      const idx = Number(target.getAttribute('data-index') || '0');
+      scrollToIndex(idx);
+      restartAutoplay();
+    });
+  });
+
+  // Sincronizar dots al hacer scroll manual o táctil
+  track?.addEventListener('scroll', () => {
+    const cardWidth = getCardWidth();
+    if (!cardWidth) return;
+    const newIndex = Math.round(track.scrollLeft / cardWidth);
+    if (newIndex !== currentIndex && newIndex >= 0 && newIndex < cards.length) {
+      currentIndex = newIndex;
+      updateDots(currentIndex);
+    }
+  });
+
+  // Autoplay con pausa en hover o foco (cumpliendo accesibilidad)
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayTimer = setInterval(nextSlide, 4500);
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  function restartAutoplay() {
+    stopAutoplay();
+    startAutoplay();
+  }
+
+  const container = document.getElementById('testimonials-carousel');
+  container?.addEventListener('mouseenter', stopAutoplay);
+  container?.addEventListener('mouseleave', startAutoplay);
+  container?.addEventListener('focusin', stopAutoplay);
+  container?.addEventListener('focusout', startAutoplay);
+
+  startAutoplay();
+</script>

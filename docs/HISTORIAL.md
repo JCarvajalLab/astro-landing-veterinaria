@@ -15,12 +15,12 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Última actualización:** 2026-11-11
 - **Fase activa:** `phase/04-contact`
 - **Rama de trabajo:** `phase/04-contact`
-- **Último commit relevante:** `feat(booking): bloquea horas en domingos sin reubicar y agrega modal de confirmacion de reserva`
+- **Último commit relevante:** `feat(booking): activa modal de advertencia de salida solo en /agendar con reserva en curso`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Modal interactivo accesible de confirmación previa al agendamiento al pulsar "Agendar Cita" desde la Navbar o cualquier sección; bloqueo total de horas y prohibición estricta de avance cuando se selecciona un domingo en el calendario (sin auto-reubicar); filtrado dinámico de profesionales por servicio; bloqueo estricto de especie en atenciones exclusivas; y comprobante oficial con QR e impresión aislada.
-- **Qué está en progreso:** Revisión final del modal y del bloqueo dominical por parte del usuario.
+- **Qué funciona:** Modal de advertencia de abandono de reserva activado exclusivamente en `/agendar` al intentar salir hacia la landing o secciones de la Navbar con una reserva activa en curso (Paso 2 o 3); navegación directa y sin interrupciones en la landing page; bloqueo absoluto de horas en domingos sin auto-reubicar; filtrado de profesionales por servicio; bloqueo estricto de especies exclusivas (Gato en Felina, Perro en Peluquería); y comprobante oficial con código QR e impresión limpia.
+- **Qué está en progreso:** Verificación interactiva del usuario del modal de advertencia de salida y del flujo completo de agendamiento.
 - **Bloqueos o problemas conocidos:** ninguno.
-- **Siguiente paso concreto:** Confirmar aprobación del usuario y realizar el merge de la rama `phase/04-contact` hacia `develop`.
+- **Siguiente paso concreto:** Confirmar satisfacción del usuario para cerrar la Fase 4 y mergear a `develop`.
 
 ## 2. Decisiones importantes
 
@@ -41,11 +41,17 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 | 2026-11-11 | Sincronización y bloqueo estricto de especie según el servicio | En Peluquería Canina solo permite Perro y en Felina solo Gato; evita reservas absurdas como conejos en peluquería canina | Permitir que el usuario elija cualquier especie |
 | 2026-11-11 | Filtrar profesionales por especialidad en vez de bloquearlos | Experiencia limpia y enfocada: en Peluquería solo aparece el peluquero, en Cirugía solo la cirujana, etc. | Mostrar los 4 médicos con 3 deshabilitados |
 | 2026-11-11 | Bloqueo absoluto de horas en domingos sin auto-reubicar | Si se elige domingo, se mantiene la fecha pero se ocultan las horas y se bloquea el avance con aviso de urgencias | Auto-reubicar al lunes más próximo |
-| 2026-11-11 | Modal de confirmación accesible previo al agendamiento | Pregunta al usuario si desea continuar hacia el portal clínico y advierte sobre canales de urgencia 24/7 | Redirección abrupta sin advertencia |
+| 2026-11-11 | Modal de abandono de reserva contextual en `/agendar` | Solo advierte si el usuario ya avanzó en la reserva y cliquea la Navbar para salir; no interrumpe en la landing | Modal invasivo al entrar o en la landing |
 
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-11 · `phase/04-contact` · modal de confirmación de salida contextual en agendar
+- **Qué:** Reubicación y enfoque del modal: navegación directa en la landing page principal (`/`) al pulsar "Agendar Cita", y activación contextual del modal de advertencia únicamente cuando el tutor está en `/agendar` con un servicio y paso en curso e intenta salir hacia otra sección de la web (`/#servicios`, `/#nosotros`, `/`, etc.), previniendo la pérdida accidental de su hora médica.
+- **Archivos clave:** `src/components/BookingModal.astro`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, qa, docs-seo
+- **Notas:** Validado localmente con Prettier, ESLint y compilación de producción.
 
 ### 2026-11-11 · `phase/04-contact` · modal de confirmación y bloqueo estricto de horas en domingos
 - **Qué:** Creación del componente `BookingModal.astro` para confirmar el ingreso al portal de agendamiento clínico al hacer clic en cualquier botón o llamada a la acción; y actualización de la regla dominical en `/agendar` manteniendo la fecha seleccionada por el usuario pero ocultando todos los horarios y bloqueando rotundamente el botón de continuar con aviso de urgencias 24/7.

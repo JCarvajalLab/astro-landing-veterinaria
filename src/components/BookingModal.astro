@@ -1,0 +1,177 @@
+---
+// src/components/BookingModal.astro
+// Modal de confirmación previo a ingresar al portal de reserva de horas
+---
+
+<div
+  id="booking-confirm-modal"
+  class="fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="booking-modal-title"
+  aria-describedby="booking-modal-desc"
+>
+  <!-- Backdrop con desenfoque de fondo -->
+  <div
+    id="booking-modal-backdrop"
+    class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity"
+  ></div>
+
+  <!-- Contenedor del Modal -->
+  <div
+    class="relative w-full max-w-lg transform overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 text-left shadow-2xl transition-all scale-95"
+    id="booking-modal-panel"
+  >
+    <!-- Botón cerrar (X) -->
+    <button
+      type="button"
+      id="btn-close-booking-modal"
+      class="absolute top-5 right-5 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-800 transition focus-visible:outline-2 focus-visible:outline-teal-600"
+      aria-label="Cerrar ventana"
+    >
+      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+
+    <!-- Encabezado con Icono Médico -->
+    <div class="flex items-center gap-3.5">
+      <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-teal-100 text-teal-800 shadow-xs">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+          />
+        </svg>
+      </span>
+      <div>
+        <span class="rounded-md bg-teal-100 px-2 py-0.5 text-[10px] font-bold text-teal-800 uppercase tracking-wider">
+          Portal Clínico Online
+        </span>
+        <h3 id="booking-modal-title" class="text-xl font-extrabold text-slate-900 mt-0.5">
+          Reserva de Horas Médicas
+        </h3>
+      </div>
+    </div>
+
+    <!-- Contenido y Pregunta de Confirmación -->
+    <div class="mt-4">
+      <p id="booking-modal-desc" class="text-base font-bold text-slate-900">
+        ¿Deseas continuar hacia el portal de reserva de horas?
+      </p>
+      <p class="mt-2 text-xs text-slate-600 leading-relaxed">
+        Estás por ingresar a nuestro sistema oficial de agendamiento para la{' '}
+        <strong>Casa Matriz Providencia</strong>. Podrás elegir el servicio clínico o spa,
+        seleccionar al veterinario de tu preferencia y reservar fecha y hora en tiempo real.
+      </p>
+
+      <!-- Cuadro Informativo de Urgencias 24 Horas -->
+      <div class="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-3.5 text-xs text-amber-900">
+        <div class="flex items-start gap-2.5">
+          <span class="text-base shrink-0">🚨</span>
+          <div>
+            <strong class="font-bold text-amber-950">
+              ¿Tu mascota presenta una urgencia vital?
+            </strong>
+            <p class="mt-0.5 text-amber-900/90 text-[11px] leading-relaxed">
+              En emergencias no requieres cita agendada. Llámanos inmediatamente al{' '}
+              <a
+                href="tel:+56912345678"
+                class="font-black text-amber-900 underline hover:text-amber-950"
+              >
+                +56 9 1234 5678
+              </a>{' '}
+              o acude a nuestra clínica central las 24 horas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Acciones del Modal -->
+    <div class="mt-6 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-end gap-3 border-t border-slate-100 pt-5">
+      <button
+        type="button"
+        id="btn-cancel-booking-modal"
+        class="inline-flex w-full sm:w-auto items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-xs font-bold text-slate-700 shadow-2xs hover:bg-slate-50 hover:text-slate-900 transition focus-visible:outline-2 focus-visible:outline-teal-600 active:scale-98"
+      >
+        Seguir Navegando
+      </button>
+      <a
+        href="/agendar"
+        id="btn-confirm-go-booking"
+        class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-teal-600 px-6 py-2.5 text-xs font-bold text-white shadow-md hover:bg-teal-700 transition focus-visible:outline-2 focus-visible:outline-teal-600 active:scale-98"
+      >
+        Continuar con la Reserva
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M14 5l7 7m0 0l-7 7m7-7H3"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Control de apertura y cierre del Modal de Confirmación
+  const modal = document.getElementById('booking-confirm-modal');
+  const modalPanel = document.getElementById('booking-modal-panel');
+  const btnClose = document.getElementById('btn-close-booking-modal');
+  const btnCancel = document.getElementById('btn-cancel-booking-modal');
+  const backdrop = document.getElementById('booking-modal-backdrop');
+
+  function openModal() {
+    if (!modal || !modalPanel) return;
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.classList.add('opacity-100');
+    modalPanel.classList.remove('scale-95');
+    modalPanel.classList.add('scale-100');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('btn-confirm-go-booking')?.focus();
+  }
+
+  function closeModal() {
+    if (!modal || !modalPanel) return;
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    modal.classList.remove('opacity-100');
+    modalPanel.classList.add('scale-95');
+    modalPanel.classList.remove('scale-100');
+    document.body.style.overflow = '';
+  }
+
+  // Interceptar botones que lleven a agendar cuando no estamos ya en /agendar
+  if (window.location.pathname !== '/agendar' && window.location.pathname !== '/agendar/') {
+    document.addEventListener('click', (e) => {
+      const target = e.target;
+      const trigger =
+        target && typeof target.closest === 'function'
+          ? target.closest('a[href="/agendar"], .open-booking-modal')
+          : null;
+      if (trigger) {
+        e.preventDefault();
+        openModal();
+      }
+    });
+  }
+
+  btnClose?.addEventListener('click', closeModal);
+  btnCancel?.addEventListener('click', closeModal);
+  backdrop?.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && !modal.classList.contains('pointer-events-none')) {
+      closeModal();
+    }
+  });
+</script>

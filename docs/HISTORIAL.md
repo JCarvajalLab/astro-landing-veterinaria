@@ -15,12 +15,12 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Última actualización:** 2026-11-11
 - **Fase activa:** `phase/04-contact`
 - **Rama de trabajo:** `phase/04-contact`
-- **Último commit relevante:** `chore(security): aplica limites de longitud y atributos aria-invalid en formulario`
+- **Último commit relevante:** `refactor(navigation): enlaza llamadas a la accion a la nueva ruta /agendar`
 - **Despliegue:** pendiente de vincular al servicio de hosting gratuito (Cloudflare Pages / Netlify)
-- **Qué funciona:** Formulario de contacto y agendamiento interactivo en `ContactForm.astro`, validaciones accesibles en JS nativo, honeypot antispam, vías directas (WhatsApp, teléfono de urgencias), auditoría de seguridad aprobada por subagente independiente, y servidor de desarrollo activo.
-- **Qué está en progreso:** Revisión de la vista previa del formulario por parte del usuario previo a push a GitHub.
+- **Qué funciona:** Sección de contacto y ubicación de ancho completo en la landing (`Contact.astro`), portal dedicado moderno de agendamiento por pasos en `/agendar` (`agendar.astro`) con Stepper, selección de especialidad, médicos con fotos y pastillas horarias interactivas, formulario de paciente con honeypot antispam y comprobante descargable.
+- **Qué está en progreso:** Revisión interactiva de la nueva experiencia de agendamiento en `/agendar` por parte del usuario.
 - **Bloqueos o problemas conocidos:** ninguno.
-- **Siguiente paso concreto:** Validar la vista previa local con el usuario y proceder con la Fase 5 (Calidad, SEO, accesibilidad, meta tags y soporte para Modo Nocturno).
+- **Siguiente paso concreto:** Validar la vista previa del portal `/agendar` con el usuario y proceder al cierre de fase hacia `phase/05-launch`.
 
 ## 2. Decisiones importantes
 
@@ -36,17 +36,17 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 | 2026-11-11 | Incorporar soporte de modo nocturno (Dark Mode) en Fase 5 | Requerimiento de usuario para mejorar accesibilidad y experiencia visual | No contemplar modo nocturno |
 | 2026-11-11 | Usar `<details>` y `<summary>` nativos para sección FAQ | Máxima accesibilidad WCAG y cero JavaScript de cliente para interacción | Acordeones pesados basados en JS/React |
 | 2026-11-11 | Protección antispam silenciosa con honeypot | Bloquea bots sin fricción para el usuario tutor evitando CAPTCHAs invasivos | ReCaptcha / hCaptcha |
-| 2026-11-11 | Auditoría cruzada de seguridad con subagente independiente | Verificación neutral de XSS, secretos, honeypot y dependencias antes de proponer push | Omitir revisión de seguridad |
+| 2026-11-11 | Separar contacto general de agendamiento en ruta dedicada `/agendar` | Mayor claridad de UX, evita sobrecargar la landing y replica el flujo real de portales clínicos modernos | Formulario largo incrustado en el pie de página |
 
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
 
-### 2026-11-11 · `phase/04-contact` · fase 4 completada
-- **Qué:** Implementación del componente `ContactForm.astro` con agendamiento médico, canales directos (WhatsApp, urgencias), validación accesible (`aria-invalid`), protección antispam por honeypot y auditoría de seguridad aprobada.
-- **Archivos clave:** `src/components/ContactForm.astro`, `src/pages/index.astro`, `docs/PLAN.md`, `docs/HISTORIAL.md`
-- **Agente(s):** orquestador, desarrollo, seguridad (subagente independiente), qa, docs-seo
-- **Notas:** Auditoría de seguridad aprobada con 0 vulnerabilidades.
+### 2026-11-11 · `phase/04-contact` · fase 4 completada y rediseñada
+- **Qué:** Desacoplamiento de contacto y agendamiento: `Contact.astro` para atención y canales directos en inicio, creación de ruta dedicada `/agendar` con Stepper moderno de 4 pasos (Especialidad, Médico con horarios, Identificación y Comprobante) y actualización de enlaces CTA.
+- **Archivos clave:** `src/components/Contact.astro`, `src/pages/agendar.astro`, `src/components/Navbar.astro`, `src/components/Hero.astro`, `src/components/Services.astro`, `src/components/Schedule.astro`, `src/components/Footer.astro`, `docs/PLAN.md`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, seguridad, qa, docs-seo
+- **Notas:** Se reemplazó el formulario clásico monolítico por un portal interactivo fluido en JavaScript nativo.
 
 ### 2026-11-11 · `phase/03-sections` · fase 3 completada
 - **Qué:** Implementación completa de componentes modulares para todas las secciones: Hero, Services, Team con fotos optimizadas, Testimonials con carrusel interactivo de 6 tutores, Schedule con diseño asimétrico y Faq.
@@ -74,8 +74,8 @@ _Dónde está cada cosa. Se actualiza solo cuando cambia la estructura._
 
 | Ruta | Qué contiene |
 |------|--------------|
-| `src/pages/` | Rutas del sitio (`index.astro`, etc.) |
-| `src/components/` | Componentes (`Navbar`, `Footer`, `Hero`, `Services`, `Team`, `Testimonials`, `Schedule`, `Faq`, `ContactForm`) |
+| `src/pages/` | Rutas del sitio: `index.astro` (landing principal) y `agendar.astro` (portal de reserva de horas) |
+| `src/components/` | Componentes (`Navbar`, `Footer`, `Hero`, `Services`, `Team`, `Testimonials`, `Schedule`, `Faq`, `Contact`) |
 | `src/layouts/` | Layouts base (`Layout.astro`) |
 | `src/assets/` | Imágenes descargadas localmente y optimizadas con `astro:assets` |
 | `src/styles/` | Estilos globales y Tailwind CSS v4 (`global.css`) |

@@ -18,9 +18,21 @@
 
 ## 📸 Vistas del Proyecto
 
-| Landing Page (Hero y Servicios) | Portal Clínico de Agendamiento (`/agendar`) |
+### Versión de Escritorio (Desktop)
+
+| Landing Page (Modo Claro) | Portal de Agendamiento (`/agendar`) |
 | :---: | :---: |
-| ![Hero Preview](./docs/screenshots/hero-desktop.png) | ![Booking Preview](./docs/screenshots/booking-preview.png) |
+| ![Hero Modo Claro](./docs/screenshots/01-hero-desktop.png) | ![Agendamiento Modo Claro](./docs/screenshots/02-agendamiento-desktop.png) |
+
+| Landing Page (Modo Oscuro) |
+| :---: |
+| ![Hero Modo Oscuro](./docs/screenshots/03-hero-dark-desktop.png) |
+
+### Versión Móvil (Samsung Galaxy A55 · 360 x 800)
+
+| Landing Móvil (Hero & Urgencias 24/7) | Agendamiento Móvil (`/agendar`) |
+| :---: | :---: |
+| ![Mobile Hero](./docs/screenshots/04-mobile-hero.png) | ![Mobile Agendar](./docs/screenshots/05-mobile-agendar.png) |
 
 ---
 

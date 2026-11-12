@@ -13,14 +13,14 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Proyecto:** landing (veterinaria) — Landing page de una veterinaria
 - **Repositorio:** https://github.com/JCarvajalLab/astro-landing-veterinaria
 - **Última actualización:** 2026-11-12
-- **Fase activa:** `phase/05-launch` (Mejoras de formulario y mapa completadas)
-- **Rama de trabajo:** `phase/05-launch`
-- **Último commit relevante:** `feat(ui): optimiza formulario de contacto a altura completa y agrega 2 niveles de zoom al mapa`
-- **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Landing completa con formulario de contacto adaptado a altura completa sin espacios vacíos inferiores (filas balanceadas de nombre, correo, teléfono opcional, selector de motivo y mensaje amplio), mapa interactivo con 2 niveles extra de zoom centrado en Providencia, fotografía cálida en Hero, pastillas de especie en servicios y botón flotante de urgencias.
-- **Qué está en progreso:** Revisión visual final para cierre de Fase 5 y merge a `develop`.
+- **Fase activa:** `phase/05-launch` (Proyecto 1 completado al 100% y lanzado en `v1.0.0`)
+- **Rama de trabajo:** `develop` (rama de integración)
+- **Último commit relevante:** `release(v1.0.0): lanzamiento oficial de landing veterinaria huellitas y portal clinico de agendamiento`
+- **Despliegue:** servidor local activo en `http://localhost:4321/`; repositorio sincronizado en GitHub con tag oficial `v1.0.0`.
+- **Qué funciona:** Landing page veterinaria completa con portal de agendamiento clínico `/agendar` en 4 pasos, fotografía médica cálida con paciente en el Hero (`hero-pet.webp`), badges flotantes de credibilidad, pastillas de especie en servicios (`🐶 Perros & 🐱 Gatos`), botón flotante de urgencias para móviles, formulario de contacto a altura completa, mapa interactivo con zoom cercano en Providencia, modo nocturno integral, SEO técnico (Open Graph, Twitter Cards, Schema.org JSON-LD `VeterinaryCare`, `robots.txt`) y 0 vulnerabilidades.
+- **Qué está en progreso:** Inicio del Proyecto 2 del plan general (**Portafolio con casos de estudio**).
 - **Bloqueos o problemas conocidos:** ninguno.
-- **Siguiente paso concreto:** Proceder con el push a GitHub y merge de `phase/05-launch` hacia `develop`.
+- **Siguiente paso concreto:** Preparar e inicializar el Proyecto 2 (Portafolio con casos de estudio, Content Collections y MDX) según `docs/PLAN.md`.
 
 ## 2. Decisiones importantes
 

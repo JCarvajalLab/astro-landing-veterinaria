@@ -15,9 +15,9 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Última actualización:** 2026-11-12
 - **Fase activa:** `phase/05-launch` (Ajustes de UI/UX completados)
 - **Rama de trabajo:** `phase/05-launch`
-- **Último commit relevante:** `feat(ui): elimina franja azul superior del hero y reemplaza banner por mapa interactivo en contacto`
+- **Último commit relevante:** `feat(ui): unifica fondo solido en hero y optimiza tarjeta de mapa en contacto`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Landing completa y Portal de agendamiento clínico `/agendar` con Modo Nocturno integral, Navbar moderna flotante limpia (sin recuadros oscuros rígidos), Hero con fondo unificado sin cortes ni franjas oscuras en modo nocturno, sección de Contacto optimizada con eliminación del banner redundante y adición de un mapa interactivo de Providencia (OpenStreetMap) con accesos directos a Google Maps y Waze.
+- **Qué funciona:** Landing completa y Portal de agendamiento clínico `/agendar` con Modo Nocturno integral, Navbar moderna flotante limpia (sin recuadros oscuros rígidos), Hero con fondo continuo unificado (`bg-slate-50 dark:bg-slate-950`) sin gradientes residuales en modo oscuro, sección de Contacto optimizada con mapa interactivo de Providencia (OpenStreetMap) con accesos directos a Google Maps y Waze.
 - **Qué está en progreso:** Cierre final de Fase 5 y merge a `develop` / `main`.
 - **Bloqueos o problemas conocidos:** ninguno.
 - **Siguiente paso concreto:** Proponer push a GitHub y merge de `phase/05-launch` hacia `develop`.

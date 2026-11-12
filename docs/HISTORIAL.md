@@ -15,12 +15,12 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Última actualización:** 2026-11-11
 - **Fase activa:** `phase/04-contact`
 - **Rama de trabajo:** `phase/04-contact`
-- **Último commit relevante:** `feat(booking): implementa sincronizacion de especie, selector con bloqueo, comprobante qr y validacion estricta`
+- **Último commit relevante:** `feat(booking): filtra profesionales por servicio, bloquea domingos y restringe especies exclusivas`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Navbar funcional con enlaces absolutos `/#...`, portal `/agendar` con selector de fechas restrictivo (bloqueo de días pasados y aviso dominical), autoselección de especie según especialidad médica (Medicina Felina -> Gato), bloqueo estricto de avance sin médico/hora, y comprobante de reserva con código QR vectorial interactivo e impresión aislada (solo la ficha médica).
-- **Qué está en progreso:** Revisión y validación final de la experiencia de agendamiento por parte del usuario.
+- **Qué funciona:** Filtrado dinámico de profesionales por servicio (Peluquería solo Rodrigo Lagos, Felina solo Dr. Carlos, etc.), bloqueo estricto e inmutable de especie en servicios exclusivos (Peluquería = Perro, Felina = Gato) impidiendo que se cambien a conejos u otras mascotas, calendario con bloqueo activo de días pasados y rechazo automático de domingos (reubicación inmediata en lunes hábil con aviso clínico), validación estricta de profesional/horario y comprobante médico con QR e impresión aislada.
+- **Qué está en progreso:** Validación de los nuevos filtros clínicos y reglas de agendamiento por parte del usuario.
 - **Bloqueos o problemas conocidos:** ninguno.
-- **Siguiente paso concreto:** Confirmar satisfacción del usuario con el agendamiento y proceder a la integración de la rama `phase/04-contact` hacia `develop`.
+- **Siguiente paso concreto:** Confirmar aprobación final del usuario para cerrar la Fase 4 y proceder con el merge hacia `develop`.
 
 ## 2. Decisiones importantes
 
@@ -38,11 +38,18 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 | 2026-11-11 | Protección antispam silenciosa con honeypot | Bloquea bots sin fricción para el usuario tutor evitando CAPTCHAs invasivos | ReCaptcha / hCaptcha |
 | 2026-11-11 | Separar contacto general de agendamiento en ruta dedicada `/agendar` | Mayor claridad de UX, evita sobrecargar la landing y replica el flujo real de portales clínicos modernos | Formulario largo incrustado en el pie de página |
 | 2026-11-11 | Impresión aislada con `@media print` y QR vectorial SVG | El comprobante imprime únicamente la ficha clínica oficial sin headers ni footers y sin dependencias externas pesadas | Captura completa del sitio o librerías pesadas de PDF |
-| 2026-11-11 | Sincronización automática de especie según servicio médico | Mejora la ergonomía de reserva completando por defecto la especie al elegir medicina felina o canina | Formulario estático desvinculado |
+| 2026-11-11 | Sincronización y bloqueo estricto de especie según el servicio | En Peluquería Canina solo permite Perro y en Felina solo Gato; evita reservas absurdas como conejos en peluquería canina | Permitir que el usuario elija cualquier especie |
+| 2026-11-11 | Filtrar profesionales por especialidad en vez de bloquearlos | Experiencia limpia y enfocada: en Peluquería solo aparece el peluquero, en Cirugía solo la cirujana, etc. | Mostrar los 4 médicos con 3 deshabilitados |
 
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-11 · `phase/04-contact` · filtrado de especialistas, rechazo de domingos y bloqueo estricto de especie
+- **Qué:** Filtrado reactivo de profesionales en Paso 2 según la especialidad seleccionada (Peluquería Canina muestra únicamente a Rodrigo Lagos; Medicina Felina únicamente a Dr. Carlos; Cirugía a Dra. Valentina; etc.); bloqueo estricto del selector de especie (inmutable en servicios exclusivos de perro o gato con candado e indicador visual); y detección y sanitización automática de domingos en el calendario trasladando la cita al lunes hábil más próximo con alerta de guardia.
+- **Archivos clave:** `src/pages/agendar.astro`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, qa, docs-seo
+- **Notas:** Validado con 0 errores de compilación (`npm run build`), ESLint y Prettier.
 
 ### 2026-11-11 · `phase/04-contact` · refinamiento ux/ui y validaciones avanzadas de agendamiento
 - **Qué:** Navbar adaptada con rutas absolutas para funcionar desde cualquier subpágina; sincronización de especie en paso 3 según especialidad seleccionada; selector de fecha con bloqueo estricto de días pasados y domingos; validación obligatoria de hora y profesional antes de avanzar; código QR vectorial interactivo e impresión con `@media print` focalizada exclusivamente en la ficha del comprobante.

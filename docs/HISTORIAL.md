@@ -13,14 +13,14 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Proyecto:** landing (veterinaria) — Landing page de una veterinaria
 - **Repositorio:** https://github.com/JCarvajalLab/astro-landing-veterinaria
 - **Última actualización:** 2026-11-12
-- **Fase activa:** `phase/05-launch` (Ajustes de UI/UX completados)
+- **Fase activa:** `phase/05-launch` (Mejoras de calidez y empatía UX/UI aplicadas)
 - **Rama de trabajo:** `phase/05-launch`
-- **Último commit relevante:** `feat(ui): ajusta fondo del hero a slate-900 para intercalar con servicios`
+- **Último commit relevante:** `feat(ui): incorpora fotografia emotiva en hero badges de especie en servicios y boton flotante de urgencias`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Landing completa y Portal de agendamiento clínico `/agendar` con Modo Nocturno integral, Navbar moderna flotante limpia, Hero y fondo superior unificados a `dark:bg-slate-900` permitiendo la alternancia intercalada de fondos de secciones (Hero `slate-900` -> Servicios `slate-950` -> Equipo `slate-900` -> Testimonios `slate-950`, etc.), sección de Contacto optimizada con mapa interactivo de Providencia (OpenStreetMap) con accesos directos a Google Maps y Waze.
-- **Qué está en progreso:** Cierre final de Fase 5 y merge a `develop` / `main`.
+- **Qué funciona:** Landing completa con fotografía médica cálida en el Hero (`hero-pet.webp`) acompañada de badges flotantes y métricas de impacto, pastillas de especie en cada servicio (`🐶 Perros & 🐱 Gatos`), botón flotante de urgencias móviles 24/7 (`tel:+56912345678`), Portal de agendamiento clínico `/agendar` en 4 pasos, Modo Nocturno integral y SEO técnico completo.
+- **Qué está en progreso:** Revisión visual de las mejoras de calidez y preparación para cierre de Fase 5.
 - **Bloqueos o problemas conocidos:** ninguno.
-- **Siguiente paso concreto:** Proponer push a GitHub y merge de `phase/05-launch` hacia `develop`.
+- **Siguiente paso concreto:** Validar visualmente con el usuario; si se aprueba, proceder con el push a GitHub y merge hacia `develop`.
 
 ## 2. Decisiones importantes
 

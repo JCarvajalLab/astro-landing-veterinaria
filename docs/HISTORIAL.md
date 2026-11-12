@@ -15,12 +15,12 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Última actualización:** 2026-11-11
 - **Fase activa:** `phase/04-contact`
 - **Rama de trabajo:** `phase/04-contact`
-- **Último commit relevante:** `refactor(navigation): enlaza llamadas a la accion a la nueva ruta /agendar`
-- **Despliegue:** pendiente de vincular al servicio de hosting gratuito (Cloudflare Pages / Netlify)
-- **Qué funciona:** Sección de contacto y ubicación de ancho completo en la landing (`Contact.astro`), portal dedicado moderno de agendamiento por pasos en `/agendar` (`agendar.astro`) con Stepper, selección de especialidad, médicos con fotos y pastillas horarias interactivas, formulario de paciente con honeypot antispam y comprobante descargable.
-- **Qué está en progreso:** Revisión interactiva de la nueva experiencia de agendamiento en `/agendar` por parte del usuario.
+- **Último commit relevante:** `feat(booking): implementa sincronizacion de especie, selector con bloqueo, comprobante qr y validacion estricta`
+- **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
+- **Qué funciona:** Navbar funcional con enlaces absolutos `/#...`, portal `/agendar` con selector de fechas restrictivo (bloqueo de días pasados y aviso dominical), autoselección de especie según especialidad médica (Medicina Felina -> Gato), bloqueo estricto de avance sin médico/hora, y comprobante de reserva con código QR vectorial interactivo e impresión aislada (solo la ficha médica).
+- **Qué está en progreso:** Revisión y validación final de la experiencia de agendamiento por parte del usuario.
 - **Bloqueos o problemas conocidos:** ninguno.
-- **Siguiente paso concreto:** Validar la vista previa del portal `/agendar` con el usuario y proceder al cierre de fase hacia `phase/05-launch`.
+- **Siguiente paso concreto:** Confirmar satisfacción del usuario con el agendamiento y proceder a la integración de la rama `phase/04-contact` hacia `develop`.
 
 ## 2. Decisiones importantes
 
@@ -37,10 +37,18 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 | 2026-11-11 | Usar `<details>` y `<summary>` nativos para sección FAQ | Máxima accesibilidad WCAG y cero JavaScript de cliente para interacción | Acordeones pesados basados en JS/React |
 | 2026-11-11 | Protección antispam silenciosa con honeypot | Bloquea bots sin fricción para el usuario tutor evitando CAPTCHAs invasivos | ReCaptcha / hCaptcha |
 | 2026-11-11 | Separar contacto general de agendamiento en ruta dedicada `/agendar` | Mayor claridad de UX, evita sobrecargar la landing y replica el flujo real de portales clínicos modernos | Formulario largo incrustado en el pie de página |
+| 2026-11-11 | Impresión aislada con `@media print` y QR vectorial SVG | El comprobante imprime únicamente la ficha clínica oficial sin headers ni footers y sin dependencias externas pesadas | Captura completa del sitio o librerías pesadas de PDF |
+| 2026-11-11 | Sincronización automática de especie según servicio médico | Mejora la ergonomía de reserva completando por defecto la especie al elegir medicina felina o canina | Formulario estático desvinculado |
 
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-11 · `phase/04-contact` · refinamiento ux/ui y validaciones avanzadas de agendamiento
+- **Qué:** Navbar adaptada con rutas absolutas para funcionar desde cualquier subpágina; sincronización de especie en paso 3 según especialidad seleccionada; selector de fecha con bloqueo estricto de días pasados y domingos; validación obligatoria de hora y profesional antes de avanzar; código QR vectorial interactivo e impresión con `@media print` focalizada exclusivamente en la ficha del comprobante.
+- **Archivos clave:** `src/pages/agendar.astro`, `src/components/Navbar.astro`, `src/components/Contact.astro`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, qa, docs-seo
+- **Notas:** Se resolvió cada punto del feedback del usuario manteniendo cero dependencias externas y JS nativo reactivo.
 
 ### 2026-11-11 · `phase/04-contact` · fase 4 completada y rediseñada
 - **Qué:** Desacoplamiento de contacto y agendamiento: `Contact.astro` para atención y canales directos en inicio, creación de ruta dedicada `/agendar` con Stepper moderno de 4 pasos (Especialidad, Médico con horarios, Identificación y Comprobante) y actualización de enlaces CTA.

@@ -3,6 +3,7 @@ const services = [
   {
     title: 'Consulta Médica General',
     tag: 'Preventiva',
+    species: '🐶 Perros & 🐱 Gatos',
     description:
       'Evaluación integral del estado físico, nutricional y comportamental de tu mascota, con enfoque preventivo en todas sus etapas de vida.',
     features: [
@@ -15,6 +16,7 @@ const services = [
   {
     title: 'Vacunación & Desparasitación',
     tag: 'Esencial',
+    species: '🐶 Perros & 🐱 Gatos',
     description:
       'Protege a tu compañero contra virus y parásitos con calendarios de inmunización oficiales y antiparasitarios de última generación.',
     features: [
@@ -27,6 +29,7 @@ const services = [
   {
     title: 'Cirugía & Pabellón Especializado',
     tag: 'Alta Complejidad',
+    species: '🐶 Perros & 🐱 Gatos',
     description:
       'Quirófano completamente equipado para procedimientos de tejidos blandos, esterilizaciones y traumatología con anestesia inhalatoria segura.',
     features: [
@@ -39,6 +42,7 @@ const services = [
   {
     title: 'Peluquería & Spa Veterinario',
     tag: 'Bienestar & Higiene',
+    species: '🐶 Caninos & 🐱 Felinos',
     description:
       'Servicio de estética canina y felina con enfoque Fear Free (libre de estrés), baños medicados, corte higiénico y corte de uñas profesional.',
     features: [
@@ -51,6 +55,7 @@ const services = [
   {
     title: 'Urgencias Médicas 24/7',
     tag: 'Atención Inmediata',
+    species: '🚨 Todas las mascotas',
     description:
       'Equipo médico de guardia permanente listo para estabilizar y tratar cualquier emergencia crítica a cualquier hora del día o la noche.',
     features: [
@@ -63,6 +68,7 @@ const services = [
   {
     title: 'Diagnóstico & Laboratorio',
     tag: 'Tecnología',
+    species: '🔬 Todas las especies',
     description:
       'Resultados rápidos y certeros con ecografía abdominal de alta resolución, radiografía digital y exámenes sanguíneos en el día.',
     features: [
@@ -199,9 +205,14 @@ const services = [
                 )}
               </span>
 
-              <span class="rounded-full bg-slate-200/70 dark:bg-slate-800 px-2.5 py-0.5 text-xs font-semibold text-slate-700 dark:text-slate-300">
-                {service.tag}
-              </span>
+              <div class="flex flex-col items-end gap-1.5">
+                <span class="rounded-full bg-slate-200/70 dark:bg-slate-800 px-2.5 py-0.5 text-xs font-semibold text-slate-700 dark:text-slate-300">
+                  {service.tag}
+                </span>
+                <span class="inline-flex items-center rounded-md bg-teal-50 dark:bg-teal-950/70 px-2 py-0.5 text-[11px] font-bold text-teal-800 dark:text-teal-300 border border-teal-200/50 dark:border-teal-800/50">
+                  {service.species}
+                </span>
+              </div>
             </div>
 
             <!-- Título y descripción -->

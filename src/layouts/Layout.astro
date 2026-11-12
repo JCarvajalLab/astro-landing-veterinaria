@@ -162,5 +162,23 @@ const structuredData = {
 
     <Footer />
     <BookingModal />
+
+    <!-- Botón Flotante Rápido de Urgencias para Dispositivos Móviles -->
+    <aside class="fixed bottom-4 right-4 z-40 md:hidden" aria-label="Contacto de Urgencias Móvil">
+      <a
+        href="tel:+56912345678"
+        class="group flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-rose-600 px-4 py-3 text-xs font-bold text-white shadow-xl shadow-rose-950/30 transition active:scale-95 border border-white/20"
+        aria-label="Llamar inmediatamente a Urgencias Veterinarias 24 Horas"
+      >
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75"></span>
+          <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-white"></span>
+        </span>
+        <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z" />
+        </svg>
+        <span>Urgencias 24/7</span>
+      </a>
+    </aside>
   </body>
 </html>

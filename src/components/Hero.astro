@@ -1,5 +1,7 @@
 ---
 // Componente Hero para la clínica veterinaria
+import { Image } from 'astro:assets';
+import heroPetImg from '../assets/hero-pet.jpg';
 ---
 
 <section class="relative min-h-[calc(100vh-4.5rem)] flex flex-col justify-center overflow-hidden bg-slate-50 dark:bg-slate-900 py-12 sm:py-16 lg:py-20 transition-colors duration-200">
@@ -117,54 +119,68 @@
         </div>
       </div>
 
-      <!-- Columna derecha: Tarjeta visual destacada y métricas -->
+      <!-- Columna derecha: Fotografía médica cálida y métricas de impacto -->
       <div class="lg:col-span-5">
-        <div class="relative mx-auto max-w-md rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-950/80 p-6 shadow-xl lg:max-w-none transition-colors duration-200">
-          <!-- Banner ilustrativo de la clínica -->
-          <div class="flex h-52 w-full flex-col items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 to-teal-700 dark:from-teal-600 dark:to-teal-800 p-6 text-center text-white shadow-inner">
-            <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/15 backdrop-blur-xs">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10 text-white"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <circle cx="12" cy="15" r="4" />
-                <circle cx="6.5" cy="11.5" r="2" />
-                <circle cx="10" cy="7.5" r="2" />
-                <circle cx="14" cy="7.5" r="2" />
-                <circle cx="17.5" cy="11.5" r="2" />
-              </svg>
+        <div class="relative mx-auto max-w-md rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-950/80 p-5 shadow-xl lg:max-w-none transition-colors duration-200">
+          <!-- Imagen fotográfica cálida de paciente y profesional con badge superpuesto -->
+          <div class="group relative h-64 sm:h-72 w-full overflow-hidden rounded-2xl shadow-inner">
+            <Image
+              src={heroPetImg}
+              alt="Veterinaria examinando con cariño y dedicación a un paciente canino"
+              class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
+              loading="eager"
+            />
+            <!-- Gradiente para contraste de texto -->
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
+
+            <!-- Badges flotantes sobre la foto -->
+            <div class="absolute top-3 right-3">
+              <span class="inline-flex items-center gap-1 rounded-full bg-teal-600/90 px-2.5 py-1 text-[11px] font-bold text-white shadow-md backdrop-blur-xs">
+                ★ 4.9 · +850 Reseñas
+              </span>
             </div>
-            <h2 class="mt-4 text-xl font-bold tracking-tight">Clínica Veterinaria Huellitas</h2>
-            <p class="text-xs text-teal-100">Compromiso médico, vocación y amor animal</p>
+
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-teal-900 shadow-md backdrop-blur-md dark:bg-slate-900/90 dark:text-teal-300">
+                <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Atención Cálida & Fear Free
+              </span>
+              <span class="hidden sm:inline-block rounded-full bg-slate-900/80 px-2.5 py-0.5 text-[10px] font-semibold text-slate-200 backdrop-blur-xs">
+                Pabellón & Urgencias
+              </span>
+            </div>
           </div>
 
           <!-- Métricas de impacto -->
-          <div class="mt-6 grid grid-cols-2 gap-4 border-t border-slate-100 dark:border-slate-800/80 pt-6">
-            <div class="rounded-2xl bg-slate-50 dark:bg-slate-800/60 p-4 text-center transition">
-              <p class="text-3xl font-extrabold text-teal-600 dark:text-teal-400">+5.000</p>
-              <p class="mt-1 text-xs font-semibold text-slate-600 dark:text-slate-300">
+          <div class="mt-5 grid grid-cols-2 gap-3.5 border-t border-slate-100 dark:border-slate-800/80 pt-5">
+            <div class="rounded-2xl bg-slate-50 dark:bg-slate-800/60 p-3.5 text-center transition">
+              <p class="text-2xl sm:text-3xl font-extrabold text-teal-600 dark:text-teal-400">
+                +5.000
+              </p>
+              <p class="mt-1 text-[11px] sm:text-xs font-semibold text-slate-600 dark:text-slate-300">
                 Pacientes Atendidos
               </p>
             </div>
-            <div class="rounded-2xl bg-slate-50 dark:bg-slate-800/60 p-4 text-center transition">
-              <p class="text-3xl font-extrabold text-teal-600 dark:text-teal-400">12+</p>
-              <p class="mt-1 text-xs font-semibold text-slate-600 dark:text-slate-300">
+            <div class="rounded-2xl bg-slate-50 dark:bg-slate-800/60 p-3.5 text-center transition">
+              <p class="text-2xl sm:text-3xl font-extrabold text-teal-600 dark:text-teal-400">
+                12+
+              </p>
+              <p class="mt-1 text-[11px] sm:text-xs font-semibold text-slate-600 dark:text-slate-300">
                 Años de Trayectoria
               </p>
             </div>
-            <div class="rounded-2xl bg-slate-50 dark:bg-slate-800/60 p-4 text-center transition">
-              <p class="text-3xl font-extrabold text-amber-500">4.9 ★</p>
-              <p class="mt-1 text-xs font-semibold text-slate-600 dark:text-slate-300">
-                +850 Reseñas Google
+            <div class="rounded-2xl bg-slate-50 dark:bg-slate-800/60 p-3.5 text-center transition">
+              <p class="text-2xl sm:text-3xl font-extrabold text-amber-500">24/7</p>
+              <p class="mt-1 text-[11px] sm:text-xs font-semibold text-slate-600 dark:text-slate-300">
+                Urgencias Médicas
               </p>
             </div>
-            <div class="rounded-2xl bg-slate-50 dark:bg-slate-800/60 p-4 text-center transition">
-              <p class="text-3xl font-extrabold text-teal-600 dark:text-teal-400">24/7</p>
-              <p class="mt-1 text-xs font-semibold text-slate-600 dark:text-slate-300">
-                Urgencias Médicas
+            <div class="rounded-2xl bg-slate-50 dark:bg-slate-800/60 p-3.5 text-center transition">
+              <p class="text-2xl sm:text-3xl font-extrabold text-teal-600 dark:text-teal-400">
+                100%
+              </p>
+              <p class="mt-1 text-[11px] sm:text-xs font-semibold text-slate-600 dark:text-slate-300">
+                Médicos Colegiados
               </p>
             </div>
           </div>

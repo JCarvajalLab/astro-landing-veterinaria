@@ -15,12 +15,12 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Última actualización:** 2026-11-12
 - **Fase activa:** `phase/05-launch` (Proyecto 1 completado al 100% y lanzado en `v1.0.0`)
 - **Rama de trabajo:** `develop` (rama de integración)
-- **Último commit relevante:** `docs(readme): incorpora galeria oficial de capturas en alta resolucion y mobile-first`
+- **Último commit relevante:** `feat(router): incorpora pagina 404 personalizada con animaciones css y navegacion limpia sin hashes en navbar`
 - **Despliegue:** servidor local activo en `http://localhost:4321/`; producción en Cloudflare Pages en `https://huellitas-vet.pages.dev` (vinculado a GitHub); repositorio sincronizado en GitHub con tag oficial `v1.0.0`.
-- **Qué funciona:** Landing page veterinaria completa con portal de agendamiento clínico `/agendar` en 4 pasos, fotografía médica cálida con paciente en el Hero (`hero-pet.webp`), badges flotantes de credibilidad, pastillas de especie en servicios (`🐶 Perros & 🐱 Gatos`), botón flotante de urgencias para móviles, formulario de contacto a altura completa, mapa interactivo con zoom cercano en Providencia, modo nocturno integral, SEO técnico (Open Graph, Twitter Cards, Schema.org JSON-LD `VeterinaryCare`, `robots.txt`), README profesional con galería visual y 0 vulnerabilidades.
-- **Qué está en progreso:** Implementación de la página de error 404 personalizada (`src/pages/404.astro`).
+- **Qué funciona:** Landing page veterinaria completa con portal de agendamiento clínico `/agendar` en 4 pasos, página de error 404 personalizada con ilustración vectorial y animaciones CSS nativas fluidas, navegación limpia en Navbar sin hashes en la URL, fotografía médica cálida con paciente en el Hero (`hero-pet.webp`), badges flotantes de credibilidad, pastillas de especie en servicios (`🐶 Perros & 🐱 Gatos`), botón flotante de urgencias para móviles, formulario de contacto a altura completa, mapa interactivo con zoom cercano en Providencia, modo nocturno integral, SEO técnico (Open Graph, Twitter Cards, Schema.org JSON-LD `VeterinaryCare`, `robots.txt`), README profesional con galería visual simétrica y 0 vulnerabilidades.
+- **Qué está en progreso:** Proyecto 1 cerrado al 100% de manera definitiva y listo para el inicio del Proyecto 2 en un nuevo chat.
 - **Bloqueos o problemas conocidos:** ninguno.
-- **Siguiente paso concreto:** Crear `src/pages/404.astro` adaptando los ejemplos del usuario.
+- **Siguiente paso concreto:** Proyecto 1 completado con éxito. El usuario iniciará el Proyecto 2 (Portafolio con casos de estudio) en una nueva conversación.
 
 ## 2. Decisiones importantes
 

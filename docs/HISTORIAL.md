@@ -15,12 +15,12 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Última actualización:** 2026-11-11
 - **Fase activa:** `phase/03-sections`
 - **Rama de trabajo:** `phase/03-sections`
-- **Último commit relevante:** `docs(plan): agenda modo nocturno para fase 5 por solicitud del usuario`
+- **Último commit relevante:** `feat(sections): ensambla todas las secciones en la pagina principal`
 - **Despliegue:** pendiente de vincular al servicio de hosting gratuito (Cloudflare Pages / Netlify)
-- **Qué funciona:** Sistema de diseño veterinario, Layout con skip-link, Navbar sticky responsive con menú móvil, Footer clínico con 4 columnas, y servidor de desarrollo activo.
-- **Qué está en progreso:** Inicio de la Fase 3: diseño y maquetación de secciones detalladas (Hero, Servicios, Equipo, Testimonios, Horarios, FAQ).
+- **Qué funciona:** Todas las secciones de la landing page veterinaria (`Hero.astro`, `Services.astro`, `Team.astro`, `Testimonials.astro`, `Schedule.astro`, `Faq.astro`), Layout con Navbar sticky y Footer clínico, y servidor de desarrollo activo.
+- **Qué está en progreso:** Revisión de vista previa por parte del usuario para recibir feedback previo a push a GitHub.
 - **Bloqueos o problemas conocidos:** ninguno.
-- **Siguiente paso concreto:** Validar la vista previa local con el usuario y proceder con la Fase 3 (Secciones detalladas: Hero, Servicios, Equipo, Testimonios, Horarios, FAQ).
+- **Siguiente paso concreto:** Validar la vista previa local con el usuario y proceder con la Fase 4 (Formulario de contacto interactivo y validación).
 
 ## 2. Decisiones importantes
 
@@ -34,10 +34,17 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 | 2026-11-11 | Generar preview local interactivo antes de consolidar cambios | Permite revisión visual y feedback temprano del usuario antes de commits/push | Avanzar sin feedback visual previo |
 | 2026-11-11 | Menú móvil accesible con JavaScript nativo sin dependencias | Cero sobrecarga de bundle, control de `aria-expanded` y cierre con tecla Escape | Librerías pesadas o frameworks de UI |
 | 2026-11-11 | Incorporar soporte de modo nocturno (Dark Mode) en Fase 5 | Requerimiento de usuario para mejorar accesibilidad y experiencia visual | No contemplar modo nocturno |
+| 2026-11-11 | Usar `<details>` y `<summary>` nativos para sección FAQ | Máxima accesibilidad WCAG y cero JavaScript de cliente para interacción | Acordeones pesados basados en JS/React |
 
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-11 · `phase/03-sections` · fase 3 completada
+- **Qué:** Implementación completa de componentes modulares para todas las secciones: Hero, Services, Team, Testimonials, Schedule, Faq e integración en `index.astro`.
+- **Archivos clave:** `src/components/Hero.astro`, `src/components/Services.astro`, `src/components/Team.astro`, `src/components/Testimonials.astro`, `src/components/Schedule.astro`, `src/components/Faq.astro`, `src/pages/index.astro`, `docs/PLAN.md`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, desarrollo, ux-ui, qa, docs-seo
+- **Notas:** Verificado en servidor de desarrollo local y listo para inspección visual del usuario.
 
 ### 2026-11-11 · `phase/02-layout` · fase 2 completada
 - **Qué:** Implementación del sistema de diseño base, Navbar sticky responsive con menú móvil nativo, Footer clínico con horarios y contacto, skip-link de accesibilidad e integración en Layout.
@@ -60,7 +67,7 @@ _Dónde está cada cosa. Se actualiza solo cuando cambia la estructura._
 | Ruta | Qué contiene |
 |------|--------------|
 | `src/pages/` | Rutas del sitio (`index.astro`, etc.) |
-| `src/components/` | Componentes reutilizables (`Navbar.astro`, `Footer.astro`) |
+| `src/components/` | Componentes (`Navbar`, `Footer`, `Hero`, `Services`, `Team`, `Testimonials`, `Schedule`, `Faq`) |
 | `src/layouts/` | Layouts base (`Layout.astro`) |
 | `src/assets/` | Imágenes descargadas localmente y optimizadas con `astro:assets` |
 | `src/styles/` | Estilos globales y Tailwind CSS v4 (`global.css`) |

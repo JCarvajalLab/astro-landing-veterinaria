@@ -13,12 +13,12 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Proyecto:** landing (veterinaria) — Landing page de una veterinaria
 - **Repositorio:** https://github.com/JCarvajalLab/astro-landing-veterinaria
 - **Última actualización:** 2026-11-11
-- **Fase activa:** `phase/03-sections`
-- **Rama de trabajo:** `phase/03-sections`
+- **Fase activa:** `phase/04-contact`
+- **Rama de trabajo:** `phase/04-contact`
 - **Último commit relevante:** `feat(ui): integra imagenes optimizadas con astro:assets en equipo y testimonios`
 - **Despliegue:** pendiente de vincular al servicio de hosting gratuito (Cloudflare Pages / Netlify)
-- **Qué funciona:** Todas las secciones de la landing page veterinaria (`Hero.astro`, `Services.astro`, `Team.astro` con fotos del equipo médico optimizadas con `astro:assets`, `Testimonials.astro` con carrusel de 6 tutores y fotos reales, `Schedule.astro` rediseñado con agenda semanal y tarjeta nocturna de urgencias, `Faq.astro`), Layout con Navbar sticky y Footer clínico, y servidor de desarrollo activo.
-- **Qué está en progreso:** Revisión visual de retratos y carrusel interactivo por parte del usuario.
+- **Qué funciona:** Todas las secciones de la landing page veterinaria (Hero, Servicios, Equipo médico con fotos locales optimizadas, Carrusel de testimonios con 6 tutores, Horarios rediseñados y FAQ), Layout responsive y servidor de desarrollo activo.
+- **Qué está en progreso:** Inicio de la Fase 4: Formulario de contacto y agendamiento con validación y protección antispam.
 - **Bloqueos o problemas conocidos:** ninguno.
 - **Siguiente paso concreto:** Validar la vista previa local con el usuario y proceder con la Fase 4 (Formulario de contacto interactivo y validación).
 

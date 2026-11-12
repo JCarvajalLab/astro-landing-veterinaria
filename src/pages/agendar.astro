@@ -11,10 +11,44 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
   title="Reserva de Horas Médicas | Veterinaria Huellitas"
   description="Portal oficial de reserva y agendamiento de horas clínicas, cirugías, vacunación y spa para tu mascota en Santiago."
 >
+  <!-- Estilos de impresión exclusivos para el comprobante médico -->
+  <style is:global>
+    @media print {
+      body {
+        background-color: white !important;
+      }
+      header,
+      footer,
+      nav,
+      .no-print,
+      .skip-link {
+        display: none !important;
+      }
+      .step-container {
+        display: none !important;
+      }
+      #step-4 {
+        display: block !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+      }
+      #printable-receipt {
+        display: block !important;
+        box-shadow: none !important;
+        border: 2px solid #0d9488 !important;
+        background: white !important;
+        margin: 0 auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+    }
+  </style>
+
   <div class="min-h-screen bg-slate-100/70 py-8 sm:py-12">
     <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-      <!-- Barra Superior de Navegación del Portal -->
-      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-slate-200/90 pb-6">
+      <!-- Barra Superior de Navegación del Portal (no-print) -->
+      <div class="no-print flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-slate-200/90 pb-6">
         <div>
           <a
             href="/"
@@ -53,13 +87,12 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
         </div>
       </div>
 
-      <!-- Stepper / Indicador de Progreso Visual Moderno -->
+      <!-- Stepper / Indicador de Progreso Visual Moderno (no-print) -->
       <nav
         aria-label="Progreso de reserva"
-        class="mt-8 rounded-3xl border border-slate-200/80 bg-white p-4 shadow-xs sm:p-6"
+        class="no-print mt-8 rounded-3xl border border-slate-200/80 bg-white p-4 shadow-xs sm:p-6"
       >
         <ol class="grid grid-cols-4 gap-2 sm:gap-4 text-center">
-          <!-- Paso 1 -->
           <li class="step-indicator active flex flex-col items-center gap-1.5" data-step="1">
             <span class="step-badge flex h-9 w-9 items-center justify-center rounded-xl bg-teal-600 text-sm font-bold text-white shadow-xs transition">
               1
@@ -69,7 +102,6 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             </span>
           </li>
 
-          <!-- Paso 2 -->
           <li class="step-indicator flex flex-col items-center gap-1.5" data-step="2">
             <span class="step-badge flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 text-sm font-bold text-slate-500 transition">
               2
@@ -79,7 +111,6 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             </span>
           </li>
 
-          <!-- Paso 3 -->
           <li class="step-indicator flex flex-col items-center gap-1.5" data-step="3">
             <span class="step-badge flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 text-sm font-bold text-slate-500 transition">
               3
@@ -89,7 +120,6 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             </span>
           </li>
 
-          <!-- Paso 4 -->
           <li class="step-indicator flex flex-col items-center gap-1.5" data-step="4">
             <span class="step-badge flex h-9 w-9 items-center justify-center rounded-xl bg-slate-100 text-sm font-bold text-slate-500 transition">
               4
@@ -104,7 +134,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
       <!-- CONTENEDOR PRINCIPAL DE PASOS -->
       <main class="mt-8">
         <!-- ========================================== -->
-        <!-- PASO 1: BÚSQUEDA Y SELECCIÓN DE ÁREA -->
+        <!-- PASO 1: SELECCIÓN DE ESPECIALIDAD -->
         <!-- ========================================== -->
         <section
           id="step-1"
@@ -127,12 +157,13 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             role="radiogroup"
             aria-label="Especialidades médicas"
           >
-            <!-- Opción 1: Consulta General -->
-            <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-slate-200 p-5 transition hover:border-teal-400 hover:bg-teal-50/30">
+            <!-- Consulta General -->
+            <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-teal-500 bg-teal-50/50 ring-2 ring-teal-500/20 p-5 transition">
               <input
                 type="radio"
                 name="selected_area"
                 value="Consulta Médica General"
+                data-species="Perro (Canino)"
                 class="sr-only"
                 checked
               />
@@ -142,7 +173,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 </span>
                 <h3 class="mt-4 text-base font-bold text-slate-900">Consulta Médica General</h3>
                 <p class="mt-1 text-xs text-slate-500 leading-relaxed">
-                  Revisión clínica completa, control de peso, nutrición y diagnósticos.
+                  Revisión clínica completa, control de peso, nutrición y chequeo preventivo.
                 </p>
               </div>
               <span class="mt-4 inline-block text-xs font-bold text-teal-700">
@@ -150,23 +181,27 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
               </span>
             </label>
 
-            <!-- Opción 2: Medicina Felina -->
+            <!-- Medicina Felina (Autoselecciona Gato) -->
             <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-slate-200 p-5 transition hover:border-teal-400 hover:bg-teal-50/30">
               <input
                 type="radio"
                 name="selected_area"
                 value="Medicina Felina Cat Friendly"
+                data-species="Gato (Felino)"
                 class="sr-only"
               />
               <div>
                 <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-800 shadow-2xs group-hover:scale-105 transition">
                   🐱
                 </span>
-                <h3 class="mt-4 text-base font-bold text-slate-900">
-                  Medicina Felina Especializada
-                </h3>
+                <div class="flex items-center gap-1.5 mt-4">
+                  <h3 class="text-base font-bold text-slate-900">Medicina Felina</h3>
+                  <span class="rounded-md bg-cyan-100 px-1.5 py-0.5 text-[10px] font-bold text-cyan-800">
+                    Solo Gatos
+                  </span>
+                </div>
                 <p class="mt-1 text-xs text-slate-500 leading-relaxed">
-                  Atención libre de estrés adaptada al comportamiento y salud del gato.
+                  Atención Fear Free adaptada exclusivamente al comportamiento felino.
                 </p>
               </div>
               <span class="mt-4 inline-block text-xs font-bold text-teal-700">
@@ -174,12 +209,13 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
               </span>
             </label>
 
-            <!-- Opción 3: Vacunación -->
+            <!-- Vacunación -->
             <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-slate-200 p-5 transition hover:border-teal-400 hover:bg-teal-50/30">
               <input
                 type="radio"
                 name="selected_area"
                 value="Vacunación & Desparasitación"
+                data-species="Perro (Canino)"
                 class="sr-only"
               />
               <div>
@@ -190,7 +226,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                   Vacunación & Desparasitación
                 </h3>
                 <p class="mt-1 text-xs text-slate-500 leading-relaxed">
-                  Esquemas caninos y felinos oficiales con certificado sanitario.
+                  Inmunización antirrábica, óctuple o triple felina con carnet sanitario.
                 </p>
               </div>
               <span class="mt-4 inline-block text-xs font-bold text-teal-700">
@@ -198,18 +234,22 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
               </span>
             </label>
 
-            <!-- Opción 4: Cirugía -->
+            <!-- Cirugía -->
             <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-slate-200 p-5 transition hover:border-teal-400 hover:bg-teal-50/30">
-              <input type="radio" name="selected_area" value="Cirugía & Pabellón" class="sr-only" />
+              <input
+                type="radio"
+                name="selected_area"
+                value="Cirugía & Pabellón"
+                data-species="Perro (Canino)"
+                class="sr-only"
+              />
               <div>
                 <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-800 shadow-2xs group-hover:scale-105 transition">
                   🏥
                 </span>
-                <h3 class="mt-4 text-base font-bold text-slate-900">
-                  Cirugía & Evaluación Quirúrgica
-                </h3>
+                <h3 class="mt-4 text-base font-bold text-slate-900">Cirugía & Pabellón</h3>
                 <p class="mt-1 text-xs text-slate-500 leading-relaxed">
-                  Esterilizaciones, tejidos blandos y valoración preanestésica.
+                  Esterilizaciones, tejidos blandos y evaluación quirúrgica preanestésica.
                 </p>
               </div>
               <span class="mt-4 inline-block text-xs font-bold text-teal-700">
@@ -217,21 +257,27 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
               </span>
             </label>
 
-            <!-- Opción 5: Peluquería & Spa -->
+            <!-- Peluquería Canina (Autoselecciona Perro) -->
             <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-slate-200 p-5 transition hover:border-teal-400 hover:bg-teal-50/30">
               <input
                 type="radio"
                 name="selected_area"
                 value="Peluquería Canina & Spa"
+                data-species="Perro (Canino)"
                 class="sr-only"
               />
               <div>
                 <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-teal-800 shadow-2xs group-hover:scale-105 transition">
                   ✂️
                 </span>
-                <h3 class="mt-4 text-base font-bold text-slate-900">Peluquería Canina & Spa</h3>
+                <div class="flex items-center gap-1.5 mt-4">
+                  <h3 class="text-base font-bold text-slate-900">Peluquería Canina & Spa</h3>
+                  <span class="rounded-md bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-800">
+                    Caninos
+                  </span>
+                </div>
                 <p class="mt-1 text-xs text-slate-500 leading-relaxed">
-                  Baño terapéutico, corte de raza, deslanado y corte de uñas.
+                  Baño dermatológico, corte de raza, deslanado y corte de uñas sin estrés.
                 </p>
               </div>
               <span class="mt-4 inline-block text-xs font-bold text-teal-700">
@@ -239,12 +285,13 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
               </span>
             </label>
 
-            <!-- Opción 6: Diagnóstico & Ecografía -->
+            <!-- Diagnóstico & Ecografía -->
             <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-slate-200 p-5 transition hover:border-teal-400 hover:bg-teal-50/30">
               <input
                 type="radio"
                 name="selected_area"
                 value="Laboratorio & Diagnóstico"
+                data-species="Perro (Canino)"
                 class="sr-only"
               />
               <div>
@@ -253,7 +300,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 </span>
                 <h3 class="mt-4 text-base font-bold text-slate-900">Laboratorio & Ecografías</h3>
                 <p class="mt-1 text-xs text-slate-500 leading-relaxed">
-                  Exámenes sanguíneos, radiografías y ecografía abdominal.
+                  Perfil bioquímico rápido, radiografías digitales y ecografía abdominal.
                 </p>
               </div>
               <span class="mt-4 inline-block text-xs font-bold text-teal-700">
@@ -262,19 +309,19 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             </label>
           </div>
 
-          <!-- Selector de Sucursal fija informativa -->
+          <!-- Selector de Sucursal fija -->
           <div class="mt-8 rounded-2xl bg-slate-50 p-4 sm:flex sm:items-center sm:justify-between border border-slate-200">
             <div class="flex items-center gap-3">
               <span class="text-xl">📍</span>
               <div>
-                <p class="text-xs font-bold text-slate-900 uppercase">Centro de Atención:</p>
+                <p class="text-xs font-bold text-slate-900 uppercase">Sede Asignada:</p>
                 <p class="text-sm text-slate-700 font-medium">
                   Casa Matriz Providencia (Av. Principal de las Mascotas 1234)
                 </p>
               </div>
             </div>
             <span class="mt-2 inline-block rounded-md bg-emerald-100 px-2.5 py-1 text-xs font-bold text-emerald-800 sm:mt-0">
-              Estacionamiento Disponible
+              Estacionamiento para Clientes
             </span>
           </div>
 
@@ -299,13 +346,12 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
         </section>
 
         <!-- ========================================== -->
-        <!-- PASO 2: SELECCIÓN DE MÉDICO Y HORA -->
+        <!-- PASO 2: SELECCIÓN DE MÉDICO, DÍA Y HORA -->
         <!-- ========================================== -->
         <section
           id="step-2"
           class="step-container hidden rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-10"
         >
-          <!-- Cabecera de contexto seleccionado -->
           <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-slate-200/80 pb-6">
             <div>
               <span class="rounded-full bg-teal-100 px-3 py-1 text-xs font-bold text-teal-800 uppercase tracking-wider">
@@ -319,7 +365,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 <span id="summary-area" class="font-bold text-teal-700">
                   Consulta Médica General
                 </span>{' '}
-                · Sede Casa Matriz
+                · Casa Matriz
               </p>
             </div>
             <button
@@ -331,63 +377,106 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             </button>
           </div>
 
-          <!-- Selector de Fecha / Día -->
-          <div class="mt-6 rounded-2xl bg-slate-50 p-4 border border-slate-200/80">
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-              <div>
-                <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">
-                  Semana de Atención:
-                </p>
-                <p class="text-sm font-extrabold text-slate-900">Noviembre 2026</p>
+          <!-- Selector de Calendario y Fechas (Bloqueo de días pasados) -->
+          <div class="mt-6 rounded-2xl bg-slate-50 p-5 border border-slate-200/90">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <!-- Selector de Calendario Nativo -->
+              <div class="flex items-center gap-3">
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-600 text-white shadow-xs">
+                  📅
+                </span>
+                <div>
+                  <label
+                    for="calendar-picker"
+                    class="block text-xs font-bold uppercase tracking-wider text-slate-700"
+                  >
+                    Elegir Fecha en Calendario:
+                  </label>
+                  <input
+                    type="date"
+                    id="calendar-picker"
+                    min="2026-11-12"
+                    value="2026-11-12"
+                    class="mt-1 rounded-xl border border-slate-300 bg-white px-3 py-1.5 text-xs font-bold text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20"
+                  />
+                  <p class="text-[10px] text-slate-500 mt-0.5">
+                    Días pasados bloqueados automáticamente.
+                  </p>
+                </div>
               </div>
 
-              <!-- Pastillas de días -->
-              <div class="flex flex-wrap items-center gap-1.5" id="date-selector">
-                <button
-                  type="button"
-                  class="date-chip rounded-xl border border-teal-600 bg-teal-600 px-3 py-2 text-xs font-bold text-white shadow-2xs"
-                  data-date="Jueves 12 de Noviembre"
-                >
-                  Jue 12
-                </button>
-                <button
-                  type="button"
-                  class="date-chip rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:border-teal-400"
-                  data-date="Viernes 13 de Noviembre"
-                >
-                  Vie 13
-                </button>
-                <button
-                  type="button"
-                  class="date-chip rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:border-teal-400"
-                  data-date="Sábado 14 de Noviembre"
-                >
-                  Sáb 14
-                </button>
-                <button
-                  type="button"
-                  class="date-chip rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:border-teal-400"
-                  data-date="Lunes 16 de Noviembre"
-                >
-                  Lun 16
-                </button>
-                <button
-                  type="button"
-                  class="date-chip rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:border-teal-400"
-                  data-date="Martes 17 de Noviembre"
-                >
-                  Mar 17
-                </button>
+              <!-- Pastillas de Acceso Rápido Próximos Días -->
+              <div>
+                <p class="text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                  Accesos Rápidos:
+                </p>
+                <div class="flex flex-wrap items-center gap-1.5" id="date-selector">
+                  <button
+                    type="button"
+                    class="date-chip rounded-xl border border-teal-600 bg-teal-600 px-3 py-2 text-xs font-bold text-white shadow-2xs"
+                    data-date="2026-11-12"
+                    data-label="Jueves 12 de Noviembre"
+                  >
+                    Jue 12 Nov
+                  </button>
+                  <button
+                    type="button"
+                    class="date-chip rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:border-teal-400"
+                    data-date="2026-11-13"
+                    data-label="Viernes 13 de Noviembre"
+                  >
+                    Vie 13 Nov
+                  </button>
+                  <button
+                    type="button"
+                    class="date-chip rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:border-teal-400"
+                    data-date="2026-11-14"
+                    data-label="Sábado 14 de Noviembre"
+                  >
+                    Sáb 14 Nov
+                  </button>
+                  <button
+                    type="button"
+                    class="date-chip rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:border-teal-400"
+                    data-date="2026-11-16"
+                    data-label="Lunes 16 de Noviembre"
+                  >
+                    Lun 16 Nov
+                  </button>
+                  <button
+                    type="button"
+                    class="date-chip rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:border-teal-400"
+                    data-date="2026-11-17"
+                    data-label="Martes 17 de Noviembre"
+                  >
+                    Mar 17 Nov
+                  </button>
+                </div>
               </div>
+            </div>
+
+            <div
+              id="calendar-warning"
+              class="mt-3 hidden rounded-xl bg-amber-50 p-2.5 text-xs text-amber-800 border border-amber-200"
+            >
+              ⚠️ Los días domingo atendemos medicina general por orden de llegada y urgencias 24/7.
+              Te recomendamos seleccionar de lunes a sábado para cirugías y spa.
             </div>
           </div>
 
-          <!-- Lista de Médicos con sus bloques de horas -->
-          <div class="mt-8 space-y-6">
+          <!-- Mensaje de aviso de selección obligatoria -->
+          <div
+            id="step-2-error"
+            class="mt-6 hidden rounded-2xl border border-rose-200 bg-rose-50 p-4 text-xs font-bold text-rose-800"
+          >
+            ⚠️ Debes seleccionar un bloque de horario de uno de los profesionales para continuar.
+          </div>
+
+          <!-- Lista de Médicos y Horarios -->
+          <div class="mt-6 space-y-6">
             <!-- Doctor 1: Dra. Valentina Muñoz -->
             <article class="doctor-row rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:border-teal-300">
               <div class="grid grid-cols-1 gap-6 md:grid-cols-12 md:items-center">
-                <!-- Info del Doctor (4 cols) -->
                 <div class="flex items-center gap-4 md:col-span-4">
                   <div class="h-20 w-20 shrink-0 overflow-hidden rounded-2xl shadow-sm ring-2 ring-teal-100">
                     <Image
@@ -402,15 +491,14 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                     <h3 class="text-base font-bold text-slate-900">Dra. Valentina Muñoz</h3>
                     <p class="text-xs font-semibold text-teal-700">Directora Médica & Cirugía</p>
                     <span class="mt-1.5 inline-block rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700">
-                      Hora más próxima hoy: 10:00
+                      Próxima hora disponible: 10:00
                     </span>
                   </div>
                 </div>
 
-                <!-- Bloques de Horas Disponibles (8 cols) -->
                 <div class="md:col-span-8">
                   <p class="text-xs font-semibold text-slate-500 mb-2">
-                    Selecciona un bloque de hora:
+                    Selecciona una hora para esta fecha:
                   </p>
                   <div class="flex flex-wrap gap-2">
                     {['10:00', '10:30', '11:30', '12:30', '15:00', '16:30'].map((time) => (
@@ -431,7 +519,6 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             <!-- Doctor 2: Dr. Carlos Valenzuela -->
             <article class="doctor-row rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:border-teal-300">
               <div class="grid grid-cols-1 gap-6 md:grid-cols-12 md:items-center">
-                <!-- Info del Doctor (4 cols) -->
                 <div class="flex items-center gap-4 md:col-span-4">
                   <div class="h-20 w-20 shrink-0 overflow-hidden rounded-2xl shadow-sm ring-2 ring-teal-100">
                     <Image
@@ -446,15 +533,14 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                     <h3 class="text-base font-bold text-slate-900">Dr. Carlos Valenzuela</h3>
                     <p class="text-xs font-semibold text-teal-700">Medicina Felina & Ecografía</p>
                     <span class="mt-1.5 inline-block rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700">
-                      Hora más próxima hoy: 11:00
+                      Próxima hora disponible: 11:00
                     </span>
                   </div>
                 </div>
 
-                <!-- Bloques de Horas -->
                 <div class="md:col-span-8">
                   <p class="text-xs font-semibold text-slate-500 mb-2">
-                    Selecciona un bloque de hora:
+                    Selecciona una hora para esta fecha:
                   </p>
                   <div class="flex flex-wrap gap-2">
                     {['11:00', '12:00', '14:30', '16:00', '17:30'].map((time) => (
@@ -475,7 +561,6 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             <!-- Doctor 3: Dra. Camila Soto -->
             <article class="doctor-row rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:border-teal-300">
               <div class="grid grid-cols-1 gap-6 md:grid-cols-12 md:items-center">
-                <!-- Info del Doctor (4 cols) -->
                 <div class="flex items-center gap-4 md:col-span-4">
                   <div class="h-20 w-20 shrink-0 overflow-hidden rounded-2xl shadow-sm ring-2 ring-teal-100">
                     <Image
@@ -490,15 +575,14 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                     <h3 class="text-base font-bold text-slate-900">Dra. Camila Soto</h3>
                     <p class="text-xs font-semibold text-teal-700">Dermatología & Vacunación</p>
                     <span class="mt-1.5 inline-block rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700">
-                      Hora más próxima hoy: 09:30
+                      Próxima hora disponible: 09:30
                     </span>
                   </div>
                 </div>
 
-                <!-- Bloques de Horas -->
                 <div class="md:col-span-8">
                   <p class="text-xs font-semibold text-slate-500 mb-2">
-                    Selecciona un bloque de hora:
+                    Selecciona una hora para esta fecha:
                   </p>
                   <div class="flex flex-wrap gap-2">
                     {['09:30', '10:15', '12:00', '15:30', '17:00'].map((time) => (
@@ -516,10 +600,9 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
               </div>
             </article>
 
-            <!-- Técnico: Rodrigo Lagos -->
+            <!-- Profesional 4: Rodrigo Lagos -->
             <article class="doctor-row rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:border-teal-300">
               <div class="grid grid-cols-1 gap-6 md:grid-cols-12 md:items-center">
-                <!-- Info del Profesional (4 cols) -->
                 <div class="flex items-center gap-4 md:col-span-4">
                   <div class="h-20 w-20 shrink-0 overflow-hidden rounded-2xl shadow-sm ring-2 ring-teal-100">
                     <Image
@@ -534,15 +617,14 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                     <h3 class="text-base font-bold text-slate-900">Rodrigo Lagos</h3>
                     <p class="text-xs font-semibold text-teal-700">Técnico Jefe Peluquería & Spa</p>
                     <span class="mt-1.5 inline-block rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700">
-                      Hora más próxima hoy: 09:00
+                      Próxima hora disponible: 09:00
                     </span>
                   </div>
                 </div>
 
-                <!-- Bloques de Horas -->
                 <div class="md:col-span-8">
                   <p class="text-xs font-semibold text-slate-500 mb-2">
-                    Selecciona un bloque de hora:
+                    Selecciona una hora para esta fecha:
                   </p>
                   <div class="flex flex-wrap gap-2">
                     {['09:00', '11:00', '14:00', '16:00'].map((time) => (
@@ -561,23 +643,21 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             </article>
           </div>
 
-          <!-- Barra flotante de selección activa y avance al paso 3 -->
-          <div
-            id="selection-bar"
-            class="mt-8 hidden rounded-2xl bg-teal-800 p-5 text-white shadow-lg sm:flex sm:items-center sm:justify-between"
-          >
+          <!-- Barra de selección activa con validación estricta -->
+          <div class="mt-8 rounded-2xl border border-teal-200 bg-gradient-to-r from-teal-800 to-teal-900 p-5 text-white shadow-lg sm:flex sm:items-center sm:justify-between">
             <div>
               <p class="text-xs uppercase tracking-wider text-teal-200 font-bold">
                 Cita Médica Seleccionada:
               </p>
               <p id="selection-text" class="text-base font-black text-white mt-0.5">
-                Dra. Valentina Muñoz · Jueves 12 Nov · 10:00 hrs
+                Ningún horario seleccionado aún. Haz clic en una hora para continuar.
               </p>
             </div>
             <button
               type="button"
               id="btn-goto-step-3"
-              class="mt-4 sm:mt-0 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-bold text-teal-900 shadow-md transition hover:bg-teal-50 active:scale-98"
+              disabled
+              class="mt-4 sm:mt-0 inline-flex items-center gap-2 rounded-xl bg-teal-400 px-6 py-3 text-sm font-bold text-slate-950 shadow-md transition disabled:opacity-40 disabled:cursor-not-allowed hover:bg-teal-300 active:scale-98"
             >
               Continuar con mis Datos
               <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -593,7 +673,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
         </section>
 
         <!-- ========================================== -->
-        <!-- PASO 3: IDENTIFICACIÓN DEL TUTOR Y PACIENTE -->
+        <!-- PASO 3: IDENTIFICACIÓN CON SINCRONIZACIÓN -->
         <!-- ========================================== -->
         <section
           id="step-3"
@@ -631,6 +711,21 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 </p>
               </div>
             </div>
+          </div>
+
+          <!-- Banner de especie autoseleccionada por contexto -->
+          <div
+            id="species-autofill-banner"
+            class="mt-4 rounded-xl bg-cyan-50 border border-cyan-200 p-3 text-xs text-cyan-900 flex items-center gap-2"
+          >
+            <span>💡</span>
+            <span>
+              Especie preseleccionada automáticamente a partir del servicio de{' '}
+              <strong>
+                <span id="autofill-service-name">Medicina Felina</span>
+              </strong>
+              .
+            </span>
           </div>
 
           <!-- Formulario de Identificación -->
@@ -687,7 +782,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                   class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20"
                 />
                 <p class="error-msg mt-1 hidden text-xs text-rose-600" id="b-err-owner-phone">
-                  Ingresa un número telefónico válido.
+                  Ingresa un número telefónico válido (8 a 15 dígitos).
                 </p>
               </div>
             </div>
@@ -789,12 +884,11 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 id="b-notes"
                 rows="3"
                 maxlength="800"
-                placeholder="Indícanos si viene por control preventivo, decaimiento, vómitos, cojera, vacuna anual, etc."
+                placeholder="Indícanos si viene por control preventivo, decaimiento, vómitos, cojera, vacuna anual, corte de pelo, etc."
                 class="mt-1.5 w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20"
               ></textarea>
             </div>
 
-            <!-- Feedback -->
             <div
               id="booking-feedback"
               class="hidden rounded-xl p-3 text-sm font-medium"
@@ -835,13 +929,13 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
         </section>
 
         <!-- ========================================== -->
-        <!-- PASO 4: CONFIRMACIÓN DE RESERVA EXITOSA -->
+        <!-- PASO 4: COMPROBANTE CON CÓDIGO QR Y PRINT-ONLY -->
         <!-- ========================================== -->
         <section
           id="step-4"
           class="step-container hidden rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm sm:p-10 text-center"
         >
-          <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-3xl bg-emerald-100 text-emerald-600 shadow-md">
+          <div class="no-print mx-auto flex h-20 w-20 items-center justify-center rounded-3xl bg-emerald-100 text-emerald-600 shadow-md">
             <svg class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 stroke-linecap="round"
@@ -852,87 +946,169 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             </svg>
           </div>
 
-          <span class="mt-5 inline-block rounded-full bg-emerald-50 px-3.5 py-1 text-xs font-bold text-emerald-800 uppercase tracking-wider">
+          <span class="no-print mt-5 inline-block rounded-full bg-emerald-50 px-3.5 py-1 text-xs font-bold text-emerald-800 uppercase tracking-wider">
             ¡Reserva Confirmada con Éxito!
           </span>
 
-          <h2 class="mt-2 text-3xl font-extrabold text-slate-900 sm:text-4xl">
+          <h2 class="no-print mt-2 text-3xl font-extrabold text-slate-900 sm:text-4xl">
             La cita de tu mascota ha sido agendada
           </h2>
-          <p class="mt-2 text-sm text-slate-600 max-w-lg mx-auto">
-            Hemos registrado tu hora médica y enviado el comprobante a tu correo electrónico y
-            WhatsApp.
+          <p class="no-print mt-2 text-sm text-slate-600 max-w-lg mx-auto">
+            Hemos registrado tu hora médica y enviado el comprobante a tu correo y WhatsApp.
           </p>
 
-          <!-- Tarjeta de Comprobante de Reserva -->
-          <div class="mt-8 mx-auto max-w-xl rounded-2xl border-2 border-dashed border-teal-300 bg-teal-50/40 p-6 text-left shadow-xs">
-            <div class="flex items-center justify-between border-b border-teal-200/60 pb-3">
-              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">
-                Código de Reserva
-              </span>
-              <span id="res-code" class="font-mono text-sm font-black text-teal-800">
-                #HUE-2026-8942
-              </span>
+          <!-- Tarjeta de Comprobante Oficial Imprimible Exclusiva (#printable-receipt) -->
+          <div
+            id="printable-receipt"
+            class="mt-8 mx-auto max-w-xl rounded-3xl border-2 border-teal-600 bg-white p-6 sm:p-8 text-left shadow-lg text-slate-900"
+          >
+            <!-- Cabecera del comprobante con Logo -->
+            <div class="flex items-center justify-between border-b-2 border-teal-600 pb-4">
+              <div class="flex items-center gap-2 text-lg font-black text-slate-900">
+                <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-teal-600 text-white">
+                  🐾
+                </span>
+                <span>Clínica Veterinaria Huellitas</span>
+              </div>
+              <div class="text-right">
+                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">
+                  Código de Reserva
+                </span>
+                <span id="res-code" class="font-mono text-base font-black text-teal-700">
+                  #HUE-2026-8942
+                </span>
+              </div>
             </div>
 
-            <dl class="mt-4 grid grid-cols-1 gap-y-3 sm:grid-cols-2 text-xs">
-              <div>
-                <dt class="font-medium text-slate-500">Mascota / Paciente:</dt>
-                <dd id="res-pet" class="font-bold text-slate-900 text-sm mt-0.5">
-                  Simón (Perro)
-                </dd>
+            <!-- Cuerpo con datos médicos y Código QR en 2 columnas -->
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+              <!-- Datos de la Cita (8 cols) -->
+              <dl class="sm:col-span-8 space-y-3 text-xs">
+                <div>
+                  <dt class="font-semibold text-slate-500 uppercase tracking-wider text-[10px]">
+                    Paciente / Mascota:
+                  </dt>
+                  <dd id="res-pet" class="font-bold text-slate-900 text-sm mt-0.5">
+                    Simón (Perro)
+                  </dd>
+                </div>
+                <div>
+                  <dt class="font-semibold text-slate-500 uppercase tracking-wider text-[10px]">
+                    Tutor Responsable:
+                  </dt>
+                  <dd id="res-owner" class="font-bold text-slate-900 text-sm mt-0.5">
+                    Marcela Contreras (+56 9 8765 4321)
+                  </dd>
+                </div>
+                <div>
+                  <dt class="font-semibold text-slate-500 uppercase tracking-wider text-[10px]">
+                    Profesional Asignado:
+                  </dt>
+                  <dd id="res-doctor" class="font-bold text-teal-700 text-sm mt-0.5">
+                    Dra. Valentina Muñoz
+                  </dd>
+                </div>
+                <div>
+                  <dt class="font-semibold text-slate-500 uppercase tracking-wider text-[10px]">
+                    Fecha y Horario:
+                  </dt>
+                  <dd id="res-datetime" class="font-bold text-slate-900 text-sm mt-0.5">
+                    Jueves 12 Nov · 10:00 hrs
+                  </dd>
+                </div>
+              </dl>
+
+              <!-- Código QR Vectorial Dinámico de Recepción (4 cols) -->
+              <div class="sm:col-span-4 flex flex-col items-center justify-center rounded-2xl bg-slate-50 border border-slate-200 p-3 text-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 100 100"
+                  class="h-28 w-28 text-slate-900 fill-current"
+                  aria-label="Código QR de la reserva"
+                >
+                  <!-- QR SVG Mockup Vectorial de Alta Fidelidad -->
+                  <rect
+                    x="5"
+                    y="5"
+                    width="28"
+                    height="28"
+                    rx="4"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="4"
+                  />
+                  <rect x="12" y="12" width="14" height="14" rx="2" fill="currentColor" />
+                  <rect
+                    x="67"
+                    y="5"
+                    width="28"
+                    height="28"
+                    rx="4"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="4"
+                  />
+                  <rect x="74" y="12" width="14" height="14" rx="2" fill="currentColor" />
+                  <rect
+                    x="5"
+                    y="67"
+                    width="28"
+                    height="28"
+                    rx="4"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="4"
+                  />
+                  <rect x="12" y="74" width="14" height="14" rx="2" fill="currentColor" />
+                  <!-- Patrón central y módulos -->
+                  <rect x="42" y="10" width="8" height="8" fill="currentColor" />
+                  <rect x="53" y="10" width="6" height="6" fill="currentColor" />
+                  <rect x="42" y="22" width="16" height="6" fill="currentColor" />
+                  <rect x="10" y="42" width="6" height="14" fill="currentColor" />
+                  <rect x="22" y="42" width="10" height="8" fill="currentColor" />
+                  <rect x="40" y="40" width="20" height="20" rx="4" fill="#0d9488" />
+                  <circle cx="50" cy="50" r="5" fill="white" />
+                  <rect x="68" y="42" width="8" height="12" fill="currentColor" />
+                  <rect x="80" y="42" width="10" height="6" fill="currentColor" />
+                  <rect x="42" y="68" width="12" height="8" fill="currentColor" />
+                  <rect x="58" y="68" width="10" height="18" fill="currentColor" />
+                  <rect x="74" y="72" width="16" height="8" fill="currentColor" />
+                  <rect x="42" y="82" width="8" height="10" fill="currentColor" />
+                  <rect x="84" y="84" width="8" height="8" fill="currentColor" />
+                </svg>
+                <span class="mt-2 text-[10px] font-bold text-slate-500 uppercase tracking-tight">
+                  Pase Rápido Box
+                </span>
               </div>
-              <div>
-                <dt class="font-medium text-slate-500">Tutor Responsable:</dt>
-                <dd id="res-owner" class="font-bold text-slate-900 text-sm mt-0.5">
-                  Marcela Contreras
-                </dd>
-              </div>
-              <div>
-                <dt class="font-medium text-slate-500">Profesional Médico:</dt>
-                <dd id="res-doctor" class="font-bold text-teal-700 text-sm mt-0.5">
-                  Dra. Valentina Muñoz
-                </dd>
-              </div>
-              <div>
-                <dt class="font-medium text-slate-500">Fecha y Hora:</dt>
-                <dd id="res-datetime" class="font-bold text-slate-900 text-sm mt-0.5">
-                  Jueves 12 Nov · 10:00 hrs
-                </dd>
-              </div>
-              <div class="sm:col-span-2 border-t border-teal-200/40 pt-2.5">
-                <dt class="font-medium text-slate-500">Lugar de Atención:</dt>
-                <dd class="font-bold text-slate-800 mt-0.5">
-                  Clínica Huellitas Providencia · Av. Principal de las Mascotas 1234
-                  (Estacionamiento Clientes)
-                </dd>
-              </div>
-            </dl>
+            </div>
+
+            <!-- Pie del Comprobante -->
+            <div class="mt-6 border-t border-slate-200 pt-3 text-[11px] text-slate-600">
+              <p class="font-bold text-slate-800">Sede: Casa Matriz Providencia</p>
+              <p>Av. Principal de las Mascotas 1234 · Tel: +56 9 1234 5678</p>
+              <p class="text-[10px] text-teal-800 font-semibold mt-1">
+                🚗 Presenta este código en recepción para ingreso preferencial al estacionamiento.
+              </p>
+            </div>
           </div>
 
-          <!-- Recomendaciones previas -->
-          <div class="mt-6 mx-auto max-w-xl rounded-xl bg-slate-50 p-4 text-xs text-slate-600 text-left border border-slate-200">
-            <p class="font-bold text-slate-800">📌 Recomendaciones para el día de la cita:</p>
-            <ul class="mt-1.5 list-disc list-inside space-y-1 text-slate-500">
-              <li>Presentarse 10 minutos antes en recepción.</li>
-              <li>Traer carnet de vacunas previo (si aplica).</li>
-              <li>Perros con correa y gatos en transportadora para su seguridad y tranquilidad.</li>
-            </ul>
-          </div>
-
-          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <!-- Botones de Acción (no-print) -->
+          <div
+            id="btn-print-area"
+            class="no-print mt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
             <button
               type="button"
               onclick="window.print()"
-              class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-bold text-slate-700 shadow-2xs hover:bg-slate-50 transition"
+              class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-teal-600 bg-white px-7 py-3.5 text-sm font-bold text-teal-800 shadow-sm hover:bg-teal-50 transition"
             >
-              🖨️ Imprimir / Guardar Comprobante
+              🖨️ Imprimir Solo Comprobante Médico (PDF)
             </button>
             <a
               href="/"
-              class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-sm font-bold text-white shadow-md hover:bg-teal-700 transition"
+              class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-teal-600 px-7 py-3.5 text-sm font-bold text-white shadow-md hover:bg-teal-700 transition"
             >
-              Volver al Inicio
+              Volver a la Página Principal
             </a>
           </div>
         </section>
@@ -942,28 +1118,26 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
 </Layout>
 
 <script>
-  // Estado local de la reserva en JS nativo
+  // Estado reactivo en JS nativo
   const bookingState = {
     area: 'Consulta Médica General',
-    date: 'Jueves 12 de Noviembre',
+    date: '2026-11-12',
+    dateLabel: 'Jueves 12 de Noviembre',
     doctor: '',
     time: '',
     ownerName: '',
     ownerPhone: '',
     ownerEmail: '',
     petName: '',
-    petSpecies: '',
+    petSpecies: 'Perro (Canino)',
   };
 
   function setStep(stepNumber) {
-    // 1. Ocultar todas las secciones
     document.querySelectorAll('.step-container').forEach((el) => el.classList.add('hidden'));
 
-    // 2. Mostrar la sección activa
     const targetSection = document.getElementById(`step-${stepNumber}`);
     targetSection?.classList.remove('hidden');
 
-    // 3. Actualizar indicadores del stepper
     document.querySelectorAll('.step-indicator').forEach((indicator) => {
       const step = Number(indicator.getAttribute('data-step') || '1');
       const badge = indicator.querySelector('.step-badge');
@@ -990,7 +1164,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // --- Manejo del Paso 1 ---
+  // --- PASO 1: Selección de Especialidad y Preselección de Especie ---
   const areaCards = document.querySelectorAll('.area-card');
   areaCards.forEach((card) => {
     card.addEventListener('click', () => {
@@ -1005,6 +1179,10 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
       if (radio) {
         radio.checked = true;
         bookingState.area = radio.value;
+        const suggestedSpecies = radio.getAttribute('data-species');
+        if (suggestedSpecies) {
+          bookingState.petSpecies = suggestedSpecies;
+        }
       }
     });
   });
@@ -1013,9 +1191,32 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
     const selectedAreaRadio = document.querySelector('input[name="selected_area"]:checked');
     if (selectedAreaRadio) {
       bookingState.area = selectedAreaRadio.value;
+      const species = selectedAreaRadio.getAttribute('data-species');
+      if (species) bookingState.petSpecies = species;
     }
+
     const summaryArea = document.getElementById('summary-area');
     if (summaryArea) summaryArea.textContent = bookingState.area;
+
+    // Sincronizar especie en el Paso 3
+    const speciesSelect = document.getElementById('b-pet-species');
+    const autofillBanner = document.getElementById('species-autofill-banner');
+    const autofillServiceName = document.getElementById('autofill-service-name');
+
+    if (speciesSelect && bookingState.petSpecies) {
+      speciesSelect.value = bookingState.petSpecies;
+    }
+    if (autofillServiceName) {
+      autofillServiceName.textContent = bookingState.area;
+    }
+    if (autofillBanner) {
+      if (bookingState.area.includes('Felina') || bookingState.area.includes('Canina')) {
+        autofillBanner.classList.remove('hidden');
+      } else {
+        autofillBanner.classList.add('hidden');
+      }
+    }
+
     setStep(2);
   });
 
@@ -1023,8 +1224,65 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
     setStep(1);
   });
 
-  // --- Manejo del Paso 2: Días y Horarios ---
+  // --- PASO 2: Calendario con Bloqueo y Selección Obligatoria ---
+  const calendarPicker = document.getElementById('calendar-picker');
   const dateChips = document.querySelectorAll('.date-chip');
+  const calendarWarning = document.getElementById('calendar-warning');
+  const slotButtons = document.querySelectorAll('.slot-btn');
+  const selectionText = document.getElementById('selection-text');
+  const btnGotoStep3 = document.getElementById('btn-goto-step-3');
+  const step2Error = document.getElementById('step-2-error');
+
+  function updateDateFromValue(dateStr, label) {
+    bookingState.date = dateStr;
+    bookingState.dateLabel = label || dateStr;
+
+    // Verificar si es domingo
+    const d = new Date(`${dateStr}T12:00:00`);
+    if (d.getDay() === 0) {
+      calendarWarning?.classList.remove('hidden');
+    } else {
+      calendarWarning?.classList.add('hidden');
+    }
+
+    // Resetear hora elegida al cambiar de día para evitar inconsistencias
+    bookingState.time = '';
+    bookingState.doctor = '';
+    slotButtons.forEach((b) => {
+      b.classList.remove('border-teal-600', 'bg-teal-600', 'text-white', 'shadow-md');
+      b.classList.add('border-slate-300', 'bg-slate-50/70', 'text-slate-800');
+    });
+
+    if (btnGotoStep3) {
+      btnGotoStep3.setAttribute('disabled', 'true');
+    }
+    if (selectionText) {
+      selectionText.textContent = `Fecha: ${bookingState.dateLabel}. Selecciona ahora un horario para continuar.`;
+    }
+  }
+
+  // Cambio desde el calendario nativo
+  calendarPicker?.addEventListener('change', (e) => {
+    const val = e.target.value;
+    if (!val) return;
+
+    // Sincronizar pastillas
+    dateChips.forEach((chip) => {
+      if (chip.getAttribute('data-date') === val) {
+        chip.classList.remove('border-slate-200', 'bg-white', 'text-slate-700');
+        chip.classList.add('border-teal-600', 'bg-teal-600', 'text-white');
+      } else {
+        chip.classList.remove('border-teal-600', 'bg-teal-600', 'text-white');
+        chip.classList.add('border-slate-200', 'bg-white', 'text-slate-700');
+      }
+    });
+
+    const [year, month, day] = val.split('-');
+    const label = `${day}/${month}/${year}`;
+    updateDateFromValue(val, label);
+  });
+
+  // Cambio desde las pastillas de acceso rápido
   dateChips.forEach((chip) => {
     chip.addEventListener('click', () => {
       dateChips.forEach((c) => {
@@ -1033,24 +1291,17 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
       });
       chip.classList.remove('border-slate-200', 'bg-white', 'text-slate-700');
       chip.classList.add('border-teal-600', 'bg-teal-600', 'text-white');
-      bookingState.date = chip.getAttribute('data-date') || 'Fecha elegida';
-      updateSelectionBar();
+
+      const dateVal = chip.getAttribute('data-date');
+      const dateLabel = chip.getAttribute('data-label');
+      if (calendarPicker && dateVal) {
+        calendarPicker.value = dateVal;
+      }
+      updateDateFromValue(dateVal, dateLabel);
     });
   });
 
-  const slotButtons = document.querySelectorAll('.slot-btn');
-  const selectionBar = document.getElementById('selection-bar');
-  const selectionText = document.getElementById('selection-text');
-
-  function updateSelectionBar() {
-    if (bookingState.doctor && bookingState.time) {
-      selectionBar?.classList.remove('hidden');
-      if (selectionText) {
-        selectionText.textContent = `${bookingState.doctor} · ${bookingState.date} · ${bookingState.time} hrs`;
-      }
-    }
-  }
-
+  // Selección de Horario
   slotButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
       slotButtons.forEach((b) => {
@@ -1062,14 +1313,29 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
 
       bookingState.doctor = btn.getAttribute('data-doctor') || '';
       bookingState.time = btn.getAttribute('data-time') || '';
-      updateSelectionBar();
+
+      // Habilitar avance
+      step2Error?.classList.add('hidden');
+      if (btnGotoStep3) {
+        btnGotoStep3.removeAttribute('disabled');
+      }
+      if (selectionText) {
+        selectionText.textContent = `${bookingState.doctor} · ${bookingState.dateLabel} · ${bookingState.time} hrs`;
+      }
     });
   });
 
-  document.getElementById('btn-goto-step-3')?.addEventListener('click', () => {
+  // Validación estricta antes de avanzar al paso 3
+  btnGotoStep3?.addEventListener('click', () => {
+    if (!bookingState.doctor || !bookingState.time) {
+      step2Error?.classList.remove('hidden');
+      step2Error?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      return;
+    }
+
     const badgeSummary = document.getElementById('booking-badge-summary');
     if (badgeSummary) {
-      badgeSummary.textContent = `${bookingState.doctor} · ${bookingState.date} · ${bookingState.time} hrs · Sede Casa Matriz`;
+      badgeSummary.textContent = `${bookingState.doctor} · ${bookingState.dateLabel} · ${bookingState.time} hrs · Sede Casa Matriz`;
     }
     setStep(3);
   });
@@ -1078,7 +1344,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
     setStep(2);
   });
 
-  // --- Manejo del Paso 3: Identificación ---
+  // --- PASO 3: Validación del Formulario de Identificación ---
   const bookingForm = document.getElementById('booking-patient-form');
   const bookingFeedback = document.getElementById('booking-feedback');
   const btnBooking = document.getElementById('btn-confirm-booking');
@@ -1131,7 +1397,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
         bookingFeedback.classList.remove('hidden');
         bookingFeedback.classList.add('bg-rose-50', 'text-rose-800', 'border', 'border-rose-200');
         bookingFeedback.textContent =
-          'Por favor completa todos los campos obligatorios antes de confirmar.';
+          'Por favor completa todos los campos requeridos correctamente.';
       }
       return;
     }
@@ -1149,9 +1415,9 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
     }
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 900));
 
-      // Llenar datos en el comprobante del Paso 4
+      // Llenar datos en el comprobante imprimible con QR
       const resCode = document.getElementById('res-code');
       const resPet = document.getElementById('res-pet');
       const resOwner = document.getElementById('res-owner');
@@ -1163,13 +1429,12 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
       if (resPet) resPet.textContent = `${bookingState.petName} (${bookingState.petSpecies})`;
       if (resOwner) resOwner.textContent = `${bookingState.ownerName} (${bookingState.ownerPhone})`;
       if (resDoctor) resDoctor.textContent = bookingState.doctor;
-      if (resDateTime) resDateTime.textContent = `${bookingState.date} · ${bookingState.time} hrs`;
+      if (resDateTime)
+        resDateTime.textContent = `${bookingState.dateLabel} · ${bookingState.time} hrs`;
 
       setStep(4);
     } catch {
-      alert(
-        'Hubo un problema al conectar con el servicio. Por favor intenta llamarnos al +56 9 1234 5678.'
-      );
+      alert('Hubo un problema. Comunícate al +56 9 1234 5678.');
     } finally {
       if (btnBooking && btnBookingText && btnBookingSpinner) {
         btnBooking.removeAttribute('disabled');

@@ -13,14 +13,14 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Proyecto:** landing (veterinaria) — Landing page de una veterinaria
 - **Repositorio:** https://github.com/JCarvajalLab/astro-landing-veterinaria
 - **Última actualización:** 2026-11-12
-- **Fase activa:** `phase/05-launch` (Proyecto 1 completado al 100% y lanzado en `v1.0.0`)
+- **Fase activa:** `phase/05-launch` (Proyecto 1 completado al 100% y actualizado a `v1.0.1`)
 - **Rama de trabajo:** `develop` (rama de integración)
-- **Último commit relevante:** `feat(router): incorpora pagina 404 personalizada con animaciones css y navegacion limpia sin hashes en navbar`
-- **Despliegue:** servidor local activo en `http://localhost:4321/`; producción en Cloudflare Pages en `https://huellitas-vet.pages.dev` (vinculado a GitHub); repositorio sincronizado en GitHub con tag oficial `v1.0.0`.
-- **Qué funciona:** Landing page veterinaria completa con portal de agendamiento clínico `/agendar` en 4 pasos, página de error 404 personalizada con ilustración vectorial y animaciones CSS nativas fluidas, navegación limpia en Navbar sin hashes en la URL, fotografía médica cálida con paciente en el Hero (`hero-pet.webp`), badges flotantes de credibilidad, pastillas de especie en servicios (`🐶 Perros & 🐱 Gatos`), botón flotante de urgencias para móviles, formulario de contacto a altura completa, mapa interactivo con zoom cercano en Providencia, modo nocturno integral, SEO técnico (Open Graph, Twitter Cards, Schema.org JSON-LD `VeterinaryCare`, `robots.txt`), README profesional con galería visual simétrica y 0 vulnerabilidades.
-- **Qué está en progreso:** Proyecto 1 cerrado al 100% de manera definitiva y listo para el inicio del Proyecto 2 en un nuevo chat.
+- **Último commit relevante:** `fix(schedule): unifica criterio de horarios de fin de semana con portal de agendamiento`
+- **Despliegue:** servidor local activo en `http://localhost:4321/`; producción en Cloudflare Pages en `https://huellitas-vet.pages.dev` (vinculado a GitHub con CI/CD automático).
+- **Qué funciona:** Landing page veterinaria completa con portal de agendamiento clínico `/agendar` en 4 pasos con fechas dinámicas en tiempo real, página 404 personalizada con ilustración vectorial y animaciones CSS nativas fluidas, cabeceras HTTP de seguridad (`_headers`), SEO integral con dominio real `https://huellitas-vet.pages.dev`, imagen Open Graph oficial (`og-image.jpg`), navegación limpia en Navbar y Footer sin hashes, consistencia de horarios dominicales, modo nocturno integral, Schema.org JSON-LD `VeterinaryCare`, robots.txt, README profesional y 0 vulnerabilidades.
+- **Qué está en progreso:** Cierre final de `v1.0.1` y transición al Proyecto 2.
 - **Bloqueos o problemas conocidos:** ninguno.
-- **Siguiente paso concreto:** Proyecto 1 completado con éxito. El usuario iniciará el Proyecto 2 (Portafolio con casos de estudio) en una nueva conversación.
+- **Siguiente paso concreto:** Proyecto 1 cerrado al 100% con éxito. Iniciar Proyecto 2 (Portafolio con casos de estudio) en una nueva conversación.
 
 ## 2. Decisiones importantes
 
@@ -28,6 +28,9 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 
 | Fecha | Decisión | Motivo | Alternativas descartadas |
 |-------|----------|--------|--------------------------|
+| 2026-11-12 | Configurar `public/_headers` para Cloudflare Pages | Endurecimiento HTTP (`X-Frame-Options`, `nosniff`, `strict-origin`) en CDN sin servidor | Dejar cabeceras por defecto sin protección |
+| 2026-11-12 | Cálculo dinámico de fechas hábiles en `/agendar` | Evita fechas pasadas estáticas en el portafolio y sincroniza min/value con el día actual | Fechas fijas en el HTML |
+| 2026-11-12 | Unificar dominio real en SEO a `https://huellitas-vet.pages.dev` | Garantiza canonical URLs, JSON-LD, robots.txt y Open Graph absolutos funcionales en producción | Usar dominio ficticio o URLs relativas |
 | 2026-11-11 | Usar Astro 5+ con JavaScript y Tailwind CSS v4 | Sitios rápidos, costo cero de despliegue y menor complejidad sin TypeScript ni frameworks extra | React/Next.js, Vue/Nuxt, Django |
 | 2026-11-11 | Adaptar especialistas a `.agents/skills/*/SKILL.md` | Descubrimiento automático y carga bajo demanda (Progressive Disclosure) en Gemini / Antigravity | Archivos planos sin autodescubrimiento |
 | 2026-11-11 | Fijar ESLint v9 LTS con flat config y plugins oficiales | Garantiza estabilidad, 0 vulnerabilidades en audit y soporte de linting para componentes `.astro` | ESLint v10-alpha |
@@ -50,6 +53,11 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-12 · `phase/05-launch` · auditoria y hardening tecnico v1.0.1
+- **Qué:** Implementación de las 5 tareas de pulido técnico post-auditoría: (1) cabeceras HTTP de seguridad para Cloudflare Pages en `public/_headers`, (2) dominio real `https://huellitas-vet.pages.dev` en `astro.config.mjs`, `Layout.astro` (canonical, Schema.org JSON-LD), `robots.txt` e incorporación de `public/og-image.jpg` con URL absoluta, (3) cálculo dinámico de la fecha actual y los próximos 5 días hábiles en `/agendar` saltando domingos y sincronizando min/value, (4) corrección de anclajes relativos en `Footer.astro` a `/#...` y exclusión de enlaces `target="_blank"` o descargas en el modal de salida de `BookingModal.astro`, (5) unificación de consistencia del horario dominical en `Schedule.astro` (domingos exclusivo urgencias 24/7).
+- **Archivos clave:** `public/_headers`, `public/og-image.jpg`, `public/robots.txt`, `astro.config.mjs`, `src/layouts/Layout.astro`, `src/pages/agendar.astro`, `src/components/Footer.astro`, `src/components/BookingModal.astro`, `src/components/Schedule.astro`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, seguridad, desarrollo, qa, docs-seo
 
 ### 2026-11-12 · `phase/05-launch` · ajustes visuales de navbar, hero y mapa de contacto
 - **Qué:** Unificación del fondo nocturno en `Hero.astro` (`dark:bg-slate-950`) para eliminar la franja azul horizontal en los laterales de la Navbar flotante. En `Contact.astro`, remoción del banner redundante de agendamiento y creación de tarjeta dedicada con mapa interactivo de Providencia (OpenStreetMap), badges de llegada (Metro Los Leones, Estacionamiento) y enlaces directos de navegación con Google Maps y Waze.

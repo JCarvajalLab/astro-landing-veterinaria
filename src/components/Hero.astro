@@ -2,7 +2,7 @@
 // Componente Hero para la clínica veterinaria
 ---
 
-<section class="relative overflow-hidden bg-gradient-to-b from-teal-50/70 via-slate-50 to-white dark:from-slate-900/60 dark:via-slate-950 dark:to-slate-950 py-16 sm:py-24 lg:py-28 transition-colors duration-200">
+<section class="relative min-h-[calc(100vh-4.5rem)] flex flex-col justify-center overflow-hidden bg-gradient-to-b from-teal-50/70 via-slate-50 to-white dark:bg-slate-950 py-12 sm:py-16 lg:py-20 transition-colors duration-200">
   <!-- Adorno de fondo difuminado -->
   <div
     class="pointer-events-none absolute -top-24 right-0 -z-10 h-96 w-96 rounded-full bg-teal-200/40 dark:bg-teal-900/20 blur-3xl"
@@ -67,11 +67,11 @@
           </a>
         </div>
 
-        <!-- Indicador de confianza rápido -->
-        <div class="mt-10 flex flex-wrap items-center justify-center gap-6 border-t border-slate-200/80 dark:border-slate-800 pt-6 text-xs text-slate-500 dark:text-slate-400 lg:justify-start">
-          <div class="flex items-center gap-2">
+        <!-- Indicador de confianza rápido en píldoras limpias (sin línea cortada) -->
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-2.5 text-xs text-slate-600 dark:text-slate-300 lg:justify-start">
+          <div class="inline-flex items-center gap-1.5 rounded-full border border-slate-200/80 bg-white/70 px-3 py-1.5 shadow-2xs backdrop-blur-xs dark:border-slate-800 dark:bg-slate-900/60">
             <svg
-              class="h-4 w-4 text-teal-600 dark:text-teal-400"
+              class="h-3.5 w-3.5 text-teal-600 dark:text-teal-400"
               fill="currentColor"
               viewBox="0 0 20 20"
               aria-hidden="true"
@@ -82,11 +82,11 @@
                 clip-rule="evenodd"
               />
             </svg>
-            <span>Veterinarios Colegiados</span>
+            <span class="font-medium">Veterinarios Colegiados</span>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="inline-flex items-center gap-1.5 rounded-full border border-slate-200/80 bg-white/70 px-3 py-1.5 shadow-2xs backdrop-blur-xs dark:border-slate-800 dark:bg-slate-900/60">
             <svg
-              class="h-4 w-4 text-teal-600 dark:text-teal-400"
+              class="h-3.5 w-3.5 text-teal-600 dark:text-teal-400"
               fill="currentColor"
               viewBox="0 0 20 20"
               aria-hidden="true"
@@ -97,11 +97,11 @@
                 clip-rule="evenodd"
               />
             </svg>
-            <span>Manejo Libre de Estrés (Fear Free)</span>
+            <span class="font-medium">Manejo Libre de Estrés (Fear Free)</span>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="inline-flex items-center gap-1.5 rounded-full border border-slate-200/80 bg-white/70 px-3 py-1.5 shadow-2xs backdrop-blur-xs dark:border-slate-800 dark:bg-slate-900/60">
             <svg
-              class="h-4 w-4 text-teal-600 dark:text-teal-400"
+              class="h-3.5 w-3.5 text-teal-600 dark:text-teal-400"
               fill="currentColor"
               viewBox="0 0 20 20"
               aria-hidden="true"
@@ -112,7 +112,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            <span>Pabellón de Alta Complejidad</span>
+            <span class="font-medium">Pabellón de Alta Complejidad</span>
           </div>
         </div>
       </div>

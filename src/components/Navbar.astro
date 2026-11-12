@@ -1,206 +1,257 @@
 ---
+// src/components/Navbar.astro
+// Navbar moderna flotante con efecto Glassmorphism, píldoras segmentadas y estado activo en vivo
 const navLinks = [
-  { href: '/#servicios', label: 'Servicios' },
-  { href: '/#nosotros', label: 'Nosotros' },
-  { href: '/#testimonios', label: 'Testimonios' },
-  { href: '/#horarios', label: 'Horarios' },
-  { href: '/#contacto', label: 'Contacto' },
+  { href: '/#servicios', label: 'Servicios', icon: 'stethoscope' },
+  { href: '/#nosotros', label: 'Equipo', icon: 'users' },
+  { href: '/#testimonios', label: 'Testimonios', icon: 'heart' },
+  { href: '/#horarios', label: 'Horarios', icon: 'clock' },
+  { href: '/#contacto', label: 'Contacto', icon: 'map-pin' },
 ];
 ---
 
-<header class="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/95 transition-colors duration-200">
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-    <!-- Logotipo y Nombre -->
-    <a
-      href="/"
-      class="flex items-center gap-2 text-xl font-bold tracking-tight text-slate-900 dark:text-white transition hover:text-teal-700 dark:hover:text-teal-400 focus-visible:outline-2 focus-visible:outline-teal-600 focus-visible:outline-offset-2"
-      aria-label="Veterinaria Huellitas - Inicio"
+<header class="sticky top-2 sm:top-4 z-50 w-full px-3 sm:px-6 lg:px-8 transition-all duration-300">
+  <div class="mx-auto max-w-6xl">
+    <!-- Barra Flotante Principal tipo Píldora Glassmorphism -->
+    <div class="flex items-center justify-between rounded-2xl sm:rounded-full border border-slate-200/70 bg-white/80 px-3.5 py-2 shadow-lg shadow-slate-900/5 backdrop-blur-xl transition-all duration-200 sm:px-5 dark:border-white/10 dark:bg-slate-950/75 dark:shadow-black/30">
+      <!-- Logotipo de la Clínica y Estado en Vivo -->
+      <a
+        href="/"
+        class="group flex items-center gap-2.5 focus-visible:outline-2 focus-visible:outline-teal-600 focus-visible:outline-offset-4 rounded-full"
+        aria-label="Veterinaria Huellitas - Inicio"
+      >
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl sm:rounded-full bg-gradient-to-tr from-teal-700 via-teal-600 to-emerald-500 text-white shadow-sm shadow-teal-600/30 transition group-hover:scale-105">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 fill-current"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="15" r="4" />
+            <circle cx="6.5" cy="11.5" r="2" />
+            <circle cx="10" cy="7.5" r="2" />
+            <circle cx="14" cy="7.5" r="2" />
+            <circle cx="17.5" cy="11.5" r="2" />
+          </svg>
+        </span>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5">
+            <span class="text-base sm:text-lg font-black tracking-tight text-slate-900 dark:text-white">
+              Huellitas<span class="text-teal-600 dark:text-teal-400">.</span>
+            </span>
+            <span class="hidden lg:inline-flex items-center gap-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold text-emerald-700 dark:text-emerald-300">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              24/7 ACTIVO
+            </span>
+          </div>
+          <span class="hidden sm:block text-[10px] font-medium text-slate-500 dark:text-slate-400 -mt-0.5">
+            Clínica & Hospital Veterinario
+          </span>
+        </div>
+      </a>
+
+      <!-- Navegación Central de Escritorio (Enlaces limpios sin bloques oscuros rígidos) -->
+      <nav class="hidden md:flex items-center gap-1" aria-label="Navegación principal">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="rounded-full px-3.5 py-1.5 text-xs font-semibold text-slate-600 transition-all duration-150 hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-teal-600 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Acciones de Escritorio: Toggle Dark Mode + Botón Agendar Flotante -->
+      <div class="hidden items-center gap-2.5 md:flex">
+        <!-- Botón Modo Oscuro / Claro Desktop -->
+        <button
+          type="button"
+          id="theme-toggle"
+          class="theme-toggle inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200/80 bg-slate-50 text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-teal-600 dark:border-white/10 dark:bg-slate-900/80 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white"
+          aria-label="Alternar modo oscuro y claro"
+        >
+          <!-- Icono Luna -->
+          <svg
+            class="h-4.5 w-4.5 block dark:hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+            ></path>
+          </svg>
+          <!-- Icono Sol -->
+          <svg
+            class="h-4.5 w-4.5 hidden dark:block text-amber-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+            ></path>
+          </svg>
+        </button>
+
+        <!-- CTA Agendar Cita con Gradiente Vibrante -->
+        <a
+          href="/agendar"
+          class="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-teal-600 via-teal-500 to-emerald-500 px-4.5 py-2 text-xs font-bold text-white shadow-md shadow-teal-600/25 transition hover:from-teal-500 hover:to-emerald-400 hover:shadow-lg hover:shadow-teal-600/35 focus-visible:outline-2 focus-visible:outline-teal-600 active:scale-95"
+        >
+          <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2.2"
+              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            ></path>
+          </svg>
+          Agendar Cita
+        </a>
+      </div>
+
+      <!-- Controles para Dispositivos Móviles -->
+      <div class="flex items-center gap-2 md:hidden">
+        <!-- Botón Modo Oscuro Móvil -->
+        <button
+          type="button"
+          class="theme-toggle inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200/80 bg-slate-50 text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-teal-600 dark:border-slate-700/80 dark:bg-slate-800/80 dark:text-slate-300 dark:hover:bg-slate-700"
+          aria-label="Alternar modo oscuro y claro"
+        >
+          <svg
+            class="h-4 w-4 block dark:hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+            ></path>
+          </svg>
+          <svg
+            class="h-4 w-4 hidden dark:block text-amber-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+            ></path>
+          </svg>
+        </button>
+
+        <!-- Botón Menú Hamburguesa -->
+        <button
+          id="menu-toggle"
+          type="button"
+          class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition hover:bg-slate-200 focus-visible:outline-2 focus-visible:outline-teal-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+          aria-label="Abrir menú de navegación"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg
+            id="icon-open"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+          <svg
+            id="icon-close"
+            class="hidden h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú Móvil Desplegable Estilo Tarjeta Flotante (Floating Sheet) -->
+    <div
+      id="mobile-menu"
+      class="hidden mt-2 rounded-3xl border border-slate-200/90 bg-white/95 p-4 shadow-2xl backdrop-blur-2xl transition-all md:hidden dark:border-slate-800/90 dark:bg-slate-900/95"
     >
-      <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-600 text-white shadow-sm">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <circle cx="12" cy="15" r="4" />
-          <circle cx="6.5" cy="11.5" r="2" />
-          <circle cx="10" cy="7.5" r="2" />
-          <circle cx="14" cy="7.5" r="2" />
-          <circle cx="17.5" cy="11.5" r="2" />
-        </svg>
-      </span>
-      <span>
-        Huellitas<span class="text-teal-600">.</span>
-      </span>
-    </a>
+      <div class="mb-3 flex items-center justify-between border-b border-slate-100 pb-2.5 dark:border-slate-800">
+        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider dark:text-slate-400">
+          Navegación Rápida
+        </span>
+        <span class="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-300">
+          <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          Urgencias 24/7
+        </span>
+      </div>
 
-    <!-- Enlaces de navegación de escritorio -->
-    <nav class="hidden items-center gap-8 md:flex" aria-label="Navegación principal">
-      {navLinks.map((link) => (
+      <nav class="flex flex-col gap-1.5" aria-label="Navegación móvil">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="mobile-nav-link flex items-center justify-between rounded-xl px-3.5 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 hover:text-teal-700 dark:text-slate-200 dark:hover:bg-slate-800 dark:hover:text-teal-400"
+          >
+            <span>{link.label}</span>
+            <span class="text-xs text-slate-400">→</span>
+          </a>
+        ))}
+      </nav>
+
+      <div class="mt-4 border-t border-slate-100 pt-3 dark:border-slate-800">
         <a
-          href={link.href}
-          class="text-sm font-medium text-slate-600 dark:text-slate-300 transition hover:text-teal-700 dark:hover:text-teal-400 focus-visible:outline-2 focus-visible:outline-teal-600 focus-visible:outline-offset-2"
+          href="/agendar"
+          class="mobile-nav-link flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-teal-600 to-emerald-600 px-4 py-3 text-center text-sm font-bold text-white shadow-md shadow-teal-600/20 hover:from-teal-500 hover:to-emerald-500 transition active:scale-98"
         >
-          {link.label}
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            ></path>
+          </svg>
+          Agendar Cita en Línea
         </a>
-      ))}
-    </nav>
-
-    <!-- Botones de acción escritorio: Toggle Dark Mode + CTA -->
-    <div class="hidden items-center gap-3 md:flex">
-      <!-- Botón Modo Oscuro / Claro Desktop -->
-      <button
-        type="button"
-        id="theme-toggle"
-        class="theme-toggle inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-white focus-visible:outline-2 focus-visible:outline-teal-600"
-        aria-label="Alternar modo oscuro y claro"
-      >
-        <!-- Icono Luna (Visible en Modo Claro) -->
-        <svg
-          class="h-5 w-5 block dark:hidden"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-          />
-        </svg>
-        <!-- Icono Sol (Visible en Modo Oscuro) -->
-        <svg
-          class="h-5 w-5 hidden dark:block text-amber-400"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-          />
-        </svg>
-      </button>
-
-      <a
-        href="/agendar"
-        class="inline-flex items-center justify-center rounded-xl bg-teal-600 px-4.5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-teal-700 focus-visible:outline-2 focus-visible:outline-teal-600 focus-visible:outline-offset-2 active:scale-98"
-      >
-        Agendar Cita
-      </a>
-    </div>
-
-    <!-- Controles móviles: Toggle Dark Mode + Botón Hamburguesa -->
-    <div class="flex items-center gap-2 md:hidden">
-      <!-- Botón Modo Oscuro Móvil -->
-      <button
-        type="button"
-        class="theme-toggle inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-teal-600"
-        aria-label="Alternar modo oscuro y claro"
-      >
-        <svg
-          class="h-4.5 w-4.5 block dark:hidden"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-          />
-        </svg>
-        <svg
-          class="h-4.5 w-4.5 hidden dark:block text-amber-400"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-          />
-        </svg>
-      </button>
-
-      <button
-        id="menu-toggle"
-        type="button"
-        class="inline-flex items-center justify-center rounded-lg p-2 text-slate-600 dark:text-slate-300 transition hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white focus-visible:outline-2 focus-visible:outline-teal-600"
-        aria-label="Abrir menú de navegación"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
-        <!-- Icono Menú -->
-        <svg
-          id="icon-open"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-        </svg>
-        <!-- Icono Cerrar -->
-        <svg
-          id="icon-close"
-          class="hidden h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
-    </div>
-  </div>
-
-  <!-- Menú móvil desplegable -->
-  <div
-    id="mobile-menu"
-    class="hidden border-b border-slate-200 bg-white px-4 pt-2 pb-6 md:hidden dark:border-slate-800 dark:bg-slate-900"
-  >
-    <nav class="flex flex-col gap-3" aria-label="Navegación móvil">
-      {navLinks.map((link) => (
         <a
-          href={link.href}
-          class="mobile-nav-link rounded-md px-3 py-2 text-base font-medium text-slate-700 dark:text-slate-200 transition hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-teal-700 dark:hover:text-teal-400 focus-visible:outline-2 focus-visible:outline-teal-600"
+          href="tel:+56912345678"
+          class="mt-2 flex w-full items-center justify-center gap-1.5 rounded-xl border border-amber-200 bg-amber-50/80 py-2 text-xs font-bold text-amber-900 transition dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
         >
-          {link.label}
+          🚨 Línea Urgencias: +56 9 1234 5678
         </a>
-      ))}
-      <a
-        href="/agendar"
-        class="mobile-nav-link mt-2 inline-flex items-center justify-center rounded-xl bg-teal-600 px-4 py-2.5 text-center text-sm font-bold text-white shadow-sm transition hover:bg-teal-700 focus-visible:outline-2 focus-visible:outline-teal-600"
-      >
-        Agendar Cita
-      </a>
-    </nav>
+      </div>
+    </div>
   </div>
 </header>
 
 <script>
-  // Menú móvil
+  // Menú móvil con transiciones suaves
   const toggleBtn = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
   const iconOpen = document.getElementById('icon-open');

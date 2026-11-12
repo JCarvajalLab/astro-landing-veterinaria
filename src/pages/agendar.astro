@@ -425,8 +425,6 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                   <input
                     type="date"
                     id="calendar-picker"
-                    min="2026-11-12"
-                    value="2026-11-12"
                     class="mt-1 rounded-xl border border-slate-300 bg-white px-3 py-1.5 text-xs font-bold text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:focus:border-teal-400"
                   />
                   <p class="text-[10px] text-slate-500 mt-0.5 dark:text-slate-400">
@@ -1265,8 +1263,8 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
     area: 'Consulta Médica General',
     specialtyCode: 'general',
     lockSpecies: false,
-    date: '2026-11-12',
-    dateLabel: 'Jueves 12 de Noviembre',
+    date: '',
+    dateLabel: '',
     doctor: '',
     time: '',
     ownerName: '',
@@ -1614,6 +1612,159 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
       updateDateFromValue(dateVal, dateLabel);
     });
   });
+
+  // --- Utilidades para cálculo dinámico de fechas ---
+  const dayNamesShort = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+  const dayNamesLong = [
+    'Domingo',
+    'Lunes',
+    'Martes',
+    'Miércoles',
+    'Jueves',
+    'Viernes',
+    'Sábado',
+  ];
+  const monthNamesLong = [
+    'Enero',
+    'Febrero',
+    'Marzo',
+    'Abril',
+    'Mayo',
+    'Junio',
+    'Julio',
+    'Agosto',
+    'Septiembre',
+    'Octubre',
+    'Noviembre',
+    'Diciembre',
+  ];
+  const monthNamesShort = [
+    'Ene',
+    'Feb',
+    'Mar',
+    'Abr',
+    'May',
+    'Jun',
+    'Jul',
+    'Ago',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dic',
+  ];
+
+  function formatDateISO(d) {
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
+  }
+
+  function formatDateLabels(d) {
+    const dayOfWeek = d.getDay();
+    const dayNum = d.getDate();
+    const month = d.getMonth();
+    const shortText = `${dayNamesShort[dayOfWeek]} ${dayNum} ${monthNamesShort[month]}`;
+    const fullLabel = `${dayNamesLong[dayOfWeek]} ${dayNum} de ${monthNamesLong[month]}`;
+    return { shortText, fullLabel };
+  }
+
+  function getNextWorkingDays(startDate, count = 5) {
+    const days = [];
+    const curr = new Date(startDate);
+    while (days.length < count) {
+      if (curr.getDay() !== 0) {
+        const iso = formatDateISO(curr);
+        const { shortText, fullLabel } = formatDateLabels(curr);
+        days.push({
+          date: iso,
+          shortText,
+          fullLabel,
+        });
+      }
+      curr.setDate(curr.getDate() + 1);
+    }
+    return days;
+  }
+
+  function initDynamicDates() {
+    const now = new Date();
+    const todayISO = formatDateISO(now);
+
+    if (calendarPicker) {
+      calendarPicker.min = todayISO;
+    }
+
+    // Si hoy es domingo, el primer día hábil seleccionado es mañana (lunes)
+    let initialDate = new Date(now);
+    if (initialDate.getDay() === 0) {
+      initialDate.setDate(initialDate.getDate() + 1);
+    }
+
+    const initialISO = formatDateISO(initialDate);
+    const { fullLabel: initialLabel } = formatDateLabels(initialDate);
+
+    bookingState.date = initialISO;
+    bookingState.dateLabel = initialLabel;
+
+    if (calendarPicker) {
+      calendarPicker.value = initialISO;
+    }
+
+    // Actualizar los 5 chips con los próximos 5 días hábiles (saltando domingos)
+    const workingDays = getNextWorkingDays(now, 5);
+    dateChips.forEach((chip, index) => {
+      const dayData = workingDays[index];
+      if (dayData) {
+        chip.setAttribute('data-date', dayData.date);
+        chip.setAttribute('data-label', dayData.fullLabel);
+        chip.textContent = dayData.shortText;
+
+        if (index === 0) {
+          chip.classList.remove(
+            'border-slate-200',
+            'bg-white',
+            'text-slate-700',
+            'dark:border-slate-700',
+            'dark:bg-slate-800',
+            'dark:text-slate-300'
+          );
+          chip.classList.add(
+            'border-teal-600',
+            'bg-teal-600',
+            'text-white',
+            'shadow-2xs',
+            'dark:border-teal-500',
+            'dark:bg-teal-500',
+            'dark:text-slate-950'
+          );
+        } else {
+          chip.classList.remove(
+            'border-teal-600',
+            'bg-teal-600',
+            'text-white',
+            'shadow-2xs',
+            'dark:border-teal-500',
+            'dark:bg-teal-500',
+            'dark:text-slate-950'
+          );
+          chip.classList.add(
+            'border-slate-200',
+            'bg-white',
+            'text-slate-700',
+            'dark:border-slate-700',
+            'dark:bg-slate-800',
+            'dark:text-slate-300'
+          );
+        }
+      }
+    });
+
+    updateDateFromValue(initialISO, initialLabel);
+  }
+
+  // Inicializar fechas dinámicas al cargar la página
+  initDynamicDates();
 
   // Selección de Horario
   slotButtons.forEach((btn) => {

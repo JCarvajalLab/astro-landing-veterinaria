@@ -13,14 +13,14 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Proyecto:** landing (veterinaria) — Landing page de una veterinaria
 - **Repositorio:** https://github.com/JCarvajalLab/astro-landing-veterinaria
 - **Última actualización:** 2026-11-11
-- **Fase activa:** `phase/04-contact`
-- **Rama de trabajo:** `phase/04-contact`
-- **Último commit relevante:** `feat(booking): activa modal de advertencia de salida solo en /agendar con reserva en curso`
+- **Fase activa:** `phase/05-launch`
+- **Rama de trabajo:** `phase/05-launch`
+- **Último commit relevante:** `e517c8c docs(historial): registra modal de confirmacion de salida en agendar`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Modal de advertencia de abandono de reserva activado exclusivamente en `/agendar` al intentar salir hacia la landing o secciones de la Navbar con una reserva activa en curso (Paso 2 o 3); navegación directa y sin interrupciones en la landing page; bloqueo absoluto de horas en domingos sin auto-reubicar; filtrado de profesionales por servicio; bloqueo estricto de especies exclusivas (Gato en Felina, Perro en Peluquería); y comprobante oficial con código QR e impresión limpia.
-- **Qué está en progreso:** Verificación interactiva del usuario del modal de advertencia de salida y del flujo completo de agendamiento.
+- **Qué funciona:** Landing completa (Hero, Servicios, Equipo, Testimonios interactivos, Horarios, FAQ, Contacto) y Portal de reserva `/agendar` con selector de fechas restrictivo (sin domingos), filtrado de profesionales, bloqueo de especie exclusivo, comprobante imprimible con QR y modal de advertencia de salida.
+- **Qué está en progreso:** Implementación de la Fase 5: soporte integral para Modo Nocturno (Dark Mode toggle accesible con persistencia `localStorage`), SEO técnico (Open Graph, Twitter Cards, Schema.org JSON-LD), favicon SVG y optimizaciones de accesibilidad WCAG / Lighthouse >= 90.
 - **Bloqueos o problemas conocidos:** ninguno.
-- **Siguiente paso concreto:** Confirmar satisfacción del usuario para cerrar la Fase 4 y mergear a `develop`.
+- **Siguiente paso concreto:** Implementar el toggle accesible de Modo Nocturno en Navbar/Layout y configurar soporte de clases `dark` en Tailwind v4.
 
 ## 2. Decisiones importantes
 

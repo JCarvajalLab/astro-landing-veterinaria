@@ -15,12 +15,12 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Última actualización:** 2026-11-11
 - **Fase activa:** `phase/04-contact`
 - **Rama de trabajo:** `phase/04-contact`
-- **Último commit relevante:** `feat(ui): integra imagenes optimizadas con astro:assets en equipo y testimonios`
+- **Último commit relevante:** `chore(security): aplica limites de longitud y atributos aria-invalid en formulario`
 - **Despliegue:** pendiente de vincular al servicio de hosting gratuito (Cloudflare Pages / Netlify)
-- **Qué funciona:** Todas las secciones de la landing page veterinaria (Hero, Servicios, Equipo médico con fotos locales optimizadas, Carrusel de testimonios con 6 tutores, Horarios rediseñados y FAQ), Layout responsive y servidor de desarrollo activo.
-- **Qué está en progreso:** Inicio de la Fase 4: Formulario de contacto y agendamiento con validación y protección antispam.
+- **Qué funciona:** Formulario de contacto y agendamiento interactivo en `ContactForm.astro`, validaciones accesibles en JS nativo, honeypot antispam, vías directas (WhatsApp, teléfono de urgencias), auditoría de seguridad aprobada por subagente independiente, y servidor de desarrollo activo.
+- **Qué está en progreso:** Revisión de la vista previa del formulario por parte del usuario previo a push a GitHub.
 - **Bloqueos o problemas conocidos:** ninguno.
-- **Siguiente paso concreto:** Validar la vista previa local con el usuario y proceder con la Fase 4 (Formulario de contacto interactivo y validación).
+- **Siguiente paso concreto:** Validar la vista previa local con el usuario y proceder con la Fase 5 (Calidad, SEO, accesibilidad, meta tags y soporte para Modo Nocturno).
 
 ## 2. Decisiones importantes
 
@@ -35,20 +35,28 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 | 2026-11-11 | Menú móvil accesible con JavaScript nativo sin dependencias | Cero sobrecarga de bundle, control de `aria-expanded` y cierre con tecla Escape | Librerías pesadas o frameworks de UI |
 | 2026-11-11 | Incorporar soporte de modo nocturno (Dark Mode) en Fase 5 | Requerimiento de usuario para mejorar accesibilidad y experiencia visual | No contemplar modo nocturno |
 | 2026-11-11 | Usar `<details>` y `<summary>` nativos para sección FAQ | Máxima accesibilidad WCAG y cero JavaScript de cliente para interacción | Acordeones pesados basados en JS/React |
+| 2026-11-11 | Protección antispam silenciosa con honeypot | Bloquea bots sin fricción para el usuario tutor evitando CAPTCHAs invasivos | ReCaptcha / hCaptcha |
+| 2026-11-11 | Auditoría cruzada de seguridad con subagente independiente | Verificación neutral de XSS, secretos, honeypot y dependencias antes de proponer push | Omitir revisión de seguridad |
 
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
 
+### 2026-11-11 · `phase/04-contact` · fase 4 completada
+- **Qué:** Implementación del componente `ContactForm.astro` con agendamiento médico, canales directos (WhatsApp, urgencias), validación accesible (`aria-invalid`), protección antispam por honeypot y auditoría de seguridad aprobada.
+- **Archivos clave:** `src/components/ContactForm.astro`, `src/pages/index.astro`, `docs/PLAN.md`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, desarrollo, seguridad (subagente independiente), qa, docs-seo
+- **Notas:** Auditoría de seguridad aprobada con 0 vulnerabilidades.
+
 ### 2026-11-11 · `phase/03-sections` · fase 3 completada
-- **Qué:** Implementación completa de componentes modulares para todas las secciones: Hero, Services, Team, Testimonials, Schedule, Faq e integración en `index.astro`.
-- **Archivos clave:** `src/components/Hero.astro`, `src/components/Services.astro`, `src/components/Team.astro`, `src/components/Testimonials.astro`, `src/components/Schedule.astro`, `src/components/Faq.astro`, `src/pages/index.astro`, `docs/PLAN.md`, `docs/HISTORIAL.md`
+- **Qué:** Implementación completa de componentes modulares para todas las secciones: Hero, Services, Team con fotos optimizadas, Testimonials con carrusel interactivo de 6 tutores, Schedule con diseño asimétrico y Faq.
+- **Archivos clave:** `src/components/*.astro`, `src/assets/team/*`, `src/assets/testimonials/*`, `src/pages/index.astro`
 - **Agente(s):** orquestador, desarrollo, ux-ui, qa, docs-seo
-- **Notas:** Verificado en servidor de desarrollo local y listo para inspección visual del usuario.
+- **Notas:** Se incorporaron fotos reales optimizadas con `astro:assets` a WebP ligero (< 7kB) y carrusel accesible con scroll-snap.
 
 ### 2026-11-11 · `phase/02-layout` · fase 2 completada
 - **Qué:** Implementación del sistema de diseño base, Navbar sticky responsive con menú móvil nativo, Footer clínico con horarios y contacto, skip-link de accesibilidad e integración en Layout.
-- **Archivos clave:** `src/styles/global.css`, `src/components/Navbar.astro`, `src/components/Footer.astro`, `src/layouts/Layout.astro`, `src/pages/index.astro`, `docs/PLAN.md`, `docs/HISTORIAL.md`
+- **Archivos clave:** `src/styles/global.css`, `src/components/Navbar.astro`, `src/components/Footer.astro`, `src/layouts/Layout.astro`
 - **Agente(s):** orquestador, ux-ui, desarrollo, qa, docs-seo
 - **Notas:** Verificado en servidor de desarrollo local y listo para inspección visual del usuario.
 
@@ -67,7 +75,7 @@ _Dónde está cada cosa. Se actualiza solo cuando cambia la estructura._
 | Ruta | Qué contiene |
 |------|--------------|
 | `src/pages/` | Rutas del sitio (`index.astro`, etc.) |
-| `src/components/` | Componentes (`Navbar`, `Footer`, `Hero`, `Services`, `Team`, `Testimonials`, `Schedule`, `Faq`) |
+| `src/components/` | Componentes (`Navbar`, `Footer`, `Hero`, `Services`, `Team`, `Testimonials`, `Schedule`, `Faq`, `ContactForm`) |
 | `src/layouts/` | Layouts base (`Layout.astro`) |
 | `src/assets/` | Imágenes descargadas localmente y optimizadas con `astro:assets` |
 | `src/styles/` | Estilos globales y Tailwind CSS v4 (`global.css`) |

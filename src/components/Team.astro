@@ -1,32 +1,38 @@
 ---
+import { Image } from 'astro:assets';
+import draValentinaImg from '../assets/team/dra-valentina.jpg';
+import drCarlosImg from '../assets/team/dr-carlos.jpg';
+import draCamilaImg from '../assets/team/dra-camila.jpg';
+import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
+
 const team = [
   {
     name: 'Dra. Valentina Muñoz',
     role: 'Directora Médica & Cirugía General',
     experience: '14 años de experiencia',
     bio: 'Especialista en cirugía de tejidos blandos y manejo del paciente crítico. Apasionada por devolver la vitalidad a cada mascota.',
-    accent: 'bg-teal-600',
+    image: draValentinaImg,
   },
   {
     name: 'Dr. Carlos Valenzuela',
     role: 'Especialista en Medicina Felina & Diagnóstico',
     experience: '9 años de experiencia',
-    bio: 'Certificado en manejo Cat Friendly. Experto en ecografía abdominal y medicina interna para gatos y perros de edad avanzada.',
-    accent: 'bg-emerald-600',
+    bio: 'Certificado en manejo Cat Friendly. Experto en ecografía abdominal y medicina interna para felinos y canes de edad avanzada.',
+    image: drCarlosImg,
   },
   {
     name: 'Dra. Camila Soto',
     role: 'Medicina Preventiva & Dermatología',
     experience: '7 años de experiencia',
     bio: 'Dedicada al tratamiento de alergias cutáneas, nutrición clínica personalizada y esquemas de vacunación sin trauma.',
-    accent: 'bg-cyan-600',
+    image: draCamilaImg,
   },
   {
     name: 'Rodrigo Lagos',
     role: 'Técnico Veterinario Jefe & Spa',
     experience: '6 años de experiencia',
     bio: 'Líder en cuidados hospitalarios y cosmetología canina con enfoque libre de estrés (Fear Free Certified).',
-    accent: 'bg-teal-700',
+    image: rodrigoLagosImg,
   },
 ];
 ---
@@ -34,7 +40,7 @@ const team = [
 <section id="nosotros" class="border-t border-slate-200/80 bg-slate-50 py-16 sm:py-24">
   <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
     <div class="text-center">
-      <span class="inline-block rounded-full bg-teal-100 px-3 py-1 text-xs font-bold tracking-wider text-teal-800 uppercase">
+      <span class="inline-block rounded-full bg-teal-100 px-3.5 py-1 text-xs font-bold tracking-wider text-teal-800 uppercase">
         Vocación Médica & Compromiso
       </span>
       <h2 class="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
@@ -49,27 +55,18 @@ const team = [
     <!-- Grid de profesionales -->
     <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
       {team.map((member) => (
-        <article class="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs transition hover:-translate-y-1 hover:border-teal-300 hover:shadow-lg">
+        <article class="flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-white p-6 shadow-xs transition hover:-translate-y-1 hover:border-teal-300 hover:shadow-lg">
           <div>
-            <!-- Avatar ilustrativo con icono médico -->
-            <div
-              class={`flex h-20 w-20 items-center justify-center rounded-2xl ${member.accent} mx-auto text-white shadow-md`}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-10 w-10"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.8"
-                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                />
-              </svg>
+            <!-- Retrato con astro:assets -->
+            <div class="relative mx-auto h-32 w-32 overflow-hidden rounded-2xl shadow-md ring-4 ring-teal-50">
+              <Image
+                src={member.image}
+                alt={`Retrato profesional de ${member.name}`}
+                width={256}
+                height={256}
+                class="h-full w-full object-cover object-top"
+                loading="lazy"
+              />
             </div>
 
             <!-- Datos principales -->
@@ -100,7 +97,7 @@ const team = [
                   clip-rule="evenodd"
                 />
               </svg>
-              Médico Certificado
+              Médico Veterinario Certificado
             </span>
           </div>
         </article>

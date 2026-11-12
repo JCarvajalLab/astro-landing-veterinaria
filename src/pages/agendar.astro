@@ -163,7 +163,9 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 type="radio"
                 name="selected_area"
                 value="Consulta Médica General"
+                data-code="general"
                 data-species="Perro (Canino)"
+                data-lock-species="false"
                 class="sr-only"
                 checked
               />
@@ -177,17 +179,19 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 </p>
               </div>
               <span class="mt-4 inline-block text-xs font-bold text-teal-700">
-                Ver disponibilidad →
+                Ver disponibilidad (3 profesionales) →
               </span>
             </label>
 
-            <!-- Medicina Felina (Autoselecciona Gato) -->
+            <!-- Medicina Felina (Solo Gatos) -->
             <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-slate-200 p-5 transition hover:border-teal-400 hover:bg-teal-50/30">
               <input
                 type="radio"
                 name="selected_area"
                 value="Medicina Felina Cat Friendly"
+                data-code="felina"
                 data-species="Gato (Felino)"
+                data-lock-species="true"
                 class="sr-only"
               />
               <div>
@@ -205,7 +209,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 </p>
               </div>
               <span class="mt-4 inline-block text-xs font-bold text-teal-700">
-                Ver disponibilidad →
+                Ver disponibilidad (1 especialista) →
               </span>
             </label>
 
@@ -215,7 +219,9 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 type="radio"
                 name="selected_area"
                 value="Vacunación & Desparasitación"
+                data-code="vacunacion"
                 data-species="Perro (Canino)"
+                data-lock-species="false"
                 class="sr-only"
               />
               <div>
@@ -230,7 +236,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 </p>
               </div>
               <span class="mt-4 inline-block text-xs font-bold text-teal-700">
-                Ver disponibilidad →
+                Ver disponibilidad (2 profesionales) →
               </span>
             </label>
 
@@ -240,7 +246,9 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 type="radio"
                 name="selected_area"
                 value="Cirugía & Pabellón"
+                data-code="cirugia"
                 data-species="Perro (Canino)"
+                data-lock-species="false"
                 class="sr-only"
               />
               <div>
@@ -253,17 +261,19 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 </p>
               </div>
               <span class="mt-4 inline-block text-xs font-bold text-teal-700">
-                Ver disponibilidad →
+                Ver disponibilidad (1 cirujana) →
               </span>
             </label>
 
-            <!-- Peluquería Canina (Autoselecciona Perro) -->
+            <!-- Peluquería Canina (Solo Perros) -->
             <label class="area-card group relative flex cursor-pointer flex-col justify-between rounded-2xl border-2 border-slate-200 p-5 transition hover:border-teal-400 hover:bg-teal-50/30">
               <input
                 type="radio"
                 name="selected_area"
                 value="Peluquería Canina & Spa"
+                data-code="peluqueria"
                 data-species="Perro (Canino)"
+                data-lock-species="true"
                 class="sr-only"
               />
               <div>
@@ -273,7 +283,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 <div class="flex items-center gap-1.5 mt-4">
                   <h3 class="text-base font-bold text-slate-900">Peluquería Canina & Spa</h3>
                   <span class="rounded-md bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold text-amber-800">
-                    Caninos
+                    Solo Perros
                   </span>
                 </div>
                 <p class="mt-1 text-xs text-slate-500 leading-relaxed">
@@ -281,7 +291,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 </p>
               </div>
               <span class="mt-4 inline-block text-xs font-bold text-teal-700">
-                Ver disponibilidad →
+                Ver disponibilidad (1 peluquero) →
               </span>
             </label>
 
@@ -291,7 +301,9 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 type="radio"
                 name="selected_area"
                 value="Laboratorio & Diagnóstico"
+                data-code="laboratorio"
                 data-species="Perro (Canino)"
+                data-lock-species="false"
                 class="sr-only"
               />
               <div>
@@ -304,7 +316,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 </p>
               </div>
               <span class="mt-4 inline-block text-xs font-bold text-teal-700">
-                Ver disponibilidad →
+                Ver disponibilidad (2 especialistas) →
               </span>
             </label>
           </div>
@@ -365,7 +377,13 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                 <span id="summary-area" class="font-bold text-teal-700">
                   Consulta Médica General
                 </span>{' '}
-                · Casa Matriz
+                · Casa Matriz ·{' '}
+                <span
+                  id="summary-doctors-count"
+                  class="font-semibold text-teal-900 bg-teal-50 px-2 py-0.5 rounded-md border border-teal-200"
+                >
+                  3 profesionales disponibles
+                </span>
               </p>
             </div>
             <button
@@ -377,7 +395,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             </button>
           </div>
 
-          <!-- Selector de Calendario y Fechas (Bloqueo de días pasados) -->
+          <!-- Selector de Calendario y Fechas (Bloqueo de días pasados y domingos) -->
           <div class="mt-6 rounded-2xl bg-slate-50 p-5 border border-slate-200/90">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <!-- Selector de Calendario Nativo -->
@@ -400,15 +418,15 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                     class="mt-1 rounded-xl border border-slate-300 bg-white px-3 py-1.5 text-xs font-bold text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20"
                   />
                   <p class="text-[10px] text-slate-500 mt-0.5">
-                    Días pasados bloqueados automáticamente.
+                    Días pasados bloqueados. Domingos cerrados para agenda regular.
                   </p>
                 </div>
               </div>
 
-              <!-- Pastillas de Acceso Rápido Próximos Días -->
+              <!-- Pastillas de Acceso Rápido Próximos Días (Sin domingos) -->
               <div>
                 <p class="text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
-                  Accesos Rápidos:
+                  Accesos Rápidos (Días Hábiles):
                 </p>
                 <div class="flex flex-wrap items-center gap-1.5" id="date-selector">
                   <button
@@ -455,12 +473,15 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
               </div>
             </div>
 
+            <!-- Alerta reactiva de bloqueo dominical -->
             <div
               id="calendar-warning"
-              class="mt-3 hidden rounded-xl bg-amber-50 p-2.5 text-xs text-amber-800 border border-amber-200"
+              class="mt-3 hidden rounded-xl bg-amber-50 p-3 text-xs text-amber-900 border border-amber-300"
+              role="alert"
             >
-              ⚠️ Los días domingo atendemos medicina general por orden de llegada y urgencias 24/7.
-              Te recomendamos seleccionar de lunes a sábado para cirugías y spa.
+              ⚠️ <strong>Domingos cerrados para agenda ambulatoria:</strong> Los domingos la clínica
+              opera exclusivamente para urgencias vitales 24/7. Te hemos reubicado automáticamente
+              en el día hábil más próximo.
             </div>
           </div>
 
@@ -472,10 +493,31 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             ⚠️ Debes seleccionar un bloque de horario de uno de los profesionales para continuar.
           </div>
 
-          <!-- Lista de Médicos y Horarios -->
-          <div class="mt-6 space-y-6">
+          <!-- Banner de filtro de profesionales activo -->
+          <div
+            id="filter-banner"
+            class="mt-6 rounded-2xl border border-teal-200 bg-teal-50/70 p-3.5 text-xs text-teal-900 flex items-center justify-between"
+          >
+            <div class="flex items-center gap-2">
+              <span class="text-base">🩺</span>
+              <span>
+                Personal asignado a{' '}
+                <strong id="filter-service-name">Consulta Médica General</strong>.
+              </span>
+            </div>
+            <span class="rounded-full bg-teal-200/70 px-2.5 py-0.5 text-[11px] font-bold text-teal-900">
+              Filtro Especializado Activo
+            </span>
+          </div>
+
+          <!-- Lista de Médicos y Horarios Filtrable -->
+          <div class="mt-4 space-y-6" id="doctors-container">
             <!-- Doctor 1: Dra. Valentina Muñoz -->
-            <article class="doctor-row rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:border-teal-300">
+            <article
+              class="doctor-row rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:border-teal-300"
+              data-doctor-id="valentina"
+              data-specialties="general,cirugia,laboratorio"
+            >
               <div class="grid grid-cols-1 gap-6 md:grid-cols-12 md:items-center">
                 <div class="flex items-center gap-4 md:col-span-4">
                   <div class="h-20 w-20 shrink-0 overflow-hidden rounded-2xl shadow-sm ring-2 ring-teal-100">
@@ -517,7 +559,11 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             </article>
 
             <!-- Doctor 2: Dr. Carlos Valenzuela -->
-            <article class="doctor-row rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:border-teal-300">
+            <article
+              class="doctor-row rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:border-teal-300"
+              data-doctor-id="carlos"
+              data-specialties="general,felina,vacunacion,laboratorio"
+            >
               <div class="grid grid-cols-1 gap-6 md:grid-cols-12 md:items-center">
                 <div class="flex items-center gap-4 md:col-span-4">
                   <div class="h-20 w-20 shrink-0 overflow-hidden rounded-2xl shadow-sm ring-2 ring-teal-100">
@@ -559,7 +605,11 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
             </article>
 
             <!-- Doctor 3: Dra. Camila Soto -->
-            <article class="doctor-row rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:border-teal-300">
+            <article
+              class="doctor-row rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:border-teal-300"
+              data-doctor-id="camila"
+              data-specialties="general,vacunacion"
+            >
               <div class="grid grid-cols-1 gap-6 md:grid-cols-12 md:items-center">
                 <div class="flex items-center gap-4 md:col-span-4">
                   <div class="h-20 w-20 shrink-0 overflow-hidden rounded-2xl shadow-sm ring-2 ring-teal-100">
@@ -600,8 +650,12 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
               </div>
             </article>
 
-            <!-- Profesional 4: Rodrigo Lagos -->
-            <article class="doctor-row rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:border-teal-300">
+            <!-- Profesional 4: Rodrigo Lagos (Peluquería) -->
+            <article
+              class="doctor-row rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:border-teal-300"
+              data-doctor-id="rodrigo"
+              data-specialties="peluqueria"
+            >
               <div class="grid grid-cols-1 gap-6 md:grid-cols-12 md:items-center">
                 <div class="flex items-center gap-4 md:col-span-4">
                   <div class="h-20 w-20 shrink-0 overflow-hidden rounded-2xl shadow-sm ring-2 ring-teal-100">
@@ -843,7 +897,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                   id="b-pet-species"
                   required
                   aria-describedby="b-err-pet-species"
-                  class="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20"
+                  class="mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 shadow-2xs focus:border-teal-600 focus:outline-hidden focus:ring-2 focus:ring-teal-600/20 transition"
                 >
                   <option value="">Selecciona...</option>
                   <option value="Perro (Canino)">Perro (Canino)</option>
@@ -851,6 +905,21 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
                   <option value="Conejo / Roedor">Conejo / Roedor</option>
                   <option value="Ave / Exótico">Ave / Exótico</option>
                 </select>
+
+                <!-- Aviso de bloqueo estricto si el servicio es exclusivo de una especie -->
+                <div
+                  id="species-locked-msg"
+                  class="mt-2 hidden rounded-xl bg-amber-50 p-2.5 text-xs text-amber-900 border border-amber-300 flex items-start gap-2"
+                >
+                  <span class="text-sm">🔒</span>
+                  <span>
+                    <strong>Especie fija por servicio:</strong> Esta atención está restringida
+                    exclusivamente a <strong id="locked-species-name">Perro (Canino)</strong>. Para
+                    agendar otra especie (ej. conejos o felinos), selecciona un servicio médico
+                    general o clínico.
+                  </span>
+                </div>
+
                 <p class="error-msg mt-1 hidden text-xs text-rose-600" id="b-err-pet-species">
                   Selecciona la especie.
                 </p>
@@ -1121,6 +1190,8 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
   // Estado reactivo en JS nativo
   const bookingState = {
     area: 'Consulta Médica General',
+    specialtyCode: 'general',
+    lockSpecies: false,
     date: '2026-11-12',
     dateLabel: 'Jueves 12 de Noviembre',
     doctor: '',
@@ -1164,7 +1235,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // --- PASO 1: Selección de Especialidad y Preselección de Especie ---
+  // --- PASO 1: Selección de Especialidad ---
   const areaCards = document.querySelectorAll('.area-card');
   areaCards.forEach((card) => {
     card.addEventListener('click', () => {
@@ -1179,6 +1250,8 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
       if (radio) {
         radio.checked = true;
         bookingState.area = radio.value;
+        bookingState.specialtyCode = radio.getAttribute('data-code') || 'general';
+        bookingState.lockSpecies = radio.getAttribute('data-lock-species') === 'true';
         const suggestedSpecies = radio.getAttribute('data-species');
         if (suggestedSpecies) {
           bookingState.petSpecies = suggestedSpecies;
@@ -1191,6 +1264,8 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
     const selectedAreaRadio = document.querySelector('input[name="selected_area"]:checked');
     if (selectedAreaRadio) {
       bookingState.area = selectedAreaRadio.value;
+      bookingState.specialtyCode = selectedAreaRadio.getAttribute('data-code') || 'general';
+      bookingState.lockSpecies = selectedAreaRadio.getAttribute('data-lock-species') === 'true';
       const species = selectedAreaRadio.getAttribute('data-species');
       if (species) bookingState.petSpecies = species;
     }
@@ -1198,23 +1273,42 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
     const summaryArea = document.getElementById('summary-area');
     if (summaryArea) summaryArea.textContent = bookingState.area;
 
-    // Sincronizar especie en el Paso 3
-    const speciesSelect = document.getElementById('b-pet-species');
-    const autofillBanner = document.getElementById('species-autofill-banner');
-    const autofillServiceName = document.getElementById('autofill-service-name');
+    const filterServiceName = document.getElementById('filter-service-name');
+    if (filterServiceName) filterServiceName.textContent = bookingState.area;
 
-    if (speciesSelect && bookingState.petSpecies) {
-      speciesSelect.value = bookingState.petSpecies;
-    }
-    if (autofillServiceName) {
-      autofillServiceName.textContent = bookingState.area;
-    }
-    if (autofillBanner) {
-      if (bookingState.area.includes('Felina') || bookingState.area.includes('Canina')) {
-        autofillBanner.classList.remove('hidden');
+    // FILTRO ESTRICTO DE PROFESIONALES EN PASO 2
+    const doctorRows = document.querySelectorAll('.doctor-row');
+    let visibleCount = 0;
+    doctorRows.forEach((row) => {
+      const rawSpecs = row.getAttribute('data-specialties') || '';
+      const specs = rawSpecs.split(',');
+      if (specs.includes(bookingState.specialtyCode)) {
+        row.classList.remove('hidden');
+        visibleCount++;
       } else {
-        autofillBanner.classList.add('hidden');
+        row.classList.add('hidden');
       }
+    });
+
+    const countBadge = document.getElementById('summary-doctors-count');
+    if (countBadge) {
+      countBadge.textContent = `${visibleCount} ${visibleCount === 1 ? 'profesional disponible' : 'profesionales disponibles'}`;
+    }
+
+    // Resetear selección de médico/hora si no coincide con los filtrados
+    bookingState.doctor = '';
+    bookingState.time = '';
+    document.querySelectorAll('.slot-btn').forEach((b) => {
+      b.classList.remove('border-teal-600', 'bg-teal-600', 'text-white', 'shadow-md');
+      b.classList.add('border-slate-300', 'bg-slate-50/70', 'text-slate-800');
+    });
+
+    const btnStep3 = document.getElementById('btn-goto-step-3');
+    if (btnStep3) btnStep3.setAttribute('disabled', 'true');
+
+    const selText = document.getElementById('selection-text');
+    if (selText) {
+      selText.textContent = `Fecha: ${bookingState.dateLabel}. Selecciona una hora para continuar.`;
     }
 
     setStep(2);
@@ -1224,7 +1318,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
     setStep(1);
   });
 
-  // --- PASO 2: Calendario con Bloqueo y Selección Obligatoria ---
+  // --- PASO 2: Calendario con Bloqueo de Domingos y Días Pasados ---
   const calendarPicker = document.getElementById('calendar-picker');
   const dateChips = document.querySelectorAll('.date-chip');
   const calendarWarning = document.getElementById('calendar-warning');
@@ -1233,19 +1327,35 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
   const btnGotoStep3 = document.getElementById('btn-goto-step-3');
   const step2Error = document.getElementById('step-2-error');
 
-  function updateDateFromValue(dateStr, label) {
-    bookingState.date = dateStr;
-    bookingState.dateLabel = label || dateStr;
-
-    // Verificar si es domingo
+  function checkAndSanitizeDate(dateStr, label) {
     const d = new Date(`${dateStr}T12:00:00`);
     if (d.getDay() === 0) {
-      calendarWarning?.classList.remove('hidden');
+      // Es domingo: bloquear y avanzar automáticamente al lunes hábil
+      d.setDate(d.getDate() + 1);
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      const mondayStr = `${y}-${m}-${day}`;
+      const mondayLabel = `Lunes ${day}/${m}/${y}`;
+
+      if (calendarPicker) calendarPicker.value = mondayStr;
+      if (calendarWarning) {
+        calendarWarning.classList.remove('hidden');
+        calendarWarning.innerHTML = `⚠️ <strong>Domingos no disponibles para citas regulares:</strong> Los domingos la clínica atiende únicamente urgencias vitales 24/7. Te reubicamos automáticamente en el primer día hábil: <strong>${mondayLabel}</strong>.`;
+      }
+      return { val: mondayStr, label: mondayLabel };
     } else {
       calendarWarning?.classList.add('hidden');
+      return { val: dateStr, label: label || dateStr };
     }
+  }
 
-    // Resetear hora elegida al cambiar de día para evitar inconsistencias
+  function updateDateFromValue(dateStr, label) {
+    const sanitized = checkAndSanitizeDate(dateStr, label);
+    bookingState.date = sanitized.val;
+    bookingState.dateLabel = sanitized.label;
+
+    // Resetear hora elegida al cambiar de día
     bookingState.time = '';
     bookingState.doctor = '';
     slotButtons.forEach((b) => {
@@ -1253,11 +1363,9 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
       b.classList.add('border-slate-300', 'bg-slate-50/70', 'text-slate-800');
     });
 
-    if (btnGotoStep3) {
-      btnGotoStep3.setAttribute('disabled', 'true');
-    }
+    if (btnGotoStep3) btnGotoStep3.setAttribute('disabled', 'true');
     if (selectionText) {
-      selectionText.textContent = `Fecha: ${bookingState.dateLabel}. Selecciona ahora un horario para continuar.`;
+      selectionText.textContent = `Fecha: ${bookingState.dateLabel}. Selecciona una hora para continuar.`;
     }
   }
 
@@ -1282,7 +1390,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
     updateDateFromValue(val, label);
   });
 
-  // Cambio desde las pastillas de acceso rápido
+  // Cambio desde las pastillas de acceso rápido (ya excluyen domingos)
   dateChips.forEach((chip) => {
     chip.addEventListener('click', () => {
       dateChips.forEach((c) => {
@@ -1314,18 +1422,15 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
       bookingState.doctor = btn.getAttribute('data-doctor') || '';
       bookingState.time = btn.getAttribute('data-time') || '';
 
-      // Habilitar avance
       step2Error?.classList.add('hidden');
-      if (btnGotoStep3) {
-        btnGotoStep3.removeAttribute('disabled');
-      }
+      if (btnGotoStep3) btnGotoStep3.removeAttribute('disabled');
       if (selectionText) {
         selectionText.textContent = `${bookingState.doctor} · ${bookingState.dateLabel} · ${bookingState.time} hrs`;
       }
     });
   });
 
-  // Validación estricta antes de avanzar al paso 3
+  // Validación y configuración del Paso 3 (Bloqueo estricto de Especie)
   btnGotoStep3?.addEventListener('click', () => {
     if (!bookingState.doctor || !bookingState.time) {
       step2Error?.classList.remove('hidden');
@@ -1337,6 +1442,42 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
     if (badgeSummary) {
       badgeSummary.textContent = `${bookingState.doctor} · ${bookingState.dateLabel} · ${bookingState.time} hrs · Sede Casa Matriz`;
     }
+
+    // APLICAR BLOQUEO ESTRICTO DE ESPECIE SEGÚN EL SERVICIO
+    const speciesSelect = document.getElementById('b-pet-species');
+    const lockedMsg = document.getElementById('species-locked-msg');
+    const lockedName = document.getElementById('locked-species-name');
+    const autofillBanner = document.getElementById('species-autofill-banner');
+
+    if (speciesSelect) {
+      speciesSelect.value = bookingState.petSpecies;
+
+      if (bookingState.lockSpecies) {
+        // Bloquear completamente para evitar que cambien a otra especie no permitida
+        speciesSelect.setAttribute('disabled', 'true');
+        speciesSelect.classList.add(
+          'bg-slate-100',
+          'text-slate-600',
+          'cursor-not-allowed',
+          'opacity-90'
+        );
+        lockedMsg?.classList.remove('hidden');
+        if (lockedName) lockedName.textContent = bookingState.petSpecies;
+        autofillBanner?.classList.add('hidden');
+      } else {
+        // Permitir cambiar libremente en servicios generales o cirugías
+        speciesSelect.removeAttribute('disabled');
+        speciesSelect.classList.remove(
+          'bg-slate-100',
+          'text-slate-600',
+          'cursor-not-allowed',
+          'opacity-90'
+        );
+        lockedMsg?.classList.add('hidden');
+        autofillBanner?.classList.add('hidden');
+      }
+    }
+
     setStep(3);
   });
 
@@ -1390,7 +1531,10 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
       /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim())
     );
     const v4 = validate(pName, 'b-err-pet-name', (el) => el.value.trim().length >= 1);
-    const v5 = validate(pSpecies, 'b-err-pet-species', (el) => el.value.trim() !== '');
+
+    // Si la especie está bloqueada, tomamos el valor del estado; si no, del select
+    const currentSpecies = bookingState.lockSpecies ? bookingState.petSpecies : pSpecies?.value;
+    const v5 = !!currentSpecies && currentSpecies.trim() !== '';
 
     if (!v1 || !v2 || !v3 || !v4 || !v5) {
       if (bookingFeedback) {
@@ -1406,7 +1550,7 @@ import rodrigoLagosImg from '../assets/team/rodrigo-lagos.jpg';
     bookingState.ownerPhone = oPhone.value.trim();
     bookingState.ownerEmail = oEmail.value.trim();
     bookingState.petName = pName.value.trim();
-    bookingState.petSpecies = pSpecies.value;
+    bookingState.petSpecies = currentSpecies;
 
     if (btnBooking && btnBookingText && btnBookingSpinner) {
       btnBooking.setAttribute('disabled', 'true');

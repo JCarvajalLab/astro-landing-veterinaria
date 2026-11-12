@@ -15,12 +15,12 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Última actualización:** 2026-11-11
 - **Fase activa:** `phase/04-contact`
 - **Rama de trabajo:** `phase/04-contact`
-- **Último commit relevante:** `feat(booking): filtra profesionales por servicio, bloquea domingos y restringe especies exclusivas`
+- **Último commit relevante:** `feat(booking): bloquea horas en domingos sin reubicar y agrega modal de confirmacion de reserva`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Filtrado dinámico de profesionales por servicio (Peluquería solo Rodrigo Lagos, Felina solo Dr. Carlos, etc.), bloqueo estricto e inmutable de especie en servicios exclusivos (Peluquería = Perro, Felina = Gato) impidiendo que se cambien a conejos u otras mascotas, calendario con bloqueo activo de días pasados y rechazo automático de domingos (reubicación inmediata en lunes hábil con aviso clínico), validación estricta de profesional/horario y comprobante médico con QR e impresión aislada.
-- **Qué está en progreso:** Validación de los nuevos filtros clínicos y reglas de agendamiento por parte del usuario.
+- **Qué funciona:** Modal interactivo accesible de confirmación previa al agendamiento al pulsar "Agendar Cita" desde la Navbar o cualquier sección; bloqueo total de horas y prohibición estricta de avance cuando se selecciona un domingo en el calendario (sin auto-reubicar); filtrado dinámico de profesionales por servicio; bloqueo estricto de especie en atenciones exclusivas; y comprobante oficial con QR e impresión aislada.
+- **Qué está en progreso:** Revisión final del modal y del bloqueo dominical por parte del usuario.
 - **Bloqueos o problemas conocidos:** ninguno.
-- **Siguiente paso concreto:** Confirmar aprobación final del usuario para cerrar la Fase 4 y proceder con el merge hacia `develop`.
+- **Siguiente paso concreto:** Confirmar aprobación del usuario y realizar el merge de la rama `phase/04-contact` hacia `develop`.
 
 ## 2. Decisiones importantes
 
@@ -40,10 +40,18 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 | 2026-11-11 | Impresión aislada con `@media print` y QR vectorial SVG | El comprobante imprime únicamente la ficha clínica oficial sin headers ni footers y sin dependencias externas pesadas | Captura completa del sitio o librerías pesadas de PDF |
 | 2026-11-11 | Sincronización y bloqueo estricto de especie según el servicio | En Peluquería Canina solo permite Perro y en Felina solo Gato; evita reservas absurdas como conejos en peluquería canina | Permitir que el usuario elija cualquier especie |
 | 2026-11-11 | Filtrar profesionales por especialidad en vez de bloquearlos | Experiencia limpia y enfocada: en Peluquería solo aparece el peluquero, en Cirugía solo la cirujana, etc. | Mostrar los 4 médicos con 3 deshabilitados |
+| 2026-11-11 | Bloqueo absoluto de horas en domingos sin auto-reubicar | Si se elige domingo, se mantiene la fecha pero se ocultan las horas y se bloquea el avance con aviso de urgencias | Auto-reubicar al lunes más próximo |
+| 2026-11-11 | Modal de confirmación accesible previo al agendamiento | Pregunta al usuario si desea continuar hacia el portal clínico y advierte sobre canales de urgencia 24/7 | Redirección abrupta sin advertencia |
 
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-11 · `phase/04-contact` · modal de confirmación y bloqueo estricto de horas en domingos
+- **Qué:** Creación del componente `BookingModal.astro` para confirmar el ingreso al portal de agendamiento clínico al hacer clic en cualquier botón o llamada a la acción; y actualización de la regla dominical en `/agendar` manteniendo la fecha seleccionada por el usuario pero ocultando todos los horarios y bloqueando rotundamente el botón de continuar con aviso de urgencias 24/7.
+- **Archivos clave:** `src/components/BookingModal.astro`, `src/layouts/Layout.astro`, `src/pages/agendar.astro`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, qa, docs-seo
+- **Notas:** Validado en navegador local, sin TypeScript, 100% JavaScript nativo y accesible WCAG.
 
 ### 2026-11-11 · `phase/04-contact` · filtrado de especialistas, rechazo de domingos y bloqueo estricto de especie
 - **Qué:** Filtrado reactivo de profesionales en Paso 2 según la especialidad seleccionada (Peluquería Canina muestra únicamente a Rodrigo Lagos; Medicina Felina únicamente a Dr. Carlos; Cirugía a Dra. Valentina; etc.); bloqueo estricto del selector de especie (inmutable en servicios exclusivos de perro o gato con candado e indicador visual); y detección y sanitización automática de domingos en el calendario trasladando la cita al lunes hábil más próximo con alerta de guardia.

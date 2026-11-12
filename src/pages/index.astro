@@ -1,101 +1,83 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Team from '../components/Team.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Schedule from '../components/Schedule.astro';
+import Faq from '../components/Faq.astro';
 ---
 
 <Layout
-  title="Veterinaria Huellitas | Cuidado Profesional con Amor para tu Mascota"
-  description="Clínica veterinaria líder en salud animal: medicina preventiva, cirugías, urgencias 24/7 y peluquería en Santiago."
+  title="Veterinaria Huellitas | Cuidado Médico Profesional y Urgencias 24/7"
+  description="Clínica veterinaria líder en salud y bienestar animal: medicina preventiva, cirugías, urgencias 24/7, peluquería canina y felina en Santiago."
 >
-  <!-- Sección Hero / Bienvenida Preliminar -->
-  <section class="relative overflow-hidden bg-gradient-to-b from-teal-50/60 to-white py-16 sm:py-24">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
-      <div class="inline-flex items-center gap-2 rounded-full bg-teal-100 px-3.5 py-1 text-sm font-semibold text-teal-800 shadow-xs">
-        <span class="flex h-2 w-2 rounded-full bg-teal-500"></span>
-        Atención Veterinaria Personalizada & Urgencias 24/7
-      </div>
+  <!-- Sección Hero -->
+  <Hero />
 
-      <h1 class="mt-6 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-        Cuidado profesional con amor <br class="hidden sm:inline" />
-        <span class="text-teal-600">para tu mejor amigo</span>
-      </h1>
+  <!-- Sección Especialidades y Servicios Clínicos -->
+  <Services />
 
-      <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-600 leading-relaxed">
-        En Huellitas cuidamos la salud y felicidad de tus mascotas con tecnología de vanguardia,
-        médicos veterinarios dedicados y un trato cálido como de familia.
+  <!-- Sección Equipo Médico Veterinario -->
+  <Team />
+
+  <!-- Sección Testimonios y Familias -->
+  <Testimonials />
+
+  <!-- Sección Horarios y Urgencias -->
+  <Schedule />
+
+  <!-- Sección Preguntas Frecuentes -->
+  <Faq />
+
+  <!-- Banner previo a la Sección de Contacto (Fase 4) -->
+  <section
+    id="contacto"
+    class="border-t border-slate-200/80 bg-gradient-to-br from-teal-600 to-teal-800 py-16 text-white sm:py-20"
+  >
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <span class="inline-block rounded-full bg-teal-500/30 px-3.5 py-1 text-xs font-semibold text-teal-100 uppercase tracking-wider backdrop-blur-xs">
+        Agenda tu Cita Médica
+      </span>
+      <h2 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
+        ¿Tu mascota necesita una revisión o vacuna?
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-base text-teal-100 sm:text-lg">
+        Nuestro equipo está listo para recibirte con el trato empático y profesional que tu
+        compañero se merece.
       </p>
 
-      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+      <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
-          href="#contacto"
-          class="inline-flex items-center justify-center rounded-lg bg-teal-600 px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-teal-700 focus-visible:outline-2 focus-visible:outline-teal-600 focus-visible:outline-offset-2"
+          href="tel:+56912345678"
+          class="inline-flex w-full items-center justify-center rounded-xl bg-white px-6 py-3.5 text-base font-bold text-teal-800 shadow-md transition hover:bg-teal-50 sm:w-auto focus-visible:outline-2 focus-visible:outline-white"
         >
-          Agendar una Consulta
+          <svg
+            class="mr-2 h-5 w-5 text-teal-700"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+            />
+          </svg>
+          Llamar Directamente: +56 9 1234 5678
         </a>
         <a
-          href="#servicios"
-          class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-6 py-3 text-base font-semibold text-slate-700 shadow-xs transition hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-teal-600 focus-visible:outline-offset-2"
+          href="mailto:contacto@huellitasveterinaria.cl"
+          class="inline-flex w-full items-center justify-center rounded-xl border border-teal-300 bg-teal-700/60 px-6 py-3.5 text-base font-semibold text-white shadow-xs transition hover:bg-teal-700 sm:w-auto focus-visible:outline-2 focus-visible:outline-white"
         >
-          Ver Servicios
+          Escribir por Correo
         </a>
       </div>
-    </div>
-  </section>
-
-  <!-- Marcador de Sección: Servicios -->
-  <section id="servicios" class="border-t border-slate-200/80 bg-white py-16 sm:py-20">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-xs font-bold tracking-widest text-teal-600 uppercase">
-        Especialidades Médicas
-      </h2>
-      <p class="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-        Nuestros Servicios Clínicos
-      </p>
-      <p class="mx-auto mt-3 max-w-2xl text-slate-600 text-sm">
-        (Los componentes detallados de cada servicio se implementarán en la Fase 3)
-      </p>
-    </div>
-  </section>
-
-  <!-- Marcador de Sección: Nosotros -->
-  <section id="nosotros" class="border-t border-slate-200/80 bg-slate-50 py-16 sm:py-20">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-xs font-bold tracking-widest text-teal-600 uppercase">
-        Equipo Especializado
-      </h2>
-      <p class="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-        Conoce a Nuestro Equipo
-      </p>
-    </div>
-  </section>
-
-  <!-- Marcador de Sección: Testimonios -->
-  <section id="testimonios" class="border-t border-slate-200/80 bg-white py-16 sm:py-20">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-xs font-bold tracking-widest text-teal-600 uppercase">Testimonios</h2>
-      <p class="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-        Familias que Confían en Nosotros
-      </p>
-    </div>
-  </section>
-
-  <!-- Marcador de Sección: Horarios -->
-  <section id="horarios" class="border-t border-slate-200/80 bg-slate-50 py-16 sm:py-20">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-xs font-bold tracking-widest text-teal-600 uppercase">
-        Horarios de Atención
-      </h2>
-      <p class="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-        Lunes a Domingo + Urgencias 24/7
-      </p>
-    </div>
-  </section>
-
-  <!-- Marcador de Sección: Contacto -->
-  <section id="contacto" class="border-t border-slate-200/80 bg-white py-16 sm:py-20">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-xs font-bold tracking-widest text-teal-600 uppercase">Agenda tu Cita</h2>
-      <p class="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-        Ponte en Contacto con la Clínica
+      <p class="mt-4 text-xs text-teal-200">
+        (El formulario interactivo completo con validación y servicio de entrega se implementará en
+        la Fase 4)
       </p>
     </div>
   </section>

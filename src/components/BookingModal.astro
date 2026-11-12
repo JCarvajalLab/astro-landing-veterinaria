@@ -168,6 +168,9 @@
 
       if (!link) return;
 
+      // Ignorar enlaces que abren en pestaña nueva o descargas
+      if (link.target === '_blank' || link.hasAttribute('download')) return;
+
       const href = link.getAttribute('href') || '';
 
       // Si es un enlace dentro de la misma página que no sea salir (o javascript:void)

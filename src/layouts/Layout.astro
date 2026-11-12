@@ -10,16 +10,17 @@ const {
   image = '/og-image.jpg',
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://veterinariahuellitas.cl');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://huellitas-vet.pages.dev');
+const socialImageURL = new URL(image, Astro.site || 'https://huellitas-vet.pages.dev');
 
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'VeterinaryCare',
   name: 'Clínica Veterinaria Huellitas',
-  image: 'https://veterinariahuellitas.cl/og-image.jpg',
+  image: 'https://huellitas-vet.pages.dev/og-image.jpg',
   telephone: '+56912345678',
   email: 'contacto@huellitasveterinaria.cl',
-  url: 'https://veterinariahuellitas.cl',
+  url: 'https://huellitas-vet.pages.dev',
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
@@ -116,7 +117,7 @@ const structuredData = {
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={socialImageURL} />
     <meta property="og:locale" content="es_CL" />
 
     <!-- Twitter Cards -->
@@ -124,7 +125,7 @@ const structuredData = {
     <meta name="twitter:url" content={canonicalURL} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image" content={socialImageURL} />
 
     <!-- Theme Color dinámico para navegadores móviles -->
     <meta name="theme-color" content="#0d9488" media="(prefers-color-scheme: light)" />

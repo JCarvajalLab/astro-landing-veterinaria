@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://veterinariahuellitas.cl/sitemap-index.xml
+Sitemap: https://huellitas-vet.pages.dev/sitemap-index.xml
